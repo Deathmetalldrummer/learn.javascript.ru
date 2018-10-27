@@ -1,0 +1,104 @@
+<!DOCTYPE html><html lang="ru"><head><script>window.currentUser = null;</script><script>window.rateUsdRub = 57.029;</script><title itemprop="name">Где в DOM-иерархии document?</title><meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=yes, minimum-scale=1.0"><meta name="apple-mobile-web-app-capable" content="yes"><script>if (window.devicePixelRatio > 1) document.cookie = 'pixelRatio=' + window.devicePixelRatio + ';path=/;expires=Tue, 19 Jan 2038 03:14:07 GMT';</script><link href="https://fonts.googleapis.com/css?family=Open+Sans:400italic,700italic,400,700%7COpen+Sans+Condensed:700&amp;subset=latin,latin-ext,cyrillic,cyrillic-ext" rel="stylesheet"><link rel="apple-touch-icon-precomposed" href="../img/favicon/apple-touch-icon-precomposed.png"><link rel="canonical" href="where-document-in-hierarchy.html"><meta name="msapplication-TileColor" content="#222A2C"><meta name="msapplication-TileImage" content="/img/favicon/tileicon.png"><!-- favicon the rest--><link rel="icon" href="../img/favicon/favicon.png"><meta itemprop="image" content="https://learn.javascript.ru/img/logo_square_ru.png"><meta property="og:title" content="Где в DOM-иерархии document?"><meta property="og:image" content="https://learn.javascript.ru/img/logo_square_ru.png"><meta property="fb:admins" content="100001562528165"><meta name="twitter:card" content="summary"><meta name="twitter:title" content="Где в DOM-иерархии document?"><meta name="twitter:site" content="@iliakan"><meta name="twitter:creator" content="@iliakan"><meta name="twitter:image" content="https://learn.javascript.ru/img/logo_square_ru.png"><link href="../pack/styles.46d1c22c6f8f406dd057a0a89e7ca6ba.css" rel="stylesheet"><script>window.GA_ID = "UA-2056213-16";</script><script>window.YANDEX_METRIKA_ID = 17649010;</script><script>window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)},ga.l=Date.now(),ga("create",GA_ID,"auto"),window.currentUser&&ga("set","&uid",currentUser.id),ga("send","pageview"),window.addEventListener("error",function(e){var r=(e.filename||e.errorUrl)+": "+(e.lineno||e.errorLine),a=e.stack||e.error&&e.error.stack;ga("send","exception",{exDescription:e.message+" "+r+" "+a,exFatal:!0})});</script><script src="https://www.google-analytics.com/analytics.js" async></script><script>ga('send', 'pageview');</script><script>!function(){window.metrika={reachGoal:function(){}},window.yandex_metrika_callbacks=[function(){try{window.metrika=new Ya.Metrika({id:YANDEX_METRIKA_ID,webvisor:!0,clickmap:!0,params:{user:window.currentUser&&window.currentUser.id}}),metrika.trackLinks({delay:150}),window.addEventListener("error",function(r){window.metrika.reachGoal("JSERROR",{src:(r.filename||r.errorUrl)+": "+(r.lineno||r.errorLine),stack:r.stack||r.error&&r.error.stack,message:r.message})})}catch(r){}}]}();</script><script src="https://mc.yandex.ru/metrika/watch.js" async></script><script>//- hitCallback will never work, but that must be worked around by gaHitCallback wrapper
+window.ga = function() {};</script><script>window.metrika = { reachGoal: function() {} };</script><script>window.RECAPTCHA_ID = "6Lf9NyETAAAAACZlg-a9Us2SxvYbeVC1ROWaWv4O";</script><script src="../pack/head.30bfc7bc47478d473464.js"></script><script src="../pack/tutorial.30bfc7bc47478d473464.js" defer></script><script src="../pack/footer.30bfc7bc47478d473464.js" defer></script></head><body class="no-icons"><script>head.fontTest();</script><div class="page-wrapper"><div class="page"><script>if(localStorage.noSidebar){document.querySelector(".page").classList.remove("page_sidebar_on");var pageWrapper=document.querySelector(".page-wrapper");pageWrapper&&pageWrapper.classList.remove("page-wrapper_sidebar_on")}setTimeout(function(){document.querySelector(".page").classList.add("page_sidebar-animation-on")},0);</script><div class="page__inner"><main class="main main_width-limit"><div style="display:none" class="breadcrumbs"><li itemscope itemtype="http://data-vocabulary.org/Breadcrumb" itemref="breadcrumb-1" class="breadcrumbs__item breadcrumbs__item_home"><a href="../tutorial.1.html" itemprop="url" class="breadcrumbs__link"><span itemprop="title" class="breadcrumbs__hidden-text">Учебник</span></a></li><li id="breadcrumb-1" itemscope itemtype="http://data-vocabulary.org/Breadcrumb" itemref="breadcrumb-2" itemprop="child" class="breadcrumbs__item"><a href="../ui.html" itemprop="url" class="breadcrumbs__link"><span itemprop="title">Документ, события, интерфейсы</span></a></li><li id="breadcrumb-2" itemscope itemtype="http://data-vocabulary.org/Breadcrumb" itemref="breadcrumb-3" itemprop="child" class="breadcrumbs__item"><a href="../document.html" itemprop="url" class="breadcrumbs__link"><span itemprop="title">Документ и объекты страницы</span></a></li><li id="breadcrumb-3" itemscope itemtype="http://data-vocabulary.org/Breadcrumb" itemprop="child" class="breadcrumbs__item"><a href="../basic-dom-node-properties.html" itemprop="url" class="breadcrumbs__link"><span itemprop="title">Свойства узлов: тип, тег и содержимое</span></a></li></div><div itemscope itemtype="http://schema.org/TechArticle" class="task-single"><meta itemprop="name" content="Где в DOM-иерархии document?"><div itemprop="author" itemscope itemtype="http://schema.org/Person"><meta itemprop="email" content="iliakan@gmail.com"><meta itemprop="name" content="Ilya Kantor"></div><a href="../basic-dom-node-properties.html" class="task-single__back"><span>Вернуться к уроку</span></a><div itemprop="articleBody" class="task task-single__task"><div class="task__header"><div class="task__title-wrap"><h2 class="task__title">Где в DOM-иерархии document?</h2></div><div class="task__header-note"><span title="Насколько эта задача важна для освоения материала, от 1 до 5" class="task__importance">важность: 4</span></div></div><div class="task__content"><p>Объектом какого класса является <code>document</code>?</p>
+<p>Какое место он занимает в DOM-иерархии?</p>
+<p>Наследует ли он <code>Node</code> или <code>Element</code>?</p>
+<p>Воспользуйтесь для решения тем фактом, что DOM-узлы образуют стандартную прототипную иерархию классов.</p>
+<button type="button" class="task__solution">решение</button><div class="task__answer"><div class="task__answer-content"><p>Объектом какого класса является <code>document</code>, можно выяснить так:</p>
+<div data-trusted="1" class="code-example">
+      <div class="codebox code-example__codebox">
+        
+        <div class="toolbar codebox__toolbar">
+          <div class="toolbar__tool">
+            <a href="where-document-in-hierarchy.html#" title="выполнить" data-action="run" class="toolbar__button toolbar__button_run"></a>
+          </div>
+          <div class="toolbar__tool">
+            <a href="where-document-in-hierarchy.html#" title="открыть в песочнице" target="_blank" data-action="edit" class="toolbar__button toolbar__button_edit"></a>
+          </div>
+        </div>
+        <div class="codebox__code" data-code="1">
+          <pre class="line-numbers language-javascript"><code class="language-javascript">alert(document); // [object HTMLDocument]</code></pre>
+        </div>
+      </div>
+      
+      </div><p>Или так:</p>
+<div data-trusted="1" class="code-example">
+      <div class="codebox code-example__codebox">
+        
+        <div class="toolbar codebox__toolbar">
+          <div class="toolbar__tool">
+            <a href="where-document-in-hierarchy.html#" title="выполнить" data-action="run" class="toolbar__button toolbar__button_run"></a>
+          </div>
+          <div class="toolbar__tool">
+            <a href="where-document-in-hierarchy.html#" title="открыть в песочнице" target="_blank" data-action="edit" class="toolbar__button toolbar__button_edit"></a>
+          </div>
+        </div>
+        <div class="codebox__code" data-code="1">
+          <pre class="line-numbers language-javascript"><code class="language-javascript">alert(document.constructor); // function HTMLDocument() { ... }</code></pre>
+        </div>
+      </div>
+      
+      </div><p>Итак, <code>document</code> – объект класса <code>HTMLDocument</code>.</p>
+<p>Какое место <code>HTMLDocument</code> занимает в иерархии?</p>
+<p>Можно поискать в документации. Но попробуем выяснить это самостоятельно.</p>
+<p>Вопрос не такой простой и требует хорошего понимания <a href="../class-inheritance.html">прототипного наследования</a>.</p>
+<p>Вспомним, как оно устроено:</p>
+<ul>
+<li>Методы объекта <code>document</code> находятся в <code>prototype</code> конструктора, в данном случае – <code>HTMLDocument.prototype</code>.</li>
+<li>У <code>HTMLDocument.prototype</code> есть ссылка <code>__proto__</code> на прототип-родитель.</li>
+<li>У прототипа-родителя может быть ссылка <code>__proto__</code> на его родитель, и так далее.</li>
+</ul>
+<p>При поиске свойства в <code>document</code>, если его там нет, оно ищется в <code>document.__proto__</code>, затем в <code>document.__proto__.__proto__</code> и так далее, пока не найдём, или пока цепочка <code>__proto__</code> не закончится. Это обычное устройство класса, без наследования.</p>
+<p>Нам нужно лишь узнать, что находится в этих самых <code>__proto__</code>.</p>
+<p>Строго говоря, там могут быть любые объекты. Вовсе не обязательно, чтобы объектам из цепочки прототипов соответствовали какие-то конструкторы.</p>
+<p>Вполне может быть цепочка, где родители – просто обычные JS-объекты:</p>
+<div data-trusted="1" class="code-example">
+      <div class="codebox code-example__codebox">
+        
+        <div class="codebox__code" data-code="1">
+          <pre class="line-numbers language-javascript"><code class="language-javascript">document -&gt; HTMLDocument.prototype -&gt; obj1 -&gt; obj2 -&gt; ...</code></pre>
+        </div>
+      </div>
+      
+      </div><p>Однако, здесь мы знаем, что наследование – «на классах», то есть, эти объекты <code>obj1</code>, <code>obj2</code> являются <code>prototype</code> неких функций-конструкторов:</p>
+<div data-trusted="1" class="code-example">
+      <div class="codebox code-example__codebox">
+        
+        <div class="codebox__code" data-code="1">
+          <pre class="line-numbers language-javascript"><code class="language-javascript">document -&gt; HTMLDocument.prototype -&gt; F1.prototype -&gt; F2.prototype -&gt; ...</code></pre>
+        </div>
+      </div>
+      
+      </div><p>Что стоит на месте <code>F1</code>, <code>F2</code>?</p>
+<p>Опять же, если говорить про некие абстрактные объекты, то откуда нам знать, какие функции на них ссылаются через <code>prototype</code>? Ниоткуда. Один объект может быть в <code>prototype</code> хоть у десятка функций.</p>
+<p>Но в стандартном прототипном наследовании один объект является <code>prototype</code> ровно у одной функции. Причём при создании функции в её <code>prototype</code> уже есть объект со свойством <code>constructor</code>, которое ссылается обратно на функцию:</p>
+<div data-trusted="1" class="code-example">
+      <div class="codebox code-example__codebox">
+        
+        <div class="codebox__code" data-code="1">
+          <pre class="line-numbers language-javascript"><code class="language-javascript">F.prototype = { constructor: F }</code></pre>
+        </div>
+      </div>
+      
+      </div><p>Это свойство <code>constructor</code>, если конечно его не удалить или не перезаписать нечаянно (чего делать не следует), и позволяет из прототипа узнать соответствующий ему конструктор.</p>
+<div data-trusted="1" class="code-example">
+      <div class="codebox code-example__codebox">
+        
+        <div class="toolbar codebox__toolbar">
+          <div class="toolbar__tool">
+            <a href="where-document-in-hierarchy.html#" title="выполнить" data-action="run" class="toolbar__button toolbar__button_run"></a>
+          </div>
+          <div class="toolbar__tool">
+            <a href="where-document-in-hierarchy.html#" title="открыть в песочнице" target="_blank" data-action="edit" class="toolbar__button toolbar__button_edit"></a>
+          </div>
+        </div>
+        <div class="codebox__code" data-code="1">
+          <pre class="line-numbers language-javascript"><code class="language-javascript">// цепочка наследования:
+alert(HTMLDocument.prototype.constructor); // function HTMLDocument
+alert(HTMLDocument.prototype.__proto__.constructor); // function Document
+alert(HTMLDocument.prototype.__proto__.__proto__.constructor); // function Node</code></pre>
+        </div>
+      </div>
+      
+      </div><p>При выводе объекта через <code>console.dir(document)</code> в Google Chrome, мы тоже можем, раскрывая <code>__proto__</code>, увидеть эти названия (<code>HTMLDocument</code>, <code>Document</code>, <code>Node</code>).</p>
+<p>Браузерная консоль их берёт как раз из свойства <code>constructor</code>.</p>
+</div><button type="button" title="закрыть" class="close-button task__answer-close"></button></div></div></div></div></main></div></div></div><div class="page-footer"><div class="page-footer__left"><ul class="page-footer__list"><li class="page-footer__item">©&nbsp;2007—2017&nbsp; Илья Кантор</li><li class="page-footer__item"><a href="../about.html#contact-us" class="page-footer__link">связаться с нами</a></li><li class="page-footer__item"><a href="../about.html" class="page-footer__link">о проекте</a></li><li class="page-footer__item"><a href="../agreement.html" class="page-footer__link">соглашение</a></li><li class="page-footer__item"><a href="http://slack.javascript.ru" class="page-footer__slack">slack-чат</a></li></ul></div><div class="page-footer__right"><ul class="page-footer__list"><li class="page-footer__item">powered by <a rel="nofollow" href="http://nodejs.org" class="page-footer__link">node.js</a>&nbsp;&amp;&nbsp;<a rel="nofollow" href="http://github.com/iliakan/javascript-tutorial-ru" class="page-footer__link">open source</a></li></ul></div></div></body></html>

@@ -1,0 +1,76 @@
+<!DOCTYPE html><html lang="ru"><head><script>window.currentUser = null;</script><script>window.rateUsdRub = 57.029;</script><title itemprop="name">Загрузка видимых изображений</title><meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=yes, minimum-scale=1.0"><meta name="apple-mobile-web-app-capable" content="yes"><script>if (window.devicePixelRatio > 1) document.cookie = 'pixelRatio=' + window.devicePixelRatio + ';path=/;expires=Tue, 19 Jan 2038 03:14:07 GMT';</script><link href="https://fonts.googleapis.com/css?family=Open+Sans:400italic,700italic,400,700%7COpen+Sans+Condensed:700&amp;subset=latin,latin-ext,cyrillic,cyrillic-ext" rel="stylesheet"><link rel="apple-touch-icon-precomposed" href="../img/favicon/apple-touch-icon-precomposed.png"><link rel="canonical" href="load-visible-img.html"><meta name="msapplication-TileColor" content="#222A2C"><meta name="msapplication-TileImage" content="/img/favicon/tileicon.png"><!-- favicon the rest--><link rel="icon" href="../img/favicon/favicon.png"><meta itemprop="image" content="https://learn.javascript.ru/img/logo_square_ru.png"><meta property="og:title" content="Загрузка видимых изображений"><meta property="og:image" content="https://learn.javascript.ru/img/logo_square_ru.png"><meta property="fb:admins" content="100001562528165"><meta name="twitter:card" content="summary"><meta name="twitter:title" content="Загрузка видимых изображений"><meta name="twitter:site" content="@iliakan"><meta name="twitter:creator" content="@iliakan"><meta name="twitter:image" content="https://learn.javascript.ru/img/logo_square_ru.png"><link href="../pack/styles.46d1c22c6f8f406dd057a0a89e7ca6ba.css" rel="stylesheet"><script>window.GA_ID = "UA-2056213-16";</script><script>window.YANDEX_METRIKA_ID = 17649010;</script><script>window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)},ga.l=Date.now(),ga("create",GA_ID,"auto"),window.currentUser&&ga("set","&uid",currentUser.id),ga("send","pageview"),window.addEventListener("error",function(e){var r=(e.filename||e.errorUrl)+": "+(e.lineno||e.errorLine),a=e.stack||e.error&&e.error.stack;ga("send","exception",{exDescription:e.message+" "+r+" "+a,exFatal:!0})});</script><script src="https://www.google-analytics.com/analytics.js" async></script><script>ga('send', 'pageview');</script><script>!function(){window.metrika={reachGoal:function(){}},window.yandex_metrika_callbacks=[function(){try{window.metrika=new Ya.Metrika({id:YANDEX_METRIKA_ID,webvisor:!0,clickmap:!0,params:{user:window.currentUser&&window.currentUser.id}}),metrika.trackLinks({delay:150}),window.addEventListener("error",function(r){window.metrika.reachGoal("JSERROR",{src:(r.filename||r.errorUrl)+": "+(r.lineno||r.errorLine),stack:r.stack||r.error&&r.error.stack,message:r.message})})}catch(r){}}]}();</script><script src="https://mc.yandex.ru/metrika/watch.js" async></script><script>//- hitCallback will never work, but that must be worked around by gaHitCallback wrapper
+window.ga = function() {};</script><script>window.metrika = { reachGoal: function() {} };</script><script>window.RECAPTCHA_ID = "6Lf9NyETAAAAACZlg-a9Us2SxvYbeVC1ROWaWv4O";</script><script src="../pack/head.30bfc7bc47478d473464.js"></script><script src="../pack/tutorial.30bfc7bc47478d473464.js" defer></script><script src="../pack/footer.30bfc7bc47478d473464.js" defer></script></head><body class="no-icons"><script>head.fontTest();</script><div class="page-wrapper"><div class="page"><script>if(localStorage.noSidebar){document.querySelector(".page").classList.remove("page_sidebar_on");var pageWrapper=document.querySelector(".page-wrapper");pageWrapper&&pageWrapper.classList.remove("page-wrapper_sidebar_on")}setTimeout(function(){document.querySelector(".page").classList.add("page_sidebar-animation-on")},0);</script><div class="page__inner"><main class="main main_width-limit"><div style="display:none" class="breadcrumbs"><li itemscope itemtype="http://data-vocabulary.org/Breadcrumb" itemref="breadcrumb-1" class="breadcrumbs__item breadcrumbs__item_home"><a href="../tutorial.1.html" itemprop="url" class="breadcrumbs__link"><span itemprop="title" class="breadcrumbs__hidden-text">Учебник</span></a></li><li id="breadcrumb-1" itemscope itemtype="http://data-vocabulary.org/Breadcrumb" itemref="breadcrumb-2" itemprop="child" class="breadcrumbs__item"><a href="../ui.html" itemprop="url" class="breadcrumbs__link"><span itemprop="title">Документ, события, интерфейсы</span></a></li><li id="breadcrumb-2" itemscope itemtype="http://data-vocabulary.org/Breadcrumb" itemref="breadcrumb-3" itemprop="child" class="breadcrumbs__item"><a href="../event-details.html" itemprop="url" class="breadcrumbs__link"><span itemprop="title">События в деталях</span></a></li><li id="breadcrumb-3" itemscope itemtype="http://data-vocabulary.org/Breadcrumb" itemprop="child" class="breadcrumbs__item"><a href="../onscroll.html" itemprop="url" class="breadcrumbs__link"><span itemprop="title">Прокрутка: событие scroll</span></a></li></div><div itemscope itemtype="http://schema.org/TechArticle" class="task-single"><meta itemprop="name" content="Загрузка видимых изображений"><div itemprop="author" itemscope itemtype="http://schema.org/Person"><meta itemprop="email" content="iliakan@gmail.com"><meta itemprop="name" content="Ilya Kantor"></div><a href="../onscroll.html" class="task-single__back"><span>Вернуться к уроку</span></a><div itemprop="articleBody" class="task task-single__task"><div class="task__header"><div class="task__title-wrap"><h2 class="task__title">Загрузка видимых изображений</h2></div><div class="task__header-note"><span title="Насколько эта задача важна для освоения материала, от 1 до 5" class="task__importance">важность: 4</span></div></div><div class="task__content"><p>Задача, которая описана ниже, демонстрирует результативный метод оптимизации страницы.</p>
+<p>С целью экономии трафика и более быстрой загрузки страницы изображения на ней заменяются на «макеты».</p>
+<p>Вместо такого изображения:</p>
+<div data-trusted="1" class="code-example">
+      <div class="codebox code-example__codebox">
+        
+        <div class="codebox__code" data-code="1">
+          <pre class="line-numbers language-markup"><code class="language-markup">&lt;img src=&quot;yozhik.jpg&quot; width=&quot;128&quot; height=&quot;128&quot;&gt;</code></pre>
+        </div>
+      </div>
+      
+      </div><figure><div class="image" style="width:128px">
+      <div class="image__ratio" style="padding-top:100%"></div>
+      <img src="https://js.cx/clipart/yozhik.jpg" alt="" width="128" height="128" class="image__image">
+      </div></figure><p>Стоит вот такое:</p>
+<div data-trusted="1" class="code-example" data-highlight-inline="0:5-16,0:42-62">
+      <div class="codebox code-example__codebox">
+        
+        <div class="codebox__code" data-code="1">
+          <pre class="line-numbers language-markup"><code class="language-markup">&lt;img src=&quot;1.gif&quot; width=&quot;128&quot; height=&quot;128&quot; realsrc=&quot;yozhik.jpg&quot;&gt;</code></pre>
+        </div>
+      </div>
+      
+      </div><figure><div class="image" style="width:128px">
+      <div class="image__ratio" style="padding-top:100%"></div>
+      <img src="https://js.cx/lazyimg/1.gif" alt="" width="128" height="128" class="image__image">
+      </div></figure><p>То есть настоящий URL находится в атрибуте <code>realsrc</code> (название атрибута можно выбрать любое). А в <code>src</code> поставлен серый GIF размера 1x1, и так как <code>width/height</code> правильные, то он растягивается, так что вместо изображения виден серый прямоугольник.</p>
+<p>При этом, чтобы браузер загрузил изображение, нужно заменить значение <code>src</code> на то, которое находится в <code>realsrc</code>.</p>
+<p>Если страница большая, то замена больших изображений на такие макеты существенно убыстряет полную загрузку страницы. Это особенно заметно в случае, когда на странице много анонсов новостей с картинками или изображений товаров, из которых многие находятся за пределами прокрутки.</p>
+<p>Кроме того, для мобильных устройств JavaScript может подставлять URL уменьшенного варианта картинки.</p>
+<p>Напишите код, который при прокрутке окна загружает ставшие видимыми изображения.</p>
+<p>То есть, как только изображение попало в видимую часть документа – в <code>src</code> нужно прописать правильный URL из <code>realsrc</code>.</p>
+<p>Пример работы вы можете увидеть в <code>iframe</code> ниже, если прокрутите его:</p>
+<div class="code-result">
+    <div class="code-result__toolbar toolbar"></div>
+    <iframe class="code-result__iframe" data-trusted="1" style="height:300px" src="https://js.cx/task/load-visible-img/solution/"></iframe>
+  </div><p>Особенности реализации:</p>
+<ul>
+<li>При начальной загрузке некоторые изображения должны быть видны сразу, до прокрутки. Код должен это учитывать.</li>
+<li>Некоторые изображения могут быть обычными, без <code>realsrc</code>. Их код не должен трогать вообще.</li>
+<li>Также код не должен перегружать уже показанное изображение.</li>
+<li>Желательно предусмотреть загрузку изображений не только видимых сейчас, но и на страницу вперед и назад от текущего места.</li>
+</ul>
+<p>P.S. Горизонтальной прокрутки нет.</p>
+<p><a href="http://plnkr.co/edit/uaWUE7GRsl7iqLyE67Ms?p=preview" target="_blank" data-plunk-id="uaWUE7GRsl7iqLyE67Ms">Открыть песочницу для задачи.</a></p><button type="button" class="task__solution">решение</button><div class="task__answer"><div class="task__answer-content"><p>Функция должна по текущей прокрутке определять, какие изображения видимы, и загружать их.</p>
+<p>Она должна срабатывать не только при прокрутке, но и при загрузке. Вполне достаточно для этого – указать ее вызов в скрипте под страницей, вот так:</p>
+<div data-trusted="1" class="code-example" data-highlight-block="15-16">
+      <div class="codebox code-example__codebox">
+        
+        <div class="codebox__code" data-code="1">
+          <pre class="line-numbers language-javascript"><code class="language-javascript">...страница...
+
+function isVisible(elem) {
+
+  var coords = elem.getBoundingClientRect();
+
+  var windowHeight = document.documentElement.clientHeight;
+
+  // верхняя граница elem в пределах видимости ИЛИ нижняя граница видима
+  var topVisible = coords.top &gt; 0 &amp;&amp; coords.top &lt; windowHeight;
+  var bottomVisible = coords.bottom &lt; windowHeight &amp;&amp; coords.bottom &gt; 0;
+
+  return topVisible || bottomVisible;
+}
+
+showVisible();
+window.onscroll = showVisible;</code></pre>
+        </div>
+      </div>
+      
+      </div><p>При запуске функция ищет все видимые картинки с <code>realsrc</code> и перемещает значение <code>realsrc</code> в <code>src</code>. Обратите внимание, т.к. атрибут <code>realsrc</code> нестандартный, то для доступа к нему мы используем <code>get/setAttribute</code>. А <code>src</code> – стандартный, поэтому можно обратиться по DOM-свойству.</p>
+<p><strong>Функция проверки видимости <code>isVisible(elem)</code> получает координаты текущей видимой области и сравнивает их с элементом.</strong></p>
+<p>Для видимости достаточно, чтобы координаты верхней(или нижней) границы элемента находились между границами видимой области.</p>
+<p>В решении также указан вариант с <code>isVisible</code>, который расширяет область видимости на ±1 страницу (высота страницы – <code>document.documentElement.clientHeight</code>).</p>
+<p><a href="http://plnkr.co/edit/FaKoF0M4QQB1OSdtpClb?p=preview" target="_blank" data-plunk-id="FaKoF0M4QQB1OSdtpClb">Открыть решение в песочнице.</a></p></div><button type="button" title="закрыть" class="close-button task__answer-close"></button></div></div></div></div></main></div></div></div><div class="page-footer"><div class="page-footer__left"><ul class="page-footer__list"><li class="page-footer__item">©&nbsp;2007—2017&nbsp; Илья Кантор</li><li class="page-footer__item"><a href="../about.html#contact-us" class="page-footer__link">связаться с нами</a></li><li class="page-footer__item"><a href="../about.html" class="page-footer__link">о проекте</a></li><li class="page-footer__item"><a href="../agreement.html" class="page-footer__link">соглашение</a></li><li class="page-footer__item"><a href="http://slack.javascript.ru" class="page-footer__slack">slack-чат</a></li></ul></div><div class="page-footer__right"><ul class="page-footer__list"><li class="page-footer__item">powered by <a rel="nofollow" href="http://nodejs.org" class="page-footer__link">node.js</a>&nbsp;&amp;&nbsp;<a rel="nofollow" href="http://github.com/iliakan/javascript-tutorial-ru" class="page-footer__link">open source</a></li></ul></div></div></body></html>

@@ -1,0 +1,124 @@
+<!DOCTYPE html><html lang="ru"><head><script>window.currentUser = null;</script><script>window.rateUsdRub = 57.029;</script><title itemprop="name">Кнопка вверх-вниз</title><meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=yes, minimum-scale=1.0"><meta name="apple-mobile-web-app-capable" content="yes"><script>if (window.devicePixelRatio > 1) document.cookie = 'pixelRatio=' + window.devicePixelRatio + ';path=/;expires=Tue, 19 Jan 2038 03:14:07 GMT';</script><link href="https://fonts.googleapis.com/css?family=Open+Sans:400italic,700italic,400,700%7COpen+Sans+Condensed:700&amp;subset=latin,latin-ext,cyrillic,cyrillic-ext" rel="stylesheet"><link rel="apple-touch-icon-precomposed" href="../img/favicon/apple-touch-icon-precomposed.png"><link rel="canonical" href="updown-button.html"><meta name="msapplication-TileColor" content="#222A2C"><meta name="msapplication-TileImage" content="/img/favicon/tileicon.png"><!-- favicon the rest--><link rel="icon" href="../img/favicon/favicon.png"><meta itemprop="image" content="https://learn.javascript.ru/img/logo_square_ru.png"><meta property="og:title" content="Кнопка вверх-вниз"><meta property="og:image" content="https://learn.javascript.ru/img/logo_square_ru.png"><meta property="fb:admins" content="100001562528165"><meta name="twitter:card" content="summary"><meta name="twitter:title" content="Кнопка вверх-вниз"><meta name="twitter:site" content="@iliakan"><meta name="twitter:creator" content="@iliakan"><meta name="twitter:image" content="https://learn.javascript.ru/img/logo_square_ru.png"><link href="../pack/styles.46d1c22c6f8f406dd057a0a89e7ca6ba.css" rel="stylesheet"><script>window.GA_ID = "UA-2056213-16";</script><script>window.YANDEX_METRIKA_ID = 17649010;</script><script>window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)},ga.l=Date.now(),ga("create",GA_ID,"auto"),window.currentUser&&ga("set","&uid",currentUser.id),ga("send","pageview"),window.addEventListener("error",function(e){var r=(e.filename||e.errorUrl)+": "+(e.lineno||e.errorLine),a=e.stack||e.error&&e.error.stack;ga("send","exception",{exDescription:e.message+" "+r+" "+a,exFatal:!0})});</script><script src="https://www.google-analytics.com/analytics.js" async></script><script>ga('send', 'pageview');</script><script>!function(){window.metrika={reachGoal:function(){}},window.yandex_metrika_callbacks=[function(){try{window.metrika=new Ya.Metrika({id:YANDEX_METRIKA_ID,webvisor:!0,clickmap:!0,params:{user:window.currentUser&&window.currentUser.id}}),metrika.trackLinks({delay:150}),window.addEventListener("error",function(r){window.metrika.reachGoal("JSERROR",{src:(r.filename||r.errorUrl)+": "+(r.lineno||r.errorLine),stack:r.stack||r.error&&r.error.stack,message:r.message})})}catch(r){}}]}();</script><script src="https://mc.yandex.ru/metrika/watch.js" async></script><script>//- hitCallback will never work, but that must be worked around by gaHitCallback wrapper
+window.ga = function() {};</script><script>window.metrika = { reachGoal: function() {} };</script><script>window.RECAPTCHA_ID = "6Lf9NyETAAAAACZlg-a9Us2SxvYbeVC1ROWaWv4O";</script><script src="../pack/head.30bfc7bc47478d473464.js"></script><script src="../pack/tutorial.30bfc7bc47478d473464.js" defer></script><script src="../pack/footer.30bfc7bc47478d473464.js" defer></script></head><body class="no-icons"><script>head.fontTest();</script><div class="page-wrapper"><div class="page"><script>if(localStorage.noSidebar){document.querySelector(".page").classList.remove("page_sidebar_on");var pageWrapper=document.querySelector(".page-wrapper");pageWrapper&&pageWrapper.classList.remove("page-wrapper_sidebar_on")}setTimeout(function(){document.querySelector(".page").classList.add("page_sidebar-animation-on")},0);</script><div class="page__inner"><main class="main main_width-limit"><div style="display:none" class="breadcrumbs"><li itemscope itemtype="http://data-vocabulary.org/Breadcrumb" itemref="breadcrumb-1" class="breadcrumbs__item breadcrumbs__item_home"><a href="../tutorial.1.html" itemprop="url" class="breadcrumbs__link"><span itemprop="title" class="breadcrumbs__hidden-text">Учебник</span></a></li><li id="breadcrumb-1" itemscope itemtype="http://data-vocabulary.org/Breadcrumb" itemref="breadcrumb-2" itemprop="child" class="breadcrumbs__item"><a href="../ui.html" itemprop="url" class="breadcrumbs__link"><span itemprop="title">Документ, события, интерфейсы</span></a></li><li id="breadcrumb-2" itemscope itemtype="http://data-vocabulary.org/Breadcrumb" itemref="breadcrumb-3" itemprop="child" class="breadcrumbs__item"><a href="../event-details.html" itemprop="url" class="breadcrumbs__link"><span itemprop="title">События в деталях</span></a></li><li id="breadcrumb-3" itemscope itemtype="http://data-vocabulary.org/Breadcrumb" itemprop="child" class="breadcrumbs__item"><a href="../onscroll.html" itemprop="url" class="breadcrumbs__link"><span itemprop="title">Прокрутка: событие scroll</span></a></li></div><div itemscope itemtype="http://schema.org/TechArticle" class="task-single"><meta itemprop="name" content="Кнопка вверх-вниз"><div itemprop="author" itemscope itemtype="http://schema.org/Person"><meta itemprop="email" content="iliakan@gmail.com"><meta itemprop="name" content="Ilya Kantor"></div><a href="../onscroll.html" class="task-single__back"><span>Вернуться к уроку</span></a><div itemprop="articleBody" class="task task-single__task"><div class="task__header"><div class="task__title-wrap"><h2 class="task__title">Кнопка вверх-вниз</h2></div><div class="task__header-note"><span title="Насколько эта задача важна для освоения материала, от 1 до 5" class="task__importance">важность: 3</span></div></div><div class="task__content"><p>Создайте кнопку навигации, которая помогает при прокрутке страницы.</p>
+<p>Работать должна следующим образом:</p>
+<ul>
+<li>Пока страница промотана меньше чем на высоту экрана вниз – кнопка не видна.</li>
+<li>При промотке страницы вниз больше, чем на высоту экрана, появляется кнопка «стрелка вверх».</li>
+<li>При нажатии на нее страница прыгает вверх, но не только. Дополнительно, кнопка меняется на «стрелка вниз» и при клике возвратит на старое место. Если же в этом состоянии посетитель сам прокрутит вниз больше, чем один экран, то она вновь изменится на «стрелка вверх».</li>
+</ul>
+<p>Должен получиться удобный навигационный помощник.</p>
+<p>Посмотрите, как оно должно работать, в ифрейме ниже. Прокрутите ифрейм, навигационная стрелка появится слева-сверху.</p>
+<div class="code-result">
+    <div class="code-result__toolbar toolbar"><div class="toolbar__tool">
+        <a href="https://js.cx/task/updown-button/solution/" target="_blank" title="открыть в новом окне" class="toolbar__button toolbar__button_external"></a>
+      </div>
+      </div>
+    <iframe class="code-result__iframe" data-trusted="1" style="height:200px" src="https://js.cx/task/updown-button/solution/"></iframe>
+  </div><p><a href="http://plnkr.co/edit/E0nS9o9JL9HwK5Bbv8L9?p=preview" target="_blank" data-plunk-id="E0nS9o9JL9HwK5Bbv8L9">Открыть песочницу для задачи.</a></p><button type="button" class="task__solution">решение</button><div class="task__answer"><div class="task__answer-content"><p>Добавим в документ <code>DIV</code> с кнопкой:</p>
+<div data-trusted="1" class="code-example">
+      <div class="codebox code-example__codebox">
+        
+        <div class="codebox__code" data-code="1">
+          <pre class="line-numbers language-markup"><code class="language-markup">&lt;div id=&quot;updown&quot;&gt;&lt;/div&gt;</code></pre>
+        </div>
+      </div>
+      
+      </div><p>Сама кнопка должна иметь <code>position:fixed</code>.</p>
+<div data-trusted="1" class="code-example">
+      <div class="codebox code-example__codebox">
+        
+        <div class="codebox__code" data-code="1">
+          <pre class="line-numbers language-css"><code class="language-css">#updown {
+  position: fixed;
+  top: 30px;
+  left: 10px;
+  cursor: pointer;
+}</code></pre>
+        </div>
+      </div>
+      
+      </div><p>Кнопка является CSS-спрайтом, поэтому мы дополнительно добавляем ей размер и два состояния:</p>
+<div data-trusted="1" class="code-example">
+      <div class="codebox code-example__codebox">
+        
+        <div class="codebox__code" data-code="1">
+          <pre class="line-numbers language-css"><code class="language-css">#updown {
+  height: 9px;
+  width: 14px;
+  position: fixed;
+  top: 30px;
+  left: 10px;
+  cursor: pointer;
+}
+
+#updown.up {
+  background: url(...updown.gif) left top;
+}
+
+#updown.down {
+  background: url(...updown.gif) left -9px;
+}</code></pre>
+        </div>
+      </div>
+      
+      </div><p>Для решения необходимо аккуратно разобрать все возможные состояния кнопки и указать, что делать при каждом.</p>
+<p>Состояние – это просто класс элемента: <code>up/down</code> или пустая строка, если кнопка не видна.</p>
+<p>При прокрутке состояния меняются следующим образом:</p>
+<div data-trusted="1" class="code-example">
+      <div class="codebox code-example__codebox">
+        
+        <div class="codebox__code" data-code="1">
+          <pre class="line-numbers language-javascript"><code class="language-javascript">window.onscroll = function() {
+  var pageY = window.pageYOffset || document.documentElement.scrollTop;
+  var innerHeight = document.documentElement.clientHeight;
+
+  switch (updownElem.className) {
+    case '':
+      if (pageY &gt; innerHeight) {
+        updownElem.className = 'up';
+      }
+      break;
+
+    case 'up':
+      if (pageY &lt; innerHeight) {
+        updownElem.className = '';
+      }
+      break;
+
+    case 'down':
+      if (pageY &gt; innerHeight) {
+        updownElem.className = 'up';
+      }
+      break;
+  }
+}</code></pre>
+        </div>
+      </div>
+      
+      </div><p>При клике:</p>
+<div data-trusted="1" class="code-example">
+      <div class="codebox code-example__codebox">
+        
+        <div class="codebox__code" data-code="1">
+          <pre class="line-numbers language-javascript"><code class="language-javascript">var pageYLabel = 0;
+
+updownElem.onclick = function() {
+  var pageY = window.pageYOffset || document.documentElement.scrollTop;
+
+  switch (this.className) {
+    case 'up':
+      pageYLabel = pageY;
+      window.scrollTo(0, 0);
+      this.className = 'down';
+      break;
+
+    case 'down':
+      window.scrollTo(0, pageYLabel);
+      this.className = 'up';
+  }
+
+}</code></pre>
+        </div>
+      </div>
+      
+      </div><p><a href="http://plnkr.co/edit/KzbZ7lEX8bQRHcioI3qc?p=preview" target="_blank" data-plunk-id="KzbZ7lEX8bQRHcioI3qc">Открыть решение в песочнице.</a></p></div><button type="button" title="закрыть" class="close-button task__answer-close"></button></div></div></div></div></main></div></div></div><div class="page-footer"><div class="page-footer__left"><ul class="page-footer__list"><li class="page-footer__item">©&nbsp;2007—2017&nbsp; Илья Кантор</li><li class="page-footer__item"><a href="../about.html#contact-us" class="page-footer__link">связаться с нами</a></li><li class="page-footer__item"><a href="../about.html" class="page-footer__link">о проекте</a></li><li class="page-footer__item"><a href="../agreement.html" class="page-footer__link">соглашение</a></li><li class="page-footer__item"><a href="http://slack.javascript.ru" class="page-footer__slack">slack-чат</a></li></ul></div><div class="page-footer__right"><ul class="page-footer__list"><li class="page-footer__item">powered by <a rel="nofollow" href="http://nodejs.org" class="page-footer__link">node.js</a>&nbsp;&amp;&nbsp;<a rel="nofollow" href="http://github.com/iliakan/javascript-tutorial-ru" class="page-footer__link">open source</a></li></ul></div></div></body></html>

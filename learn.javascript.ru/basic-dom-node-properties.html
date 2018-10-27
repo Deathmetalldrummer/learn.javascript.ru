@@ -1,0 +1,905 @@
+<!DOCTYPE html><html lang="ru"><head><script>window.currentUser = null;</script><script>window.rateUsdRub = 57.029;</script><title itemprop="name">Свойства узлов: тип, тег и содержимое</title><meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=yes, minimum-scale=1.0"><meta name="apple-mobile-web-app-capable" content="yes"><script>if (window.devicePixelRatio > 1) document.cookie = 'pixelRatio=' + window.devicePixelRatio + ';path=/;expires=Tue, 19 Jan 2038 03:14:07 GMT';</script><link href="https://fonts.googleapis.com/css?family=Open+Sans:400italic,700italic,400,700%7COpen+Sans+Condensed:700&amp;subset=latin,latin-ext,cyrillic,cyrillic-ext" rel="stylesheet"><link rel="apple-touch-icon-precomposed" href="img/favicon/apple-touch-icon-precomposed.png"><link rel="canonical" href="basic-dom-node-properties.html"><meta name="msapplication-TileColor" content="#222A2C"><meta name="msapplication-TileImage" content="/img/favicon/tileicon.png"><!-- favicon the rest--><link rel="icon" href="img/favicon/favicon.png"><meta itemprop="image" content="https://learn.javascript.ru/img/logo_square_ru.png"><meta property="og:title" content="Свойства узлов: тип, тег и содержимое"><meta property="og:image" content="https://learn.javascript.ru/img/logo_square_ru.png"><meta property="fb:admins" content="100001562528165"><meta name="twitter:card" content="summary"><meta name="twitter:title" content="Свойства узлов: тип, тег и содержимое"><meta name="twitter:site" content="@iliakan"><meta name="twitter:creator" content="@iliakan"><meta name="twitter:image" content="https://learn.javascript.ru/img/logo_square_ru.png"><link href="pack/styles.46d1c22c6f8f406dd057a0a89e7ca6ba.css" rel="stylesheet"><link rel="prev" href="searching-elements-internals.html"><link rel="next" href="dom-polyfill.html"><script>window.GA_ID = "UA-2056213-16";</script><script>window.YANDEX_METRIKA_ID = 17649010;</script><script>window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)},ga.l=Date.now(),ga("create",GA_ID,"auto"),window.currentUser&&ga("set","&uid",currentUser.id),ga("send","pageview"),window.addEventListener("error",function(e){var r=(e.filename||e.errorUrl)+": "+(e.lineno||e.errorLine),a=e.stack||e.error&&e.error.stack;ga("send","exception",{exDescription:e.message+" "+r+" "+a,exFatal:!0})});</script><script src="https://www.google-analytics.com/analytics.js" async></script><script>ga('send', 'pageview');</script><script>!function(){window.metrika={reachGoal:function(){}},window.yandex_metrika_callbacks=[function(){try{window.metrika=new Ya.Metrika({id:YANDEX_METRIKA_ID,webvisor:!0,clickmap:!0,params:{user:window.currentUser&&window.currentUser.id}}),metrika.trackLinks({delay:150}),window.addEventListener("error",function(r){window.metrika.reachGoal("JSERROR",{src:(r.filename||r.errorUrl)+": "+(r.lineno||r.errorLine),stack:r.stack||r.error&&r.error.stack,message:r.message})})}catch(r){}}]}();</script><script src="https://mc.yandex.ru/metrika/watch.js" async></script><script>//- hitCallback will never work, but that must be worked around by gaHitCallback wrapper
+window.ga = function() {};</script><script>window.metrika = { reachGoal: function() {} };</script><script>window.RECAPTCHA_ID = "6Lf9NyETAAAAACZlg-a9Us2SxvYbeVC1ROWaWv4O";</script><script src="pack/head.30bfc7bc47478d473464.js"></script><meta property="og:title" content="Свойства узлов: тип, тег и содержимое"><meta property="og:type" content="article"><script src="pack/tutorial.30bfc7bc47478d473464.js" defer></script><script src="pack/footer.30bfc7bc47478d473464.js" defer></script></head><body class="no-icons"><script>head.fontTest();</script><div class="page-wrapper page-wrapper_sidebar_on"><!--[if lt IE 10]><div style="color:red;text-align:center">Извините, IE&lt;10 не поддерживается, пожалуйста используйте более новый браузер.</div><![endif]--><div class="sitetoolbar sitetoolbar_tutorial"><!-- include ./notification-stripe--><div class="sitetoolbar__content"><div class="sitetoolbar__logo-wrap"><a href="tutorial.1.html" class="sitetoolbar__link sitetoolbar__link_logo"><img src="img/sitetoolbar__logo_ru.svg" width="171" class="sitetoolbar__logo sitetoolbar__logo_normal" alt=""><img src="img/sitetoolbar__logo_small_ru.svg" width="80" class="sitetoolbar__logo sitetoolbar__logo_small" alt=""><script>!function(){Array.prototype.forEach.call(document.querySelectorAll("img.sitetoolbar__logo"),function(e){var t=document.createElement("object");t.type="image/svg+xml",t.className=e.className,t.style.cssText="left:0;top:0;position:absolute",t.onload=function(){t.onload=null,e.style.visibility="hidden"},t.data=e.src,e.parentNode.insertBefore(t,e)})}();</script></a></div><div class="sitetoolbar__nav-toggle-wrap"><button onclick="document.querySelector('.sitetoolbar').classList.toggle('sitetoolbar_menu_open')" type="button" class="sitetoolbar__nav-toggle"></button></div><nav class="sitetoolbar__sections"><ul class="sitetoolbar__sections-list"><li class="sitetoolbar__section sitetoolbar__section_current"><a href="tutorial.1.html" class="sitetoolbar__link">Учебник</a></li><li class="sitetoolbar__section"><a href="courses.html" class="sitetoolbar__link">Курсы</a></li><li class="sitetoolbar__section"><a href="https://javascript.ru/forum/" class="sitetoolbar__link">Форум</a></li><li class="sitetoolbar__section"><a href="https://es5.javascript.ru" class="sitetoolbar__link">ES5</a></li><li class="sitetoolbar__section"><a href="https://javascript.ru/manual" class="sitetoolbar__link">Справочник</a></li><li class="sitetoolbar__section"><a href="quiz.html" class="sitetoolbar__link">Тесты знаний</a></li><li class="sitetoolbar__section sitetoolbar__section_dropdown"><button data-dropdown-toggler class="sitetoolbar__dropdown-button">Скринкасты</button><div class="sitetoolbar__dropdown-wrap"><div class="sitetoolbar__dropdown-body"><ul class="sitetoolbar__dropdown-items"><li class="sitetoolbar__dropdown-item"><a href="screencast/nodejs.html" class="sitetoolbar__dropdown-link sitetoolbar__secondary-link">Node.JS</a></li><li class="sitetoolbar__dropdown-item"><a href="screencast/webpack.html" class="sitetoolbar__dropdown-link sitetoolbar__secondary-link">Webpack</a></li><li class="sitetoolbar__dropdown-item"><a href="screencast/gulp.html" class="sitetoolbar__dropdown-link sitetoolbar__secondary-link">Gulp 4</a></li></ul></div></div></li></ul></nav><div class="sitetoolbar__book-wrap"><a href="ebook.html" class="buy-book-button">Купить EPUB/PDF</a></div><div class="sitetoolbar__login-wrap"><button data-action-login class="sitetoolbar__login"></button></div><div class="sitetoolbar__search-wrap"><div class="sitetoolbar__search-content"><form method="GET" action="https://learn.javascript.ru/search" class="sitetoolbar__search"><button type="button" class="sitetoolbar__search-toggle"></button><div class="sitetoolbar__search-input"><div class="text-input"><input name="query" placeholder="Искать на Javascript.ru" class="text-input__control" type="text"></div><button type="submit" class="sitetoolbar__find">Найти</button></div></form></div></div></div><!-- todo: en variant--><div class="tablet-menu"><div class="tablet-menu__line"><div class="tablet-menu__content"><select onchange="if(this.value) window.location.href=this.value" class="input-select input-select_small tablet-menu__nav"><option value="/tutorial" selected>Учебник</option><option value="/courses">Курсы</option><option value="https://javascript.ru/forum/">Форум</option><option value="https://es5.javascript.ru">ES5</option><option value="https://javascript.ru/manual">Справочник</option><option value="/quiz">Тесты знаний</option><option value="/screencast/gulp">Скринкаст по Gulp</option><option value="/screencast/webpack">Скринкаст по Webpack</option><option value="/screencast/nodejs">Скринкаст по Node.JS</option></select></div></div><div class="tablet-menu__line"><div class="tablet-menu__content"><a href="tutorial/map.html" data-action="tutorial-map" class="map"><span class="map__text">Карта учебника</span></a></div></div><div class="tablet-menu__line"><div class="tablet-menu__content"><a href="ebook.html" class="tablet-ebook"><span class="tablet-ebook__text">Купить учебник</span><span class="tablet-ebook__note">(EPUB + PDF)</span></a></div></div><div class="tablet-menu__line"><div class="tablet-menu__content"><div class="share-icons"><span class="share-icons__title">Поделиться</span><a href="https://twitter.com/share?url=https%3A%2F%2Flearn.javascript.ru%2Fbasic-dom-node-properties" class="share share_tw"></a><a href="https://www.facebook.com/sharer/sharer.php?s=100&amp;p%5Burl%5D=https%3A%2F%2Flearn.javascript.ru%2Fbasic-dom-node-properties" class="share share_fb"></a><a href="https://plus.google.com/share?url=https%3A%2F%2Flearn.javascript.ru%2Fbasic-dom-node-properties" class="share share_gp"></a><a href="https://vkontakte.ru/share.php?url=https%3A%2F%2Flearn.javascript.ru%2Fbasic-dom-node-properties" class="share share_vk"></a></div></div></div></div><progress data-sticky value="7" max="48" data-tooltip="Урок 7 из 48" class="tutorial-progress"></progress></div><div class="page page_sidebar_on"><script>if(localStorage.noSidebar){document.querySelector(".page").classList.remove("page_sidebar_on");var pageWrapper=document.querySelector(".page-wrapper");pageWrapper&&pageWrapper.classList.remove("page-wrapper_sidebar_on")}setTimeout(function(){document.querySelector(".page").classList.add("page_sidebar-animation-on")},0);</script><div class="page__inner"><main class="main main_width-limit"><header class="main__header"><ol class="breadcrumbs"><li itemscope itemtype="http://data-vocabulary.org/Breadcrumb" itemref="breadcrumb-1" class="breadcrumbs__item breadcrumbs__item_home"><a href="tutorial.1.html" itemprop="url" class="breadcrumbs__link"><span itemprop="title" class="breadcrumbs__hidden-text">Учебник</span></a></li><li id="breadcrumb-1" itemscope itemtype="http://data-vocabulary.org/Breadcrumb" itemref="breadcrumb-2" itemprop="child" class="breadcrumbs__item"><a href="ui.html" itemprop="url" class="breadcrumbs__link"><span itemprop="title">Документ, события, интерфейсы</span></a></li><li id="breadcrumb-2" itemscope itemtype="http://data-vocabulary.org/Breadcrumb" itemprop="child" class="breadcrumbs__item"><a href="document.html" itemprop="url" class="breadcrumbs__link"><span itemprop="title">Документ и объекты страницы</span></a></li></ol><h1 class="main__header-title">Свойства узлов: тип, тег и содержимое</h1></header><div class="content"><article itemscope itemtype="http://schema.org/TechArticle"><meta itemprop="name" content="Свойства узлов: тип, тег и содержимое"><div itemprop="author" itemscope itemtype="http://schema.org/Person"><meta itemprop="email" content="iliakan@gmail.com"><meta itemprop="name" content="Ilya Kantor"></div><div itemprop="articleBody"><p>В этой главе мы познакомимся с основными, самыми важными свойствами, которые отвечают за тип DOM-узла, тег и содержимое.</p>
+<cut>
+<h2><a class="main__anchor" name="классы-иерархия-dom" href="basic-dom-node-properties.html#классы-иерархия-dom">Классы, иерархия DOM</a></h2><p>Самое главное различие между DOM-узлами – разные узлы являются объектами различных классов.</p>
+<p>Поэтому, к примеру, у узла, соответствующего тегу <code>&lt;td&gt;</code> – одни свойства, у <code>&lt;form&gt;</code> – другие, у <code>&lt;a&gt;</code> – третьи.</p>
+<p>Есть и кое-что общее, за счёт наследования.</p>
+<p>Классы DOM образуют иерархию.</p>
+<p>Основной объект в ней: <a href="http://dom.spec.whatwg.org/#interface-node">Node</a>, от которого наследуют остальные:</p>
+<figure><div class="image" style="width:558px">
+      <div class="image__ratio" style="padding-top:52.32974910394266%"></div>
+      <img src="article/basic-dom-node-properties/hierarchy.png" alt="" width="558" height="292" class="image__image">
+      </div></figure><p>На рисунке выше изображены основные классы:</p>
+<ul>
+<li>Прямо от <code>Node</code> наследуют текстовые узлы <code>Text</code>, комментарии <code>Comment</code> и элементы <code>Element</code>.</li>
+<li>Элементы <code>Element</code> – это ещё не HTML-элементы, а более общий тип, который используется в том числе в XML. От него наследует <code>SVGElement</code> для SVG-графики и, конечно, <code>HTMLElement</code>.</li>
+<li>От <code>HTMLElement</code> уже наследуют разнообразные узлы HTML:
+<ul>
+<li>Для <code>&lt;input&gt;</code> – <code>HTMLInputElement</code></li>
+<li>Для <code>&lt;body&gt;</code> – <code>HTMLBodyElement</code></li>
+<li>Для <code>&lt;a&gt;</code> – <code>HTMLAnchorElement</code>… и так далее.</li>
+</ul>
+</li>
+</ul>
+<p>Узнать класс узла очень просто – достаточно привести его к строке, к примеру, вывести:</p>
+<div data-trusted="1" class="code-example">
+      <div class="codebox code-example__codebox">
+        
+        <div class="toolbar codebox__toolbar">
+          <div class="toolbar__tool">
+            <a href="basic-dom-node-properties.html#" title="выполнить" data-action="run" class="toolbar__button toolbar__button_run"></a>
+          </div>
+          <div class="toolbar__tool">
+            <a href="basic-dom-node-properties.html#" title="открыть в песочнице" target="_blank" data-action="edit" class="toolbar__button toolbar__button_edit"></a>
+          </div>
+        </div>
+        <div class="codebox__code" data-code="1">
+          <pre class="line-numbers language-javascript"><code class="language-javascript">alert( document.body ); // [object HTMLBodyElement]</code></pre>
+        </div>
+      </div>
+      
+      </div><p>Можно и проверить при помощи <code>instanceof</code>:</p>
+<div data-trusted="1" class="code-example">
+      <div class="codebox code-example__codebox">
+        
+        <div class="toolbar codebox__toolbar">
+          <div class="toolbar__tool">
+            <a href="basic-dom-node-properties.html#" title="выполнить" data-action="run" class="toolbar__button toolbar__button_run"></a>
+          </div>
+          <div class="toolbar__tool">
+            <a href="basic-dom-node-properties.html#" title="открыть в песочнице" target="_blank" data-action="edit" class="toolbar__button toolbar__button_edit"></a>
+          </div>
+        </div>
+        <div class="codebox__code" data-code="1">
+          <pre class="line-numbers language-javascript"><code class="language-javascript">alert( document.body instanceof HTMLBodyElement ); // true
+alert( document.body instanceof HTMLElement ); // true
+alert( document.body instanceof Element ); // true
+alert( document.body instanceof Node ); // true</code></pre>
+        </div>
+      </div>
+      
+      </div><p>Как видно, DOM-узлы – обычные JavaScript-объекты. Их классы заданы в прототипном стиле. В этом легко убедиться, если вывести в консоли любой элемент через <code>console.dir(elem)</code>. Или даже можно напрямую обратиться к методам, которые хранятся в <code>Node.prototype</code>, <code>Element.prototype</code> и так далее.</p>
+<div class="important important_smart">
+            <div class="important__header"><span class="important__type"><code>console.dir(elem)</code> против <code>console.log(elem)</code></span></div>
+            <div class="important__content"><p>Вывод <code>console.log(elem)</code> и <code>console.dir(elem)</code> различен.</p>
+<ul>
+<li><code>console.log</code> выводит элемент в виде, удобном для исследования HTML-структуры.</li>
+<li><code>console.dir</code> выводит элемент в виде JavaScript-объекта, удобно для анализа его свойств.</li>
+</ul>
+<p>Попробуйте сами на <code>document.body</code>.</p>
+</div></div>
+<p>Детальное описание свойств и методов каждого DOM-класса дано в <a href="https://html.spec.whatwg.org/multipage/">спецификации</a>.</p>
+<p>Например, <a href="https://html.spec.whatwg.org/multipage/forms.html#the-input-element">The input element</a> описывает класс, соответствующий <code>&lt;input&gt;</code>, включая <a href="https://html.spec.whatwg.org/multipage/forms.html#htmlinputelement">interface HTMLInputElement</a>, который нас как раз и интересует.</p>
+<p>При описании свойств и методов используется не JavaScript, а специальный язык <a href="https://ru.wikipedia.org/wiki/%D0%AF%D0%B7%D1%8B%D0%BA_%D0%BE%D0%BF%D0%B8%D1%81%D0%B0%D0%BD%D0%B8%D1%8F_%D0%B8%D0%BD%D1%82%D0%B5%D1%80%D1%84%D0%B5%D0%B9%D1%81%D0%BE%D0%B2">IDL</a> (Interface Definition Language), который достаточно легко понять «с ходу».</p>
+<p>Вот из него выдержка, с комментариями:</p>
+<div data-trusted="1" class="code-example">
+      <div class="codebox code-example__codebox">
+        
+        <div class="codebox__code" data-code="1">
+          <pre class="line-numbers language-javascript"><code class="language-javascript">// Объявлен HTMLInputElement
+// двоеточие означает, что он наследует от HTMLElement
+interface HTMLInputElement: HTMLElement {
+
+  // у всех таких элементов есть строковые свойства
+  // accept, alt, autocomplete, value
+  attribute DOMString accept;
+  attribute DOMString alt;
+  attribute DOMString autocomplete;
+  attribute DOMString value;
+
+  // и логическое свойство autofocus
+  attribute boolean autofocus;
+  ...
+  // а также метод select, который значение не возвращает (void)
+  void select();
+  ...
+}</code></pre>
+        </div>
+      </div>
+      
+      </div><p>Далее в этом разделе мы поговорим о самых главных свойствах узлов DOM, которые используются наиболее часто.</p>
+<h2><a class="main__anchor" name="тип-nodetype" href="basic-dom-node-properties.html#тип-nodetype">Тип: nodeType</a></h2><p>Тип узла содержится в его свойстве <code>nodeType</code>.</p>
+<p>Как правило, мы работаем всего с двумя типами узлов:</p>
+<ul>
+<li>Элемент.</li>
+<li>Текстовый узел.</li>
+</ul>
+<p>На самом деле типов узлов гораздо больше. Строго говоря, их 12, и они описаны в спецификации с древнейших времён, см. <a href="http://www.w3.org/TR/REC-DOM-Level-1/level-one-core.html#ID-1950641247">DOM Уровень 1</a>:</p>
+<div data-trusted="1" class="code-example">
+      <div class="codebox code-example__codebox">
+        
+        <div class="codebox__code" data-code="1">
+          <pre class="line-numbers language-javascript"><code class="language-javascript">interface Node {
+  // Всевозможные значения nodeType
+  const unsigned short ELEMENT_NODE = 1;
+  const unsigned short ATTRIBUTE_NODE = 2;
+  const unsigned short TEXT_NODE = 3;
+  const unsigned short CDATA_SECTION_NODE = 4;
+  const unsigned short ENTITY_REFERENCE_NODE = 5;
+  const unsigned short ENTITY_NODE = 6;
+  const unsigned short PROCESSING_INSTRUCTION_NODE = 7;
+  const unsigned short COMMENT_NODE = 8;
+  const unsigned short DOCUMENT_NODE = 9;
+  const unsigned short DOCUMENT_TYPE_NODE = 10;
+  const unsigned short DOCUMENT_FRAGMENT_NODE = 11;
+  const unsigned short NOTATION_NODE = 12;
+  ...
+}</code></pre>
+        </div>
+      </div>
+      
+      </div><p>В частности, тип «Элемент» <code>ELEMENT_NODE</code> имеет номер 1, а «Текст» <code>TEXT_NODE</code> – номер 3.</p>
+<p>Например, выведем все узлы-потомки <code>document.body</code>, <em>являющиеся элементами</em>:</p>
+<div data-trusted="1" class="code-example" data-highlight-block="14-15">
+      <div class="codebox code-example__codebox">
+        
+        <div class="toolbar codebox__toolbar">
+          <div class="toolbar__tool">
+            <a href="basic-dom-node-properties.html#" title="показать" data-action="run" class="toolbar__button toolbar__button_run"></a>
+          </div>
+          <div class="toolbar__tool">
+            <a href="basic-dom-node-properties.html#" title="открыть в песочнице" target="_blank" data-action="edit" class="toolbar__button toolbar__button_edit"></a>
+          </div>
+        </div>
+        <div class="codebox__code" data-code="1">
+          <pre class="line-numbers language-markup"><code class="language-markup">&lt;body&gt;
+  &lt;div&gt;Читатели:&lt;/div&gt;
+  &lt;ul&gt;
+    &lt;li&gt;Вася&lt;/li&gt;
+    &lt;li&gt;Петя&lt;/li&gt;
+  &lt;/ul&gt;
+
+  &lt;!-- комментарий --&gt;
+
+  &lt;script&gt;
+    var childNodes = document.body.childNodes;
+
+    for (var i = 0; i &lt; childNodes.length; i++) {
+
+      // отфильтровать не-элементы
+      if (childNodes[i].nodeType != 1) continue;
+
+      alert( childNodes[i] );
+
+    }
+  &lt;/script&gt;
+&lt;/body&gt;</code></pre>
+        </div>
+      </div>
+      
+      </div><p>Тип узла можно только читать, изменить его невозможно.</p>
+<h2><a class="main__anchor" name="тег-nodename-и-tagname" href="basic-dom-node-properties.html#тег-nodename-и-tagname">Тег: nodeName и tagName</a></h2><p>Существует целых два свойства: <code>nodeName</code> и <code>tagName</code>, которые содержат название(тег) элемента узла.</p>
+<p><strong>Название HTML-тега всегда находится в верхнем регистре.</strong></p>
+<p>Например, для <code>document.body</code>:</p>
+<div data-trusted="1" class="code-example">
+      <div class="codebox code-example__codebox">
+        
+        <div class="toolbar codebox__toolbar">
+          <div class="toolbar__tool">
+            <a href="basic-dom-node-properties.html#" title="выполнить" data-action="run" class="toolbar__button toolbar__button_run"></a>
+          </div>
+          <div class="toolbar__tool">
+            <a href="basic-dom-node-properties.html#" title="открыть в песочнице" target="_blank" data-action="edit" class="toolbar__button toolbar__button_edit"></a>
+          </div>
+        </div>
+        <div class="codebox__code" data-code="1">
+          <pre class="line-numbers language-javascript"><code class="language-javascript">alert( document.body.nodeName ); // BODY
+alert( document.body.tagName ); // BODY</code></pre>
+        </div>
+      </div>
+      
+      </div><div class="important important_smart">
+            <div class="important__header"><span class="important__type">В XHTML <code>nodeName</code> может быть не в верхнем регистре</span></div>
+            <div class="important__content"><p>У браузера есть два режима обработки документа: HTML и XML-режим. Обычно используется режим HTML.</p>
+<p>XML-режим включается, когда браузер получает XML-документ через <code>XMLHttpRequest</code>(технология AJAX) или при наличии заголовка <code>Content-Type: application/xml+xhtml</code>.</p>
+<p>В XML-режиме сохраняется регистр и <code>nodeName</code> может выдать «body» или даже «bOdY» – в точности как указано в документе. XML-режим используют очень редко.</p>
+</div></div>
+<h3><a class="main__anchor" name="какая-разница-между-tagname-и-nodename" href="basic-dom-node-properties.html#какая-разница-между-tagname-и-nodename">Какая разница между tagName и nodeName ?</a></h3><p>Разница отражена в названиях свойств, но неочевидна.</p>
+<ul>
+<li>Свойство <code>tagName</code> есть только у элементов <code>Element</code> (в IE8- также у комментариев, но это ошибка в браузере).</li>
+<li>Свойство <code>nodeName</code> определено для любых узлов <code>Node</code>, для элементов оно равно <code>tagName</code>, а для не-элементов обычно содержит строку с типом узла.</li>
+</ul>
+<p>Таким образом, при помощи <code>tagName</code> мы можем работать только с элементами, а <code>nodeName</code> может что-то сказать и о других типах узлов.</p>
+<p>Например, сравним <code>tagName</code> и <code>nodeName</code> на примере узла-комментария и объекта <code>document</code>:</p>
+<div data-trusted="1" class="code-example">
+      <div class="codebox code-example__codebox">
+        
+        <div class="toolbar codebox__toolbar">
+          <div class="toolbar__tool">
+            <a href="basic-dom-node-properties.html#" title="показать" data-action="run" class="toolbar__button toolbar__button_run"></a>
+          </div>
+          <div class="toolbar__tool">
+            <a href="basic-dom-node-properties.html#" title="открыть в песочнице" target="_blank" data-action="edit" class="toolbar__button toolbar__button_edit"></a>
+          </div>
+        </div>
+        <div class="codebox__code" data-code="1">
+          <pre class="line-numbers language-markup"><code class="language-markup">&lt;body&gt;
+  &lt;!-- комментарий --&gt;
+
+  &lt;script&gt;
+    // для комментария
+    alert( document.body.firstChild.nodeName ); // #comment
+    alert( document.body.firstChild.tagName ); // undefined (в IE8- воскл. знак &quot;!&quot;)
+
+    // для документа
+    alert( document.nodeName ); // #document, т.к. корень DOM -- не элемент
+    alert( document.tagName ); // undefined
+  &lt;/script&gt;
+&lt;/body&gt;</code></pre>
+        </div>
+      </div>
+      
+      </div><p>При работе с элементами, как это обычно бывает, имеет смысл использовать свойство <code>tagName</code> – оно короче.</p>
+<h2><a class="main__anchor" name="innerhtml-содержимое-элемента" href="basic-dom-node-properties.html#innerhtml-содержимое-элемента">innerHTML: содержимое элемента</a></h2><p>Свойство <code>innerHTML</code> описано в спецификации HTML 5 – <a href="http://www.w3.org/TR/html5/embedded-content-0.html">embedded content</a>.</p>
+<p>Оно позволяет получить HTML-содержимое элемента в виде строки. В <code>innerHTML</code> можно и читать и писать.</p>
+<p>Пример выведет на экран все содержимое <code>document.body</code>, а затем заменит его на другое:</p>
+<div data-trusted="1" class="code-example">
+      <div class="codebox code-example__codebox">
+        
+        <div class="toolbar codebox__toolbar">
+          <div class="toolbar__tool">
+            <a href="basic-dom-node-properties.html#" title="показать" data-action="run" class="toolbar__button toolbar__button_run"></a>
+          </div>
+          <div class="toolbar__tool">
+            <a href="basic-dom-node-properties.html#" title="открыть в песочнице" target="_blank" data-action="edit" class="toolbar__button toolbar__button_edit"></a>
+          </div>
+        </div>
+        <div class="codebox__code" data-code="1">
+          <pre class="line-numbers language-markup"><code class="language-markup">&lt;body&gt;
+  &lt;p&gt;Параграф&lt;/p&gt;
+  &lt;div&gt;Div&lt;/div&gt;
+
+  &lt;script&gt;
+    alert( document.body.innerHTML ); // читаем текущее содержимое
+    document.body.innerHTML = 'Новый BODY!'; // заменяем содержимое
+  &lt;/script&gt;
+
+&lt;/body&gt;</code></pre>
+        </div>
+      </div>
+      
+      </div><p>Значение, возвращаемое <code>innerHTML</code> – всегда валидный HTML-код. При записи можно попробовать записать  что угодно, но браузер исправит ошибки:</p>
+<div data-trusted="1" class="code-example">
+      <div class="codebox code-example__codebox">
+        
+        <div class="toolbar codebox__toolbar">
+          <div class="toolbar__tool">
+            <a href="basic-dom-node-properties.html#" title="показать" data-action="run" class="toolbar__button toolbar__button_run"></a>
+          </div>
+          <div class="toolbar__tool">
+            <a href="basic-dom-node-properties.html#" title="открыть в песочнице" target="_blank" data-action="edit" class="toolbar__button toolbar__button_edit"></a>
+          </div>
+        </div>
+        <div class="codebox__code" data-code="1">
+          <pre class="line-numbers language-markup"><code class="language-markup">&lt;body&gt;
+
+  &lt;script&gt;
+    document.body.innerHTML = '&lt;b&gt;тест'; // незакрытый тег
+    alert( document.body.innerHTML ); // &lt;b&gt;тест&lt;/b&gt; (исправлено)
+  &lt;/script&gt;
+
+&lt;/body&gt;</code></pre>
+        </div>
+      </div>
+      
+      </div><p>Свойство <code>innerHTML</code> – одно из самых часто используемых.</p>
+<h3><a class="main__anchor" name="тонкости-innerhtml" href="basic-dom-node-properties.html#тонкости-innerhtml">Тонкости innerHTML</a></h3><p><code>innerHTML</code> не так прост, как может показаться, и таит в себе некоторые тонкости, которые могут сбить с толку новичка, а иногда и опытного программиста.</p>
+<p>Ознакомьтесь с ними. Даже если этих сложностей у вас <em>пока</em> нет, эта информация отложится где-то в голове и поможет, когда проблема появится.</p>
+<div class="important important_warn">
+            <div class="important__header"><span class="important__type">Для таблиц в IE9- – <code>innerHTML</code> только для чтения</span></div>
+            <div class="important__content"><p>В Internet Explorer версии 9 и ранее, <a href="http://msdn.microsoft.com/en-us/library/ms533897.aspx">innerHTML</a> доступно только для чтения для элементов <code>COL</code>, <code>COLGROUP</code>, <code>FRAMESET</code>, <code>HEAD</code>, <code>HTML</code>, <code>STYLE</code>, <code>TABLE</code>, <code>TBODY</code>, <code>TFOOT</code>, <code>THEAD</code>, <code>TITLE</code>, <code>TR</code>.</p>
+<p>В частности, в IE9- запрещена запись в <code>innerHTML</code> для любых табличных элементов, кроме ячеек (<code>TD/TH</code>).</p>
+</div></div>
+<div class="important important_warn">
+            <div class="important__header"><span class="important__type">Добавление <code>innerHTML+=</code> осуществляет перезапись</span></div>
+            <div class="important__content"><p>Синтаксически, можно добавить текст к <code>innerHTML</code> через <code>+=</code>:</p>
+<div data-trusted="1" class="code-example">
+      <div class="codebox code-example__codebox">
+        
+        <div class="codebox__code" data-code="1">
+          <pre class="line-numbers language-javascript"><code class="language-javascript">chatDiv.innerHTML += &quot;&lt;div&gt;Привет&lt;img src='smile.gif'/&gt; !&lt;/div&gt;&quot;;
+chatDiv.innerHTML += &quot;Как дела?&quot;;</code></pre>
+        </div>
+      </div>
+      
+      </div><p>На практике этим следует пользоваться с большой осторожностью, так как фактически происходит не добавление, а перезапись:</p>
+<ol>
+<li>Удаляется старое содержание</li>
+<li>На его место становится новое значение <code>innerHTML</code>.</li>
+</ol>
+<p>Так как новое значение записывается с нуля, то <strong>все изображения и другие ресурсы будут перезагружены</strong>. В примере выше вторая строчка перезагрузит <code>smile.gif</code>, который был до неё. Если в <code>chatDiv</code> много текста, то эта перезагрузка будет очень заметна.</p>
+<p>Есть и другие побочные эффекты, например если существующий текст был выделен мышкой, то в большинстве браузеров это выделение пропадёт. Если в HTML был <code>&lt;input&gt;</code>, в который посетитель что-то ввёл, то введённое значение пропадёт. И тому подобное.</p>
+<p>К счастью, есть и другие способы добавить содержимое, не использующие <code>innerHTML</code>.</p>
+</div></div>
+<div class="important important_warn">
+            <div class="important__header"><span class="important__type">Скрипты не выполняются</span></div>
+            <div class="important__content"><p>Если в <code>innerHTML</code> есть тег <code>script</code> – он не будет выполнен.</p>
+<p>К примеру:</p>
+<div data-trusted="1" class="code-example">
+      <div class="codebox code-example__codebox">
+        
+        <div class="toolbar codebox__toolbar">
+          <div class="toolbar__tool">
+            <a href="basic-dom-node-properties.html#" title="показать" data-action="run" class="toolbar__button toolbar__button_run"></a>
+          </div>
+          <div class="toolbar__tool">
+            <a href="basic-dom-node-properties.html#" title="открыть в песочнице" target="_blank" data-action="edit" class="toolbar__button toolbar__button_edit"></a>
+          </div>
+        </div>
+        <div class="codebox__code" data-code="1">
+          <pre class="line-numbers language-markup"><code class="language-markup">&lt;div id=&quot;my&quot;&gt;&lt;/div&gt;
+
+&lt;script&gt;
+  var elem = document.getElementById('my');
+  elem.innerHTML = 'ТЕСТ&lt;script&gt;alert( 1 );&lt;/scr' + 'ipt&gt;';
+&lt;/script&gt;</code></pre>
+        </div>
+      </div>
+      
+      </div><p>В примере закрывающий тег <code>&lt;/scr'+'ipt&gt;</code> разбит на две строки, т.к. иначе браузер подумает, что это конец скрипта. Вставленный скрипт не выполнится.</p>
+<p>Исключение – IE9-, в нем вставляемый скрипт выполняется, если у него есть атрибут <code>defer</code>. Но это нестандартная возможность, которой не следует пользоваться.</p>
+</div></div>
+<div class="important important_warn">
+            <div class="important__header"><span class="important__type">IE8- обрезает <code>style</code> и <code>script</code> в начале <code>innerHTML</code></span></div>
+            <div class="important__content"><p>Если в начале <code>innerHTML</code> находятся стили <code>&lt;style&gt;</code>, то старый IE проигнорирует их. То есть, иными словами, они не применятся.</p>
+<p>Смотрите также <a href="http://msdn.microsoft.com/en-us/library/ms533897%28v=vs.85%29.aspx">innerHTML на MSDN</a> на эту тему.</p>
+</div></div>
+<h2><a class="main__anchor" name="outerhtml-html-элемента-целиком" href="basic-dom-node-properties.html#outerhtml-html-элемента-целиком">outerHTML: HTML элемента целиком</a></h2><p>Свойство <code>outerHTML</code> содержит HTML элемента целиком.</p>
+<p>Пример чтения <code>outerHTML</code>:</p>
+<div data-trusted="1" class="code-example">
+      <div class="codebox code-example__codebox">
+        
+        <div class="toolbar codebox__toolbar">
+          <div class="toolbar__tool">
+            <a href="basic-dom-node-properties.html#" title="показать" data-action="run" class="toolbar__button toolbar__button_run"></a>
+          </div>
+          <div class="toolbar__tool">
+            <a href="basic-dom-node-properties.html#" title="открыть в песочнице" target="_blank" data-action="edit" class="toolbar__button toolbar__button_edit"></a>
+          </div>
+        </div>
+        <div class="codebox__code" data-code="1">
+          <pre class="line-numbers language-markup"><code class="language-markup">&lt;div&gt;Привет &lt;b&gt;Мир&lt;/b&gt;&lt;/div&gt;
+
+&lt;script&gt;
+  var div = document.body.children[0];
+
+  alert( div.outerHTML ); // &lt;div&gt;Привет &lt;b&gt;Мир&lt;/b&gt;&lt;/div&gt;
+&lt;/script&gt;</code></pre>
+        </div>
+      </div>
+      
+      </div><p><strong>Изменить <code>outerHTML</code> элемента невозможно.</strong></p>
+<p>Здесь мы остановимся чуть подробнее. Дело в том, что технически свойство <code>outerHTML</code> доступно на запись. Но при этом элемент не меняется, а <em>заменяется на новый</em>, который тут же создаётся из нового <code>outerHTML</code>.</p>
+<p>При этом переменная, в которой изначально был старый элемент, и в которой мы «перезаписали» <code>outerHTML</code>, остаётся со старым элементом.</p>
+<p>Это легко может привести к ошибкам, что видно на примере:</p>
+<div data-trusted="1" class="code-example" data-highlight-block="5-5,8-8">
+      <div class="codebox code-example__codebox">
+        
+        <div class="toolbar codebox__toolbar">
+          <div class="toolbar__tool">
+            <a href="basic-dom-node-properties.html#" title="показать" data-action="run" class="toolbar__button toolbar__button_run"></a>
+          </div>
+          <div class="toolbar__tool">
+            <a href="basic-dom-node-properties.html#" title="открыть в песочнице" target="_blank" data-action="edit" class="toolbar__button toolbar__button_edit"></a>
+          </div>
+        </div>
+        <div class="codebox__code" data-code="1">
+          <pre class="line-numbers language-markup"><code class="language-markup">&lt;div&gt;Привет, Мир!&lt;/div&gt;
+
+&lt;script&gt;
+  var div = document.body.children[0];
+
+  // заменяем div.outerHTML на &lt;p&gt;...&lt;/p&gt;
+  div.outerHTML = '&lt;p&gt;Новый элемент!&lt;/p&gt;';
+
+  // ... но содержимое div.outerHTML осталось тем же, несмотря на &quot;перезапись&quot;
+  alert( div.outerHTML ); // &lt;div&gt;Привет, Мир!&lt;/div&gt;
+&lt;/script&gt;</code></pre>
+        </div>
+      </div>
+      
+      </div><p>То, что произошло в примере выше – так это замена <code>div</code> в документе на новый узел <code>&lt;p&gt;...&lt;/p&gt;</code>. При этом переменная <code>div</code> не получила этот новый узел! Она сохранила старое значение, чтение из неё это отлично показывает.</p>
+<div class="important important_warn">
+            <div class="important__header"><span class="important__type">Записал <code>outerHTML</code>? Понимай последствия!</span></div>
+            <div class="important__content"><p>Иногда начинающие делают здесь ошибку: сначала заменяют <code>div.outerHTML</code>, а потом продолжают работать с <code>div</code>, как будто это изменившийся элемент. Такое возможно с <code>innerHTML</code>, но не с <code>outerHTML</code>.</p>
+<p>Записать новый HTML в <code>outerHTML</code> можно, но нужно понимать, что это никакое не изменение свойств узла, а создание нового.</p>
+<p>Новосозданный узел не доступен сразу в переменной, хотя его, конечно, можно получить из DOM.</p>
+</div></div>
+<h2><a class="main__anchor" name="nodevalue-data-содержимое-текстового-узла" href="basic-dom-node-properties.html#nodevalue-data-содержимое-текстового-узла">nodeValue/data: содержимое текстового узла</a></h2><p>Свойство <code>innerHTML</code> есть только у узлов-элементов.</p>
+<p><strong>Содержимое других узлов, например, текстовых или комментариев, доступно на чтение и запись через свойство <code>data</code>.</strong></p>
+<p>Его тоже можно читать и обновлять. Следующий пример демонстрирует это:</p>
+<div data-trusted="1" class="code-example" data-demo-height="50" data-highlight-block="5-5">
+      <div class="codebox code-example__codebox">
+        
+        <div class="toolbar codebox__toolbar">
+          <div class="toolbar__tool">
+            <a href="basic-dom-node-properties.html#" title="показать" data-action="run" class="toolbar__button toolbar__button_run"></a>
+          </div>
+          <div class="toolbar__tool">
+            <a href="basic-dom-node-properties.html#" title="открыть в песочнице" target="_blank" data-action="edit" class="toolbar__button toolbar__button_edit"></a>
+          </div>
+        </div>
+        <div class="codebox__code" data-code="1">
+          <pre class="line-numbers language-markup"><code class="language-markup">&lt;body&gt;
+  Привет
+  &lt;!-- Комментарий --&gt;
+  &lt;script&gt;
+    for (var i = 0; i &lt; document.body.childNodes.length; i++) {
+      alert( document.body.childNodes[i].data );
+    }
+  &lt;/script&gt;
+  Пока
+&lt;/body&gt;</code></pre>
+        </div>
+      </div>
+      
+      </div><p>Если вы запустите этот пример, то увидите, как выводятся последовательно:</p>
+<ol>
+<li><code>Привет</code> – это содержимое первого узла (текстового).</li>
+<li><code>Комментарий</code> – это содержимое второго узла (комментария).</li>
+<li><code>Пробелы</code> – это содержимое небольшого пробельного узла после комментария до скрипта.</li>
+<li><code>undefined</code> – далее цикл дошёл до <code>&lt;script&gt;</code>, но это узел-элемент, у него нет <code>data</code>.</li>
+</ol>
+<p>Вообще говоря, после <code>&lt;script&gt;…&lt;/script&gt;</code> и до закрытия <code>&lt;/body&gt;</code> в документе есть еще один текстовый узел. Однако, на момент работы скрипта браузер ещё не знает о нём, поэтому не выведет.</p>
+<p><strong>Свойство <code>nodeValue</code> мы использовать не будем.</strong></p>
+<p>Оно работает так же, как <code>data</code>, но на некоторых узлах, где <code>data</code> нет, <code>nodeValue</code> есть и имеет значение <code>null</code>. Как-то использовать это тонкое отличие обычно нет причин.</p>
+<p><strong>Два свойства существуют по историческим причинам, мы будем использовать лишь <code>data</code>, поскольку оно короче.</strong></p>
+<h2><a class="main__anchor" name="текст-textcontent" href="basic-dom-node-properties.html#текст-textcontent">Текст: textContent</a></h2><p>Свойство <code>textContent</code> содержит только текст внутри элемента, за вычетом всех <code>&lt;тегов&gt;</code>.</p>
+<p>Оно поддерживается везде, кроме IE8-.</p>
+<p>Например:</p>
+<div data-trusted="1" class="code-example">
+      <div class="codebox code-example__codebox">
+        
+        <div class="toolbar codebox__toolbar">
+          <div class="toolbar__tool">
+            <a href="basic-dom-node-properties.html#" title="показать" data-action="run" class="toolbar__button toolbar__button_run"></a>
+          </div>
+          <div class="toolbar__tool">
+            <a href="basic-dom-node-properties.html#" title="открыть в песочнице" target="_blank" data-action="edit" class="toolbar__button toolbar__button_edit"></a>
+          </div>
+        </div>
+        <div class="codebox__code" data-code="1">
+          <pre class="line-numbers language-markup"><code class="language-markup">&lt;div&gt;
+  &lt;h1&gt;Срочно в номер!&lt;/h1&gt;
+  &lt;p&gt;Марсиане атакуют людей!&lt;/p&gt;
+&lt;/div&gt;
+
+&lt;script&gt;
+  var news = document.body.children[0];
+
+  // \n  Срочно в номер!\n  Марсиане атакуют людей!\n
+  alert( news.textContent );
+&lt;/script&gt;</code></pre>
+        </div>
+      </div>
+      
+      </div><p>Как видно из примера выше, возвращается в точности весь текст, включая переводы строк и пробелы, но без тегов.</p>
+<p><strong>Иными словами, <code>elem.textContent</code> возвращает конкатенацию всех текстовых узлов внутри <code>elem</code>.</strong></p>
+<p>Не сказать, чтобы эта информация была часто востребована.</p>
+<p><strong>Гораздо полезнее возможность записать текст в элемент, причём именно как текст!</strong></p>
+<p>В этом примере имя посетителя попадёт в первый <code>div</code> как <code>innerHTML</code>, а во второй – как текст:</p>
+<div data-trusted="1" class="code-example">
+      <div class="codebox code-example__codebox">
+        
+        <div class="toolbar codebox__toolbar">
+          <div class="toolbar__tool">
+            <a href="basic-dom-node-properties.html#" title="показать" data-action="run" class="toolbar__button toolbar__button_run"></a>
+          </div>
+          <div class="toolbar__tool">
+            <a href="basic-dom-node-properties.html#" title="открыть в песочнице" target="_blank" data-action="edit" class="toolbar__button toolbar__button_edit"></a>
+          </div>
+        </div>
+        <div class="codebox__code" data-code="1">
+          <pre class="line-numbers language-markup"><code class="language-markup">&lt;div&gt;&lt;/div&gt;
+&lt;div&gt;&lt;/div&gt;
+
+&lt;script&gt;
+  var name = prompt(&quot;Введите имя?&quot;, &quot;&lt;b&gt;Винни-пух&lt;/b&gt;&quot;);
+
+  document.body.children[0].innerHTML = name;
+  document.body.children[1].textContent = name;
+&lt;/script&gt;</code></pre>
+        </div>
+      </div>
+      
+      </div><p>При запуске примера мы увидим, что в первый <code>DIV</code> текст от посетителя вставился именно как HTML, то есть теги стали именно тегами, а во второй – как обычный текст.</p>
+<p>Вряд ли мы <em>действительно</em> хотим, чтобы посетители вставляли в наш сайт произвольный HTML-код. Присваивание через <code>textContent</code> – один из способов от этого защититься.</p>
+<div class="important important_warn">
+            <div class="important__header"><span class="important__type">Нестандартное свойство <code>innerText</code></span></div>
+            <div class="important__content"><p>Всеми браузерами, кроме Firefox 44- (согласно <a href="http://caniuse.com/#feat=innertext">CanIUse.Com</a>), поддерживается нестандартное свойство <a href="http://msdn.microsoft.com/en-us/library/ie/ms533899.aspx">innerText</a>.</p>
+<p>У него, в некотором роде, преимущество перед <code>textContent</code> в том, что оно по названию напоминает <code>innerHTML</code>, его проще запомнить.</p>
+<p>Однако, свойство <code>innerText</code> не следует использовать, так как оно не стандартное и не будет стандартным.</p>
+<p>Это свойство возвращает текст не в том виде, в котором он в DOM, а в том, в котором он виден – как если бы мы выбрали содержимое элемента мышкой и скопировали его. В частности, если элемент невидим, то его текст возвращён не будет. Это довольно странная особенность существует по историческим причинам и скорее мешает, чем помогает.</p>
+<p>Впрочем, при записи значения <code>innerText</code> работает так же, как и <code>textContent</code>.</p>
+</div></div>
+<h2><a class="main__anchor" name="свойство-hidden" href="basic-dom-node-properties.html#свойство-hidden">Свойство hidden</a></h2><p>Как правило, видим или невидим узел, определяется через CSS, свойствами <code>display</code> или <code>visibility</code>.</p>
+<p>В стандарте HTML5 предусмотрен специальный атрибут и свойство для этого: <code>hidden</code>.</p>
+<p>Его поддерживают все современные браузеры, кроме IE10-.</p>
+<p>В примере ниже второй и третий <code>&lt;div&gt;</code> скрыты:</p>
+<div data-trusted="1" class="code-example" data-demo-height="80">
+      <div class="codebox code-example__codebox">
+        
+        <div class="toolbar codebox__toolbar">
+          <div class="toolbar__tool">
+            <a href="basic-dom-node-properties.html#" title="показать" data-action="run" class="toolbar__button toolbar__button_run"></a>
+          </div>
+          <div class="toolbar__tool">
+            <a href="basic-dom-node-properties.html#" title="открыть в песочнице" target="_blank" data-action="edit" class="toolbar__button toolbar__button_edit"></a>
+          </div>
+        </div>
+        <div class="codebox__code" data-code="1">
+          <pre class="line-numbers language-markup"><code class="language-markup">&lt;div&gt;Текст&lt;/div&gt;
+&lt;div hidden&gt;С атрибутом hidden&lt;/div&gt;
+&lt;div&gt;Со свойством hidden&lt;/div&gt;
+
+&lt;script&gt;
+  var lastDiv = document.body.children[2];
+  lastDiv.hidden = true;
+&lt;/script&gt;</code></pre>
+        </div>
+      </div>
+      
+      </div><p>Технически, атрибут <code>hidden</code> работает так же, как <code>style=&quot;display:none&quot;</code>. Но его проще поставить через JavaScript (меньше букв), и могут быть преимущества для скринридеров и прочих нестандартных браузеров.</p>
+<p>Для старых IE тоже можно сделать, чтобы свойство поддерживалось, мы ещё вернёмся к этому далее в учебнике.</p>
+<h2><a class="main__anchor" name="исследование-элементов" href="basic-dom-node-properties.html#исследование-элементов">Исследование элементов</a></h2><p>У DOM-узлов есть и другие свойства, зависящие от типа, например:</p>
+<ul>
+<li><code>value</code> – значение для <code>INPUT</code>, <code>SELECT</code> или <code>TEXTAREA</code></li>
+<li><code>id</code> – идентификатор</li>
+<li><code>href</code> – адрес ссылки</li>
+<li>…многие другие…</li>
+</ul>
+<p>Например:</p>
+<div data-trusted="1" class="code-example" data-demo-height="80">
+      <div class="codebox code-example__codebox">
+        
+        <div class="toolbar codebox__toolbar">
+          <div class="toolbar__tool">
+            <a href="basic-dom-node-properties.html#" title="показать" data-action="run" class="toolbar__button toolbar__button_run"></a>
+          </div>
+          <div class="toolbar__tool">
+            <a href="basic-dom-node-properties.html#" title="открыть в песочнице" target="_blank" data-action="edit" class="toolbar__button toolbar__button_edit"></a>
+          </div>
+        </div>
+        <div class="codebox__code" data-code="1">
+          <pre class="line-numbers language-markup"><code class="language-markup">&lt;input type=&quot;text&quot; id=&quot;elem&quot; value=&quot;значение&quot;&gt;
+
+&lt;script&gt;
+  var input = document.body.children[0];
+
+  alert( input.type ); // &quot;text&quot;
+  alert( input.id ); // &quot;elem&quot;
+  alert( input.value ); // значение
+&lt;/script&gt;</code></pre>
+        </div>
+      </div>
+      
+      </div><p>Как узнать, какие свойства есть у данного типа элементов?</p>
+<p>Это просто. Нужно либо посмотреть <a href="http://dev.w3.org/html5/markup/elements.html">список элементов HTML5</a> и найти в нём интересующий вас элемент и прочитать секцию с <code>interface</code>.</p>
+<p>Если же недосуг или интересуют особенности конкретного браузера – элемент всегда можно вывести в консоль вызовом <code>console.dir(элемент)</code>.</p>
+<p>Метод <code>console.dir</code> выводит аргумент не в «красивом» виде, а как объект, который можно развернуть и исследовать.</p>
+<p>Например:</p>
+<div data-trusted="1" class="code-example">
+      <div class="codebox code-example__codebox">
+        
+        <div class="toolbar codebox__toolbar">
+          <div class="toolbar__tool">
+            <a href="basic-dom-node-properties.html#" title="выполнить" data-action="run" class="toolbar__button toolbar__button_run"></a>
+          </div>
+          <div class="toolbar__tool">
+            <a href="basic-dom-node-properties.html#" title="открыть в песочнице" target="_blank" data-action="edit" class="toolbar__button toolbar__button_edit"></a>
+          </div>
+        </div>
+        <div class="codebox__code" data-code="1">
+          <pre class="line-numbers language-javascript"><code class="language-javascript">// в консоли можно будет увидеть все свойства DOM-объекта document
+console.dir(document);</code></pre>
+        </div>
+      </div>
+      
+      </div><h2><a class="main__anchor" name="итого" href="basic-dom-node-properties.html#итого">Итого</a></h2><p>Основные свойства DOM-узлов:</p>
+<dl>
+<dt><code>nodeType</code></dt>
+<dd>Тип узла. Самые популярные типы: <code>&quot;1&quot;</code> – для элементов и <code>&quot;3&quot;</code> – для текстовых узлов. Только для чтения.</dd>
+<dt><code>nodeName/tagName</code></dt>
+<dd>Название тега заглавными буквами. <code>nodeName</code> имеет специальные значения для узлов-неэлементов. Только для чтения.</dd>
+<dt><code>innerHTML</code></dt>
+<dd>Внутреннее содержимое узла-элемента в виде HTML. Можно изменять.</dd>
+<dt><code>outerHTML</code></dt>
+<dd>Полный HTML узла-элемента. При записи в <code>elem.outerHTML</code> переменная <code>elem</code> сохраняет старый узел.</dd>
+<dt><code>nodeValue/data</code></dt>
+<dd>Содержимое текстового узла или комментария. Свойство <code>nodeValue</code> также определено и для других типов узлов. Можно изменять. На некоторых узлах, где <code>data</code> нет, <code>nodeValue</code> есть и имеет значение null, поэтому лучше использовать <code>data</code>.</dd>
+<dt><code>textContent</code></dt>
+<dd>Содержит только текст внутри элемента, за вычетом всех тегов. Можно использовать для защиты от вставки произвольного HTML кода</dd>
+<dt>Свойство и атрибут <code>hidden</code></dt>
+<dd>Скрыть элемент можно с помощью установки свойства <code>hidden</code> в <code>true</code> или с помощью атрибута</dd>
+</dl>
+<p>Узлы DOM также имеют другие свойства, в зависимости от тега. Например, у <code>INPUT</code> есть свойства <code>value</code> и <code>checked</code>, а у <code>A</code> есть <code>href</code> и т.д. Мы рассмотрим их далее.</p>
+</div></article><div class="tasks"><h2 id="tasks" class="tasks__title"><a href="basic-dom-node-properties.html#tasks" class="main__anchor main__anchor_noicon tasks__title-anchor">Задачи</a></h2><div class="task tasks__task"><div class="task__header"><div class="task__title-wrap"><h3 class="task__title"><a href="basic-dom-node-properties.html#что-выведет-код-в-консоли" name="что-выведет-код-в-консоли" class="main__anchor">Что выведет код в консоли?</a></h3><a href="task/console-firstchild-innerhtml.html" target="_blank" class="task__open-link"></a></div><div class="task__header-note"><span title="Насколько эта задача важна для освоения материала, от 1 до 5" class="task__importance">важность: 5</span></div><div class="task__content"><p>В браузере Chrome открыт HTML-документ.</p>
+<p>Вы зашли во вкладку Elements и видите такую картинку:
+<img src="task/console-firstchild-innerhtml/console-innerhtml.png" alt="" width="375" height="264"></p>
+<p>В настоящий момент выбран элемент <code>&lt;body&gt;</code>.</p>
+<p>Что выведет код <code>$0.firstChild.innerHTML</code> в консоли?</p>
+<button type="button" class="task__solution">решение</button><div class="task__answer"><div class="task__answer-content"><p><strong>Однозначно правильный ответ невозможен.</strong></p>
+<p>В консоли не выводятся пробельные узлы. Если перед <code>&lt;h1&gt;</code> находится пробельный узел, то будет <code>undefined</code>, а если нет – то текст внутри <code>&lt;h1&gt;</code>.</p>
+<p>Пример с <code>undefined</code>:</p>
+<div data-trusted="1" class="code-example">
+      <div class="codebox code-example__codebox">
+        
+        <div class="toolbar codebox__toolbar">
+          <div class="toolbar__tool">
+            <a href="basic-dom-node-properties.html#" title="показать" data-action="run" class="toolbar__button toolbar__button_run"></a>
+          </div>
+          <div class="toolbar__tool">
+            <a href="basic-dom-node-properties.html#" title="открыть в песочнице" target="_blank" data-action="edit" class="toolbar__button toolbar__button_edit"></a>
+          </div>
+        </div>
+        <div class="codebox__code" data-code="1">
+          <pre class="line-numbers language-markup"><code class="language-markup">&lt;body&gt;
+  &lt;h1&gt;Привет, мир!&lt;/h1&gt;
+
+  &lt;script&gt;
+    alert( document.body.firstChild.innerHTML ); // undefined
+  &lt;/script&gt;
+&lt;/body&gt;</code></pre>
+        </div>
+      </div>
+      
+      </div><p>Если убрать из него перевод строки перед <code>&lt;h1&gt;</code>, то было бы <code>&quot;Привет, мир!&quot;</code>.</p>
+</div><button type="button" title="закрыть" class="close-button task__answer-close"></button></div></div></div></div><div class="task tasks__task"><div class="task__header"><div class="task__title-wrap"><h3 class="task__title"><a href="basic-dom-node-properties.html#в-инлайн-скрипте-lastchild-nodetype" name="в-инлайн-скрипте-lastchild-nodetype" class="main__anchor">В инлайн скрипте lastChild.nodeType</a></h3><a href="task/lastchild-nodetype-inline.html" target="_blank" class="task__open-link"></a></div><div class="task__header-note"><span title="Насколько эта задача важна для освоения материала, от 1 до 5" class="task__importance">важность: 5</span></div><div class="task__content"><p>Что выведет скрипт на этой странице?</p>
+<div data-trusted="1" class="code-example">
+      <div class="codebox code-example__codebox">
+        
+        <div class="codebox__code" data-code="1">
+          <pre class="line-numbers language-markup"><code class="language-markup">&lt;!DOCTYPE HTML&gt;
+&lt;html&gt;
+
+&lt;body&gt;
+  &lt;script&gt;
+    alert( document.body.lastChild.nodeType );
+  &lt;/script&gt;
+&lt;/body&gt;
+
+&lt;/html&gt;</code></pre>
+        </div>
+      </div>
+      
+      </div><button type="button" class="task__solution">решение</button><div class="task__answer"><div class="task__answer-content"><p>Небольшой подвох – в том, что во время выполнения скрипта последним тегом является <code>SCRIPT</code>. Браузер не может обработать страницу дальше, пока не выполнит скрипт.</p>
+<p>Так что результат будет <code>1</code> (узел-элемент).</p>
+<div data-trusted="1" class="code-example" data-demo-height="60">
+      <div class="codebox code-example__codebox">
+        
+        <div class="toolbar codebox__toolbar">
+          <div class="toolbar__tool">
+            <a href="basic-dom-node-properties.html#" title="показать" data-action="run" class="toolbar__button toolbar__button_run"></a>
+          </div>
+          <div class="toolbar__tool">
+            <a href="basic-dom-node-properties.html#" title="открыть в песочнице" target="_blank" data-action="edit" class="toolbar__button toolbar__button_edit"></a>
+          </div>
+        </div>
+        <div class="codebox__code" data-code="1">
+          <pre class="line-numbers language-markup"><code class="language-markup">&lt;!DOCTYPE HTML&gt;
+&lt;html&gt;
+
+&lt;body&gt;
+  &lt;script&gt;
+    alert( document.body.lastChild.nodeType );
+  &lt;/script&gt;
+&lt;/body&gt;
+
+&lt;/html&gt;</code></pre>
+        </div>
+      </div>
+      
+      </div></div><button type="button" title="закрыть" class="close-button task__answer-close"></button></div></div></div></div><div class="task tasks__task"><div class="task__header"><div class="task__title-wrap"><h3 class="task__title"><a href="basic-dom-node-properties.html#тег-в-комментарии" name="тег-в-комментарии" class="main__anchor">Тег в комментарии</a></h3><a href="task/tag-in-comment.html" target="_blank" class="task__open-link"></a></div><div class="task__header-note"><span title="Насколько эта задача важна для освоения материала, от 1 до 5" class="task__importance">важность: 3</span></div><div class="task__content"><p>Что выведет этот код?</p>
+<div data-trusted="1" class="code-example">
+      <div class="codebox code-example__codebox">
+        
+        <div class="codebox__code" data-code="1">
+          <pre class="line-numbers language-markup"><code class="language-markup">&lt;script&gt;
+  var body = document.body;
+
+  body.innerHTML = &quot;&lt;!--&quot; + body.tagName + &quot;--&gt;&quot;;
+
+  alert( body.firstChild.data ); // что выведет?
+&lt;/script&gt;</code></pre>
+        </div>
+      </div>
+      
+      </div><button type="button" class="task__solution">решение</button><div class="task__answer"><div class="task__answer-content"><p>Ответ: <strong><code>BODY</code></strong>.</p>
+<div data-trusted="1" class="code-example">
+      <div class="codebox code-example__codebox">
+        
+        <div class="toolbar codebox__toolbar">
+          <div class="toolbar__tool">
+            <a href="basic-dom-node-properties.html#" title="показать" data-action="run" class="toolbar__button toolbar__button_run"></a>
+          </div>
+          <div class="toolbar__tool">
+            <a href="basic-dom-node-properties.html#" title="открыть в песочнице" target="_blank" data-action="edit" class="toolbar__button toolbar__button_edit"></a>
+          </div>
+        </div>
+        <div class="codebox__code" data-code="1">
+          <pre class="line-numbers language-markup"><code class="language-markup">&lt;script&gt;
+  var body = document.body;
+
+  body.innerHTML = &quot;&lt;!--&quot; + body.tagName + &quot;--&gt;&quot;;
+
+  alert( body.firstChild.data ); // BODY
+&lt;/script&gt;</code></pre>
+        </div>
+      </div>
+      
+      </div><p>Происходящее по шагам:</p>
+<ol>
+<li>Заменяем содержимое <code>&lt;body&gt;</code> на комментарий. Он будет иметь вид <code>&lt;!–BODY–&gt;</code>, так как <code>body.tagName == &quot;BODY&quot;</code>. Как мы помним, свойство <code>tagName</code> в HTML всегда находится в верхнем регистре.</li>
+<li>Этот комментарий теперь является первым и единственным потомком <code>body.firstChild</code>.</li>
+<li>Получим значение <code>data</code> для комментария <code>body.firstChild</code>. Оно равно содержимому узла для всех узлов, кроме элементов. Содержимое комментария: <code>&quot;BODY&quot;</code>.</li>
+</ol>
+</div><button type="button" title="закрыть" class="close-button task__answer-close"></button></div></div></div></div><div class="task tasks__task"><div class="task__header"><div class="task__title-wrap"><h3 class="task__title"><a href="basic-dom-node-properties.html#где-в-dom-иерархии-document" name="где-в-dom-иерархии-document" class="main__anchor">Где в DOM-иерархии document?</a></h3><a href="task/where-document-in-hierarchy.html" target="_blank" class="task__open-link"></a></div><div class="task__header-note"><span title="Насколько эта задача важна для освоения материала, от 1 до 5" class="task__importance">важность: 4</span></div><div class="task__content"><p>Объектом какого класса является <code>document</code>?</p>
+<p>Какое место он занимает в DOM-иерархии?</p>
+<p>Наследует ли он <code>Node</code> или <code>Element</code>?</p>
+<p>Воспользуйтесь для решения тем фактом, что DOM-узлы образуют стандартную прототипную иерархию классов.</p>
+<button type="button" class="task__solution">решение</button><div class="task__answer"><div class="task__answer-content"><p>Объектом какого класса является <code>document</code>, можно выяснить так:</p>
+<div data-trusted="1" class="code-example">
+      <div class="codebox code-example__codebox">
+        
+        <div class="toolbar codebox__toolbar">
+          <div class="toolbar__tool">
+            <a href="basic-dom-node-properties.html#" title="выполнить" data-action="run" class="toolbar__button toolbar__button_run"></a>
+          </div>
+          <div class="toolbar__tool">
+            <a href="basic-dom-node-properties.html#" title="открыть в песочнице" target="_blank" data-action="edit" class="toolbar__button toolbar__button_edit"></a>
+          </div>
+        </div>
+        <div class="codebox__code" data-code="1">
+          <pre class="line-numbers language-javascript"><code class="language-javascript">alert(document); // [object HTMLDocument]</code></pre>
+        </div>
+      </div>
+      
+      </div><p>Или так:</p>
+<div data-trusted="1" class="code-example">
+      <div class="codebox code-example__codebox">
+        
+        <div class="toolbar codebox__toolbar">
+          <div class="toolbar__tool">
+            <a href="basic-dom-node-properties.html#" title="выполнить" data-action="run" class="toolbar__button toolbar__button_run"></a>
+          </div>
+          <div class="toolbar__tool">
+            <a href="basic-dom-node-properties.html#" title="открыть в песочнице" target="_blank" data-action="edit" class="toolbar__button toolbar__button_edit"></a>
+          </div>
+        </div>
+        <div class="codebox__code" data-code="1">
+          <pre class="line-numbers language-javascript"><code class="language-javascript">alert(document.constructor); // function HTMLDocument() { ... }</code></pre>
+        </div>
+      </div>
+      
+      </div><p>Итак, <code>document</code> – объект класса <code>HTMLDocument</code>.</p>
+<p>Какое место <code>HTMLDocument</code> занимает в иерархии?</p>
+<p>Можно поискать в документации. Но попробуем выяснить это самостоятельно.</p>
+<p>Вопрос не такой простой и требует хорошего понимания <a href="class-inheritance.html">прототипного наследования</a>.</p>
+<p>Вспомним, как оно устроено:</p>
+<ul>
+<li>Методы объекта <code>document</code> находятся в <code>prototype</code> конструктора, в данном случае – <code>HTMLDocument.prototype</code>.</li>
+<li>У <code>HTMLDocument.prototype</code> есть ссылка <code>__proto__</code> на прототип-родитель.</li>
+<li>У прототипа-родителя может быть ссылка <code>__proto__</code> на его родитель, и так далее.</li>
+</ul>
+<p>При поиске свойства в <code>document</code>, если его там нет, оно ищется в <code>document.__proto__</code>, затем в <code>document.__proto__.__proto__</code> и так далее, пока не найдём, или пока цепочка <code>__proto__</code> не закончится. Это обычное устройство класса, без наследования.</p>
+<p>Нам нужно лишь узнать, что находится в этих самых <code>__proto__</code>.</p>
+<p>Строго говоря, там могут быть любые объекты. Вовсе не обязательно, чтобы объектам из цепочки прототипов соответствовали какие-то конструкторы.</p>
+<p>Вполне может быть цепочка, где родители – просто обычные JS-объекты:</p>
+<div data-trusted="1" class="code-example">
+      <div class="codebox code-example__codebox">
+        
+        <div class="codebox__code" data-code="1">
+          <pre class="line-numbers language-javascript"><code class="language-javascript">document -&gt; HTMLDocument.prototype -&gt; obj1 -&gt; obj2 -&gt; ...</code></pre>
+        </div>
+      </div>
+      
+      </div><p>Однако, здесь мы знаем, что наследование – «на классах», то есть, эти объекты <code>obj1</code>, <code>obj2</code> являются <code>prototype</code> неких функций-конструкторов:</p>
+<div data-trusted="1" class="code-example">
+      <div class="codebox code-example__codebox">
+        
+        <div class="codebox__code" data-code="1">
+          <pre class="line-numbers language-javascript"><code class="language-javascript">document -&gt; HTMLDocument.prototype -&gt; F1.prototype -&gt; F2.prototype -&gt; ...</code></pre>
+        </div>
+      </div>
+      
+      </div><p>Что стоит на месте <code>F1</code>, <code>F2</code>?</p>
+<p>Опять же, если говорить про некие абстрактные объекты, то откуда нам знать, какие функции на них ссылаются через <code>prototype</code>? Ниоткуда. Один объект может быть в <code>prototype</code> хоть у десятка функций.</p>
+<p>Но в стандартном прототипном наследовании один объект является <code>prototype</code> ровно у одной функции. Причём при создании функции в её <code>prototype</code> уже есть объект со свойством <code>constructor</code>, которое ссылается обратно на функцию:</p>
+<div data-trusted="1" class="code-example">
+      <div class="codebox code-example__codebox">
+        
+        <div class="codebox__code" data-code="1">
+          <pre class="line-numbers language-javascript"><code class="language-javascript">F.prototype = { constructor: F }</code></pre>
+        </div>
+      </div>
+      
+      </div><p>Это свойство <code>constructor</code>, если конечно его не удалить или не перезаписать нечаянно (чего делать не следует), и позволяет из прототипа узнать соответствующий ему конструктор.</p>
+<div data-trusted="1" class="code-example">
+      <div class="codebox code-example__codebox">
+        
+        <div class="toolbar codebox__toolbar">
+          <div class="toolbar__tool">
+            <a href="basic-dom-node-properties.html#" title="выполнить" data-action="run" class="toolbar__button toolbar__button_run"></a>
+          </div>
+          <div class="toolbar__tool">
+            <a href="basic-dom-node-properties.html#" title="открыть в песочнице" target="_blank" data-action="edit" class="toolbar__button toolbar__button_edit"></a>
+          </div>
+        </div>
+        <div class="codebox__code" data-code="1">
+          <pre class="line-numbers language-javascript"><code class="language-javascript">// цепочка наследования:
+alert(HTMLDocument.prototype.constructor); // function HTMLDocument
+alert(HTMLDocument.prototype.__proto__.constructor); // function Document
+alert(HTMLDocument.prototype.__proto__.__proto__.constructor); // function Node</code></pre>
+        </div>
+      </div>
+      
+      </div><p>При выводе объекта через <code>console.dir(document)</code> в Google Chrome, мы тоже можем, раскрывая <code>__proto__</code>, увидеть эти названия (<code>HTMLDocument</code>, <code>Document</code>, <code>Node</code>).</p>
+<p>Браузерная консоль их берёт как раз из свойства <code>constructor</code>.</p>
+</div><button type="button" title="закрыть" class="close-button task__answer-close"></button></div></div></div></div></div><div class="banner-bottom"><a rel="nofollow" href="https://ad.doubleclick.net/ddm/jump/N366601.1915072JAVASCRIPT.RU/B9719141.132291290;sz=200x200;ord=[timestamp]?" class="banner-bottom__link"><div class="banner-bottom__logo"><svg xmlns="http://www.w3.org/2000/svg" width="100%" height="100%" style="max-height: 135px;" viewBox="0 0 990 135">
+        <title>ws_banner</title>
+        <g>
+            <rect width="990" height="135" fill="none"/>
+            <g>
+                <g>
+                    <g>
+                        <path d="M108.37767,34.77822h15.83356l13.91394,45.48465,15.0654-45.67668h12.66684l15.0654,45.67668,13.91432-45.48465h15.44909l-22.934,67.65085h-12.8585L159.33195,58.48l-15.16142,43.94911H131.312Z" transform="translate(-5)"/>
+                        <path d="M200.49379,76.52v-.19127c0-14.68209,10.45956-26.77282,25.42932-26.77282,17.17667,0,25.04525,13.33859,25.04525,27.92428,0,1.15146-.096,2.495-.19165,3.83846H214.98385c1.43913,6.62109,6.04536,10.07548,12.57044,10.07548,4.8939,0,8.44469-1.53554,12.47481-5.27759l8.34829,7.38848c-4.79788,5.94934-11.70665,9.59577-21.01475,9.59577C211.91316,103.10082,200.49379,92.258,200.49379,76.52Zm36.27257-4.31817c-.8634-6.52469-4.70186-10.93927-10.84325-10.93927-6.04536,0-9.97984,4.31817-11.13131,10.93927Z" transform="translate(-5)"/>
+                        <path d="M267.94952,95.23263v6.71673H253.36383V31.89918h14.58569V57.90462c3.55079-4.79788,8.44431-8.34867,16.02559-8.34867,11.99509,0,23.41407,9.40373,23.41407,26.58078v.192c0,17.17628-11.22771,26.58-23.41407,26.58C276.20256,102.90878,271.40468,99.35876,267.94952,95.23263Zm24.854-18.90386v-.192c0-8.54071-5.75808-14.20238-12.57121-14.20238S267.75748,67.596,267.75748,76.13673v.192c0,8.53994,5.66167,14.20161,12.47481,14.20161S292.8035,84.96511,292.8035,76.32877Z" transform="translate(-5)"/>
+                        <path d="M305.46494,92.16155,314.19769,81.702c6.045,4.98992,12.3784,8.15663,20.05532,8.15663,6.045,0,9.6914-2.39856,9.6914-6.33342v-.192c0-3.74206-2.30292-5.6609-13.52986-8.53994-13.53063-3.45438-22.26261-7.19721-22.26261-20.535v-.192c0-12.18713,9.78781-20.24736,23.50971-20.24736a38.88387,38.88387,0,0,1,24.94961,8.53994L348.93434,53.49c-5.94934-4.12613-11.80306-6.62109-17.464-6.62109-5.66167,0-8.63634,2.59059-8.63634,5.85371v.192c0,4.41381,2.87827,5.85294,14.48928,8.82761,13.62627,3.55079,21.30319,8.44508,21.30319,20.15173v.192c0,13.33859-10.17188,20.82271-24.66194,20.82271A42.744,42.744,0,0,1,305.46494,92.16155Z" transform="translate(-5)"/>
+                        <path d="M362.26985,87.36367V62.99017h-6.14138V50.51537h6.14138V37.36881h14.58569V50.51537H388.947V62.99017h-12.0915V84.96511c0,3.358,1.4399,4.98992,4.70225,4.98992a14.829,14.829,0,0,0,7.19721-1.824V99.83848a21.5044,21.5044,0,0,1-11.51538,2.97467C368.3156,102.81315,362.26985,99.26236,362.26985,87.36367Z" transform="translate(-5)"/>
+                        <path d="M387.9853,76.52v-.19127c0-14.77773,11.89869-26.77282,27.92351-26.77282,15.93,0,27.73225,11.80306,27.73225,26.58078v.192c0,14.77773-11.89869,26.77205-27.92351,26.77205C399.78836,103.10082,387.9853,91.29776,387.9853,76.52Zm41.26211,0v-.19127c0-7.58129-5.46963-14.20238-13.52986-14.20238-8.34867,0-13.33859,6.42906-13.33859,14.01034v.192c0,7.58052,5.46963,14.20161,13.52986,14.20161C424.25749,90.53038,429.24741,84.10132,429.24741,76.52Z" transform="translate(-5)"/>
+                        <path d="M445.556,50.51537h14.58569V60.87929c2.97467-7.10158,7.77256-11.70742,16.4089-11.32334V64.81339h-.76738c-9.69217,0-15.64152,5.85371-15.64152,18.13648v18.9995H445.556Z" transform="translate(-5)"/>
+                        <path d="M478.46794,50.51537h14.58569v7.29284c3.35875-4.31817,7.77256-8.25227,15.161-8.25227,6.7175,0,11.80306,2.97467,14.49006,8.15663,4.51021-5.27759,9.88421-8.15663,16.88861-8.15663,10.84363,0,17.36909,6.52546,17.36909,18.90386v33.48955H542.37674V73.25769c0-6.90877-3.07108-10.45956-8.54071-10.45956s-8.82838,3.55079-8.82838,10.45956v28.69167H510.422V73.25769c0-6.90877-3.07031-10.45956-8.53994-10.45956s-8.82838,3.55079-8.82838,10.45956v28.69167H478.46794Z" transform="translate(-5)"/>
+                    </g>
+                    <g>
+                        <rect x="22.08748" y="35.3594" width="67.15982" height="67.15985"/>
+                        <path d="M53.69354,58.11137l2.14461-2.61753A7.49023,7.49023,0,0,0,60.75846,57.535c1.48656,0,2.38077-.6001,2.38077-1.58711v-.04738c0-.93568-.56518-1.41735-3.32152-2.13589-3.3214-.86463-5.46613-1.80426-5.46613-5.14036v-.0513c0-3.0479,2.404-5.0693,5.772-5.0693a9.42256,9.42256,0,0,1,6.12429,2.13984l-1.88529,2.78732a7.63035,7.63035,0,0,0-4.28543-1.65817c-1.38981,0-2.12145.64748-2.12145,1.4647v.04738c0,1.10545.70849,1.46868,3.55768,2.21093,3.34468.8883,5.23,2.11613,5.23,5.0456v.04735c0,3.34-2.4969,5.21144-6.05459,5.21144a10.377,10.377,0,0,1-6.99522-2.68865" transform="translate(-5)" fill="#fff"/>
+                        <polygon points="45.417 43.779 42.925 53.554 40.069 43.779 37.232 43.779 34.376 53.554 31.885 43.779 27.98 43.779 32.764 60.54 35.909 60.54 38.651 50.843 41.359 60.54 44.541 60.54 49.321 43.779 45.417 43.779" fill="#fff"/>
+                        <rect x="28.38414" y="89.93339" width="25.1847" height="4.19711" fill="#fff"/>
+                    </g>
+                </g>
+                <g>
+                    <path d="M587.4502,64.90723l5.5625-9.2832L581.65723,38.05469h3.49121l9.55176,14.92236,8.51563-14.92236h3.45313L590.82617,64.90723Z" transform="translate(-5)"/>
+                    <path d="M607.39648,45.07471h3.10742l7.51855,11.12451,7.48047-11.12451h3.06836V64.90723h-2.95312v-15.229l-7.5957,11.00928h-.11523L610.3125,49.71631V64.90723h-2.916Z" transform="translate(-5)"/>
+                    <path d="M634.24707,45.07471h2.9541v8.478h11.85352v-8.478h2.915V64.90723h-2.915V56.23779H637.20117v8.66943h-2.9541Z" transform="translate(-5)"/>
+                    <path d="M656.14941,59.15332v-.07715c0-4.18115,3.45313-6.40576,8.47754-6.40576a21.06393,21.06393,0,0,1,6.09961.84375v-.69043c0-3.56787-2.18652-5.40869-5.90723-5.40869a13.80493,13.80493,0,0,0-6.02246,1.45752l-.88281-2.417a16.38207,16.38207,0,0,1,7.21191-1.64941c2.80078,0,4.94824.729,6.40625,2.18652a7.82785,7.82785,0,0,1,2.0332,5.79248V64.90723h-2.83887V61.915a8.69053,8.69053,0,0,1-7.17383,3.41406C659.87109,65.3291,656.14941,63.21924,656.14941,59.15332Zm14.61523-1.53467v-1.918a20.68618,20.68618,0,0,0-5.83008-.84375c-3.72168,0-5.793,1.61084-5.793,4.10449v.07666c0,2.49316,2.30176,3.95117,4.9873,3.95117C667.77246,62.98926,670.76465,60.76416,670.76465,57.61865Z" transform="translate(-5)"/>
+                    <path d="M677.51563,64.90723l5.793-7.63379c-3.14648-.729-5.06445-2.877-5.06445-5.90771v-.03809c0-3.75928,3.03125-6.25293,7.749-6.25293H695.584V64.90723h-2.916V57.542h-6.1377l-5.48535,7.36523Zm8.51563-17.37744c-2.95312,0-4.833,1.57275-4.833,3.79785,0,2.37842,1.80273,3.83594,4.833,3.83594H692.668V47.52979Z" transform="translate(-5)"/>
+                    <path d="M709.69824,60.53418l2.18652-1.87988c1.64941,2.49365,3.33691,3.83643,6.1377,3.83643,3.03027,0,5.25488-2.187,5.25488-6.44482V38.05469h3.06934V56.00781c0,3.14551-.9209,5.52344-2.45508,7.05811a8.23527,8.23527,0,0,1-5.9082,2.2251A9.19408,9.19408,0,0,1,709.69824,60.53418Z" transform="translate(-5)"/>
+                    <path d="M730.56445,59.15332v-.07715c0-4.18115,3.45313-6.40576,8.47754-6.40576a21.06393,21.06393,0,0,1,6.09961.84375v-.69043c0-3.56787-2.18652-5.40869-5.90723-5.40869a13.80493,13.80493,0,0,0-6.02246,1.45752l-.88281-2.417a16.38207,16.38207,0,0,1,7.21191-1.64941c2.80078,0,4.94824.729,6.40625,2.18652a7.82785,7.82785,0,0,1,2.0332,5.79248V64.90723H745.1416V61.915a8.68994,8.68994,0,0,1-7.17285,3.41406C734.28516,65.3291,730.56445,63.21924,730.56445,59.15332Zm14.61523-1.53467v-1.918a20.68618,20.68618,0,0,0-5.83008-.84375c-3.72168,0-5.793,1.61084-5.793,4.10449v.07666c0,2.49316,2.30176,3.95117,4.9873,3.95117C742.1875,62.98926,745.17969,60.76416,745.17969,57.61865Z" transform="translate(-5)"/>
+                    <path d="M750.58789,45.07471h3.26074l6.6748,16.45654,6.71289-16.45654h3.18359l-8.63086,19.98584h-2.6084Z" transform="translate(-5)"/>
+                    <path d="M771.64648,59.15332v-.07715c0-4.18115,3.45313-6.40576,8.47754-6.40576a21.06393,21.06393,0,0,1,6.09961.84375v-.69043c0-3.56787-2.18652-5.40869-5.90723-5.40869a13.80493,13.80493,0,0,0-6.02246,1.45752l-.88281-2.417a16.38207,16.38207,0,0,1,7.21191-1.64941c2.80078,0,4.94824.729,6.40625,2.18652a7.82785,7.82785,0,0,1,2.0332,5.79248V64.90723h-2.83887V61.915a8.68994,8.68994,0,0,1-7.17285,3.41406C775.36719,65.3291,771.64648,63.21924,771.64648,59.15332Zm14.61523-1.53467v-1.918a20.68618,20.68618,0,0,0-5.83008-.84375c-3.72168,0-5.793,1.61084-5.793,4.10449v.07666c0,2.49316,2.30176,3.95117,4.9873,3.95117C783.26953,62.98926,786.26172,60.76416,786.26172,57.61865Z" transform="translate(-5)"/>
+                    <path d="M793.12793,60.99463l1.87988-2.2251a12.78589,12.78589,0,0,0,9.20605,3.79785c3.60645,0,5.98438-1.918,5.98438-4.56494v-.07666c0-2.49365-1.34277-3.91309-6.98145-5.10205-6.17578-1.34277-9.01465-3.3374-9.01465-7.749V44.998c0-4.21973,3.7207-7.32666,8.82227-7.32666a14.01136,14.01136,0,0,1,9.4375,3.29883l-1.76465,2.33984a11.798,11.798,0,0,0-7.749-2.915c-3.49121,0-5.71582,1.918-5.71582,4.33447v.07666c0,2.53174,1.38086,3.95117,7.28809,5.21729,5.98438,1.3042,8.74707,3.49072,8.74707,7.59521v.07666c0,4.60352-3.83691,7.5957-9.16895,7.5957A15.7123,15.7123,0,0,1,793.12793,60.99463Z" transform="translate(-5)"/>
+                    <path d="M816.75586,55.08691v-.07666a10.32986,10.32986,0,0,1,18.10645-6.82812l-1.95605,2.07129c-1.57324-1.64941-3.33789-2.99219-6.02344-2.99219-4.02734,0-7.09668,3.41406-7.09668,7.67236v.07666a7.41012,7.41012,0,0,0,7.28906,7.71045,8.18367,8.18367,0,0,0,6.06055-2.95361l1.87988,1.76416a10.2594,10.2594,0,0,1-18.25977-6.44434Z" transform="translate(-5)"/>
+                    <path d="M838.92773,45.07471h2.9541v5.17871c1.458-3.29883,4.335-5.67725,8.09375-5.52393v3.18408h-.22949c-4.335,0-7.86426,3.10693-7.86426,9.09131v7.90234h-2.9541Z" transform="translate(-5)"/>
+                    <path d="M853.58105,37.47949h3.376v3.26074h-3.376Zm.19141,7.59521h2.9541V64.90723h-2.9541Z" transform="translate(-5)"/>
+                    <path d="M862.63281,45.07471h2.9541v3.98975c1.61133-2.37842,3.95117-4.41162,7.5957-4.41162,4.75586,0,9.47461,3.75928,9.47461,10.28076v.07666c0,6.48291-4.67969,10.31885-9.47461,10.31885a8.94683,8.94683,0,0,1-7.5957-4.21973v9.93555h-2.9541ZM879.627,55.04834v-.07666c0-4.67969-3.22266-7.67187-6.98145-7.67187a7.39526,7.39526,0,0,0-7.17383,7.63379v.07666a7.38127,7.38127,0,0,0,7.17383,7.67188C876.48145,62.68213,879.627,59.84375,879.627,55.04834Z" transform="translate(-5)"/>
+                    <path d="M888.17969,59.65186V47.68311H885.418v-2.6084h2.76172V39.09033h2.95313v5.98438h6.292v2.6084h-6.292v11.585c0,2.417,1.34277,3.29932,3.33789,3.29932a6.21445,6.21445,0,0,0,2.877-.69043v2.53174a7.42972,7.42972,0,0,1-3.56738.84375C890.5957,65.25244,888.17969,63.67969,888.17969,59.65186Z" transform="translate(-5)"/>
+                    <path d="M912.99707,38.05469h3.03027V64.90723h-3.03027Z" transform="translate(-5)"/>
+                    <path d="M922.93164,38.05469h9.32129c8.43945,0,14.27051,5.79248,14.27051,13.34961V51.481c0,7.55713-5.83105,13.42627-14.27051,13.42627h-9.32129Zm3.03027,2.80029v21.252h6.291c6.79,0,11.125-4.60352,11.125-10.54932V51.481c0-5.9458-4.335-10.626-11.125-10.626Z" transform="translate(-5)"/>
+                    <path d="M951.96875,38.05469h19.41016v2.76221H954.999v9.168h14.65332v2.76221H954.999v9.39844h16.57227v2.76172H951.96875Z" transform="translate(-5)"/>
+                    <path d="M583.46094,97.48535a12.67042,12.67042,0,0,0,7.28809,2.30176c3.60547,0,5.792-1.38184,5.792-3.45312V96.2959c0-2.07129-2.10937-3.22266-5.52344-3.22266h-4.4502V90.69531h4.41211c3.22168,0,5.02441-1.30469,5.02441-3.29883v-.03906c0-1.95605-1.84082-3.22168-5.10156-3.22168a12.54336,12.54336,0,0,0-7.17383,2.45508l-1.53418-2.07129a14.51988,14.51988,0,0,1,8.78516-2.877c5.02441,0,8.0166,2.2627,8.0166,5.48535V87.166c0,2.6084-1.918,3.95117-3.98926,4.60352,2.45508.498,4.52637,2.07129,4.52637,4.71777v.03906c0,3.18359-3.10645,5.83008-8.78418,5.83008a14.975,14.975,0,0,1-8.82324-2.68457Z" transform="translate(-5)"/>
+                    <path d="M602.52441,96.14258v-.07715c0-4.18066,3.45313-6.40625,8.47754-6.40625a21.08074,21.08074,0,0,1,6.09961.84375V89.8125c0-3.56738-2.18652-5.4082-5.90723-5.4082a13.81153,13.81153,0,0,0-6.02246,1.457l-.88281-2.416A16.36862,16.36862,0,0,1,611.501,81.7959c2.80078,0,4.94824.72852,6.40625,2.18652a7.82588,7.82588,0,0,1,2.0332,5.792v12.12207h-2.83887V98.9043a8.69184,8.69184,0,0,1-7.17383,3.41406C606.24609,102.31836,602.52441,100.209,602.52441,96.14258Zm14.61523-1.53418V92.68945a20.68618,20.68618,0,0,0-5.83008-.84375c-3.72168,0-5.793,1.61133-5.793,4.10449v.07715c0,2.49316,2.30176,3.95117,4.9873,3.95117C614.14746,99.97852,617.13965,97.75391,617.13965,94.6084Z" transform="translate(-5)"/>
+                    <path d="M635.81934,82.06445h2.9541v3.98926c1.61133-2.37891,3.95117-4.41113,7.5957-4.41113,4.75586,0,9.47461,3.75879,9.47461,10.28027V91.999c0,6.4834-4.67969,10.31934-9.47461,10.31934a8.94793,8.94793,0,0,1-7.5957-4.21973v9.93555h-2.9541Zm16.99414,9.97363v-.07715c0-4.67969-3.22266-7.67187-6.98145-7.67187a7.39557,7.39557,0,0,0-7.17383,7.63379V91.999a7.38185,7.38185,0,0,0,7.17383,7.67285C649.668,99.67188,652.81348,96.833,652.81348,92.03809Z" transform="translate(-5)"/>
+                    <path d="M658.834,96.14258v-.07715c0-4.18066,3.45313-6.40625,8.47754-6.40625a21.08074,21.08074,0,0,1,6.09961.84375V89.8125c0-3.56738-2.18652-5.4082-5.90723-5.4082a13.81153,13.81153,0,0,0-6.02246,1.457l-.88281-2.416a16.36862,16.36862,0,0,1,7.21191-1.64941c2.80078,0,4.94824.72852,6.40625,2.18652a7.82588,7.82588,0,0,1,2.0332,5.792v12.12207h-2.83887V98.9043a8.69125,8.69125,0,0,1-7.17285,3.41406C662.55469,102.31836,658.834,100.209,658.834,96.14258Zm14.61523-1.53418V92.68945a20.68618,20.68618,0,0,0-5.83008-.84375c-3.72168,0-5.793,1.61133-5.793,4.10449v.07715c0,2.49316,2.30176,3.95117,4.9873,3.95117C670.457,99.97852,673.44922,97.75391,673.44922,94.6084Z" transform="translate(-5)"/>
+                    <path d="M681.34961,97.48535a12.6759,12.6759,0,0,0,7.28906,2.30176c3.60547,0,5.792-1.38184,5.792-3.45312V96.2959c0-2.07129-2.10937-3.22266-5.52344-3.22266H684.457V90.69531h4.41211c3.22168,0,5.02441-1.30469,5.02441-3.29883v-.03906c0-1.95605-1.84082-3.22168-5.10156-3.22168a12.54336,12.54336,0,0,0-7.17383,2.45508L680.084,84.51953a14.51988,14.51988,0,0,1,8.78516-2.877c5.02441,0,8.0166,2.2627,8.0166,5.48535V87.166c0,2.6084-1.918,3.95117-3.98926,4.60352,2.45508.498,4.52637,2.07129,4.52637,4.71777v.03906c0,3.18359-3.10645,5.83008-8.78418,5.83008a14.975,14.975,0,0,1-8.82324-2.68457Z" transform="translate(-5)"/>
+                    <path d="M716.334,82.06445h3.14551l-8.32422,20.48437c-1.6875,4.10449-3.60547,5.60059-6.59766,5.60059a9.02263,9.02263,0,0,1-4.21973-.99707l.99707-2.34082a6.20232,6.20232,0,0,0,3.10742.72949c1.76465,0,2.877-.9209,4.06641-3.72168l-9.01465-19.75488h3.25977l7.21191,16.5332Z" transform="translate(-5)"/>
+                    <path d="M723.19922,82.06445h3.10742l7.51855,11.124,7.48047-11.124H744.374v19.832H741.4209V86.667l-7.5957,11.00977H733.71l-7.59473-10.9707v15.19043h-2.916Z" transform="translate(-5)"/>
+                    <path d="M750.0498,82.06445h2.9541V90.542h11.85352V82.06445h2.915v19.832h-2.915V93.22656H753.00391v8.66992h-2.9541Z" transform="translate(-5)"/>
+                    <path d="M776.40332,88.89258h6.06055c4.834,0,7.78711,2.49316,7.78711,6.44434v.07617c0,3.875-2.877,6.4834-7.90234,6.4834h-8.89941v-19.832h2.9541Zm0,10.47168h5.90723c3.33789,0,4.94824-1.49609,4.94824-3.98926,0-2.417-1.61035-3.98926-4.91016-3.98926h-5.94531Zm17.49219-17.2998h2.9541v19.832h-2.9541Z" transform="translate(-5)"/>
+                    <path d="M801.25879,92.03809v-.07715c0-5.71582,4.02832-10.31836,9.51367-10.31836,5.86914,0,9.24512,4.67969,9.24512,10.47168a7.56047,7.56047,0,0,1-.03906.959H804.251c.42188,4.29688,3.45215,6.71387,6.98145,6.71387a8.20946,8.20946,0,0,0,6.25293-2.80078l1.8418,1.64941a10.23922,10.23922,0,0,1-8.1709,3.7207C805.709,102.35645,801.25879,98.17578,801.25879,92.03809Zm15.7666-1.15137c-.30664-3.60547-2.37891-6.751-6.33008-6.751-3.45215,0-6.06055,2.877-6.44434,6.751Z" transform="translate(-5)"/>
+                    <path d="M853.3125,99.21094h2.26367v7.94141h-2.68555v-5.25586H835.168v5.25586h-2.68555V99.21094h2.26367l7.749-17.30078h3.06836Zm-15.53613.07715H850.167l-6.1377-14.42383Z" transform="translate(-5)"/>
+                    <path d="M856.5332,92.03809v-.07715c0-5.71582,4.02832-10.31836,9.51367-10.31836,5.86914,0,9.24512,4.67969,9.24512,10.47168a7.56047,7.56047,0,0,1-.03906.959H859.52539c.42188,4.29688,3.45215,6.71387,6.98145,6.71387a8.20946,8.20946,0,0,0,6.25293-2.80078l1.8418,1.64941a10.23922,10.23922,0,0,1-8.1709,3.7207C860.9834,102.35645,856.5332,98.17578,856.5332,92.03809Zm15.7666-1.15137c-.30664-3.60547-2.37891-6.751-6.33008-6.751-3.45215,0-6.06055,2.877-6.44434,6.751Z" transform="translate(-5)"/>
+                    <path d="M879.50977,82.06445h2.9541V90.542h11.85352V82.06445h2.915v19.832h-2.915V93.22656H882.46387v8.66992h-2.9541Z" transform="translate(-5)"/>
+                    <path d="M902.9082,82.06445h2.9541v6.82813h6.06055c4.834,0,7.78711,2.49316,7.78711,6.44434v.07617c0,3.875-2.877,6.4834-7.90234,6.4834H902.9082Zm8.86133,17.2998c3.33789,0,4.94824-1.49609,4.94824-3.98926,0-2.417-1.61035-3.98926-4.91016-3.98926H905.8623v7.97852Z" transform="translate(-5)"/>
+                    <path d="M923.583,82.06445h14.42383V84.749H926.53711v17.14746H923.583Z" transform="translate(-5)"/>
+                    <path d="M941.49609,82.06445h2.9541V97.44629l12.04492-15.38184H959.334v19.832h-2.915V86.47559l-12.16113,15.4209h-2.76172Z" transform="translate(-5)"/>
+                </g>
+            </g>
+        </g>
+    </svg></div></a><a href="basic-dom-node-properties.html#" onclick="localStorage.bannerBottomDisabled=1;this.parentNode.remove();return false" class="banner-bottom__disable">не показывать</a><img src="https://ad.doubleclick.net/ddm/ad/N366601.1915072JAVASCRIPT.RU/B9719141.132291290;sz=200x200;ord=[timestamp];dc_lat=;dc_rdid=;tag_for_child_directed_treatment=?" style="width:0;height:0;opacity:0"></div><script>!function(){/Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent)||screen.width<1024||"bannerBottomDisabled"in localStorage||(localStorage.bannerBottomShownCount||(localStorage.bannerBottomShownCount=1),document.querySelector(".banner-bottom").style.display="block")}();</script><!--if lang == 'en'--><!--  include /blocks/banner-bottom.en--></div><div class="page__nav-wrap"><a href="searching-elements-internals.html" data-tooltip="Внутреннее устройство поисковых методов" class="page__nav page__nav_prev"><span class="page__nav-text"><span class="page__nav-text-shortcut"></span></span><span class="page__nav-text-alternate">Предыдущий урок</span></a><a href="dom-polyfill.html" data-tooltip="Современный DOM: полифиллы" class="page__nav page__nav_next"><span class="page__nav-text"><span class="page__nav-text-shortcut"></span></span><span class="page__nav-text-alternate">Следующий урок</span></a></div><div class="article-tablet-foot tablet-only"><div class="article-tablet-foot__layout"><div class="share-icons"><span class="share-icons__title">Поделиться</span><a href="https://twitter.com/share?url=https%3A%2F%2Flearn.javascript.ru%2Fbasic-dom-node-properties" class="share share_tw"></a><a href="https://www.facebook.com/sharer/sharer.php?s=100&amp;p%5Burl%5D=https%3A%2F%2Flearn.javascript.ru%2Fbasic-dom-node-properties" class="share share_fb"></a><a href="https://plus.google.com/share?url=https%3A%2F%2Flearn.javascript.ru%2Fbasic-dom-node-properties" class="share share_gp"></a><a href="https://vkontakte.ru/share.php?url=https%3A%2F%2Flearn.javascript.ru%2Fbasic-dom-node-properties" class="share share_vk"></a></div><div class="article-tablet-foot__map"><a href="tutorial/map.html" data-action="tutorial-map" class="map"><span class="map__text">Карта учебника</span></a></div></div></div><div id="comments" class="comments"><div class="comments__header"><h2 class="comments__header-title"><a href="basic-dom-node-properties.html#comments" name="comments">Комментарии</a></h2><div class="comments__read-before"><span class="comments__read-before-link">перед тем как писать…</span><div class="comments__read-before-popup"><div class="comments__read-before-popup-i"><ul><li>Приветствуются комментарии, содержащие дополнения и вопросы по статье, и ответы на них.</li><li>Для одной строки кода используйте тег <code>&lt;code&gt;</code>, для нескольких строк кода&nbsp;&mdash; тег <code>&lt;pre&gt;</code>, если больше 10 строк&nbsp;&mdash; ссылку на песочницу (<a href='http://plnkr.co/edit/?p=preview'>plnkr</a>, <a href='http://jsbin.com'>JSBin</a>, <a href='http://codepen.io'>codepen</a>…)</li><li>Если что-то непонятно в статье&nbsp;&mdash; пишите, что именно и с какого места.</li></ul></div></div></div></div></div><div id="disqus_thread"></div><script>var disqus_config = function() { if (!this.page) this.page = {}; Object.assign(this.page, {"url":"https:\/\/learn.javascript.ru\/basic-dom-node-properties","identifier":"\/basic-dom-node-properties","title":"\u0421\u0432\u043e\u0439\u0441\u0442\u0432\u0430 \u0443\u0437\u043b\u043e\u0432: \u0442\u0438\u043f, \u0442\u0435\u0433 \u0438 \u0441\u043e\u0434\u0435\u0440\u0436\u0438\u043c\u043e\u0435"}); };</script><script>var disqus_shortname = "learnjavascriptru";</script><script>{
+  var s = document.createElement('script');
+  s.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+  s.setAttribute('data-timestamp', +new Date());
+  document.head.appendChild(s);
+}
+</script><script async id="dsq-count-scr" src="https://learnjavascriptru.disqus.com/count.js"></script></main></div><div class="page__sidebar sidebar sidebar_sticky-footer"><button data-sidebar-toggle class="sidebar__toggle"></button><a href="tutorial/map.html" data-action="tutorial-map" data-tooltip="Карта учебника" class="map"></a><div class="sidebar__inner"><div class="sidebar__content"><div class="sidebar__section"><h4 class="sidebar__section-title">Раздел</h4><nav class="sidebar__navigation"><ul class="sidebar__navigation-links"><li class="sidebar__navigation-link"><a href="document.html" class="sidebar__link">Документ и объекты страницы</a></li></ul></nav></div><div class="sidebar__section"><h4 class="sidebar__section-title">Навигация по уроку</h4><nav class="sidebar__navigation"><ul class="sidebar__navigation-links"><li class="sidebar__navigation-link"><a href="basic-dom-node-properties.html#классы-иерархия-dom" class="sidebar__link">Классы, иерархия DOM</a></li><li class="sidebar__navigation-link"><a href="basic-dom-node-properties.html#тип-nodetype" class="sidebar__link">Тип: nodeType</a></li><li class="sidebar__navigation-link"><a href="basic-dom-node-properties.html#тег-nodename-и-tagname" class="sidebar__link">Тег: nodeName и tagName</a></li><li class="sidebar__navigation-link"><a href="basic-dom-node-properties.html#innerhtml-содержимое-элемента" class="sidebar__link">innerHTML: содержимое элемента</a></li><li class="sidebar__navigation-link"><a href="basic-dom-node-properties.html#outerhtml-html-элемента-целиком" class="sidebar__link">outerHTML: HTML элемента целиком</a></li><li class="sidebar__navigation-link"><a href="basic-dom-node-properties.html#nodevalue-data-содержимое-текстового-узла" class="sidebar__link">nodeValue/data: содержимое текстового узла</a></li><li class="sidebar__navigation-link"><a href="basic-dom-node-properties.html#текст-textcontent" class="sidebar__link">Текст: textContent</a></li><li class="sidebar__navigation-link"><a href="basic-dom-node-properties.html#свойство-hidden" class="sidebar__link">Свойство hidden</a></li><li class="sidebar__navigation-link"><a href="basic-dom-node-properties.html#исследование-элементов" class="sidebar__link">Исследование элементов</a></li><li class="sidebar__navigation-link"><a href="basic-dom-node-properties.html#итого" class="sidebar__link">Итого</a></li></ul></nav></div><div class="sidebar__section"><nav class="sidebar__navigation"><ul class="sidebar__navigation-links"><li class="sidebar__navigation-link"><a href="basic-dom-node-properties.html#tasks" class="sidebar__link">Задачи (4)</a></li><li class="sidebar__navigation-link"><a href="basic-dom-node-properties.html#comments" class="sidebar__link">Комментарии</a></li></ul></nav></div><div class="sidebar__section"><div class="sidebar__section-title">Поделиться</div><a href="https://twitter.com/share?url=https%3A%2F%2Flearn.javascript.ru%2Fbasic-dom-node-properties" class="share share_tw sidebar__share"></a><a href="https://www.facebook.com/sharer/sharer.php?s=100&amp;p%5Burl%5D=https%3A%2F%2Flearn.javascript.ru%2Fbasic-dom-node-properties" class="share share_fb sidebar__share"></a><a href="https://plus.google.com/share?url=https%3A%2F%2Flearn.javascript.ru%2Fbasic-dom-node-properties" class="share share_gp sidebar__share"></a><a href="https://vkontakte.ru/share.php?url=https%3A%2F%2Flearn.javascript.ru%2Fbasic-dom-node-properties" class="share share_vk sidebar__share"></a></div><div class="sidebar__section"><a href="https://github.com/iliakan/javascript-tutorial-ru/tree/master/2-ui/1-document/7-basic-dom-node-properties/article.md" class="sidebar__link">Редактировать на Github</a></div></div></div></div></div></div><div class="page-footer"><div class="page-footer__left"><ul class="page-footer__list"><li class="page-footer__item">©&nbsp;2007—2017&nbsp; Илья Кантор</li><li class="page-footer__item"><a href="about.html#contact-us" class="page-footer__link">связаться с нами</a></li><li class="page-footer__item"><a href="about.html" class="page-footer__link">о проекте</a></li><li class="page-footer__item"><a href="agreement.html" class="page-footer__link">соглашение</a></li><li class="page-footer__item"><a href="http://slack.javascript.ru" class="page-footer__slack">slack-чат</a></li></ul></div><div class="page-footer__right"><ul class="page-footer__list"><li class="page-footer__item">powered by <a rel="nofollow" href="http://nodejs.org" class="page-footer__link">node.js</a>&nbsp;&amp;&nbsp;<a rel="nofollow" href="http://github.com/iliakan/javascript-tutorial-ru" class="page-footer__link">open source</a></li></ul></div></div></body></html>

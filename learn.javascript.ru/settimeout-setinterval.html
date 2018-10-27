@@ -1,0 +1,939 @@
+<!DOCTYPE html><html lang="ru"><head><script>window.currentUser = null;</script><script>window.rateUsdRub = 57.029;</script><title itemprop="name">setTimeout и setInterval</title><meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=yes, minimum-scale=1.0"><meta name="apple-mobile-web-app-capable" content="yes"><script>if (window.devicePixelRatio > 1) document.cookie = 'pixelRatio=' + window.devicePixelRatio + ';path=/;expires=Tue, 19 Jan 2038 03:14:07 GMT';</script><link href="https://fonts.googleapis.com/css?family=Open+Sans:400italic,700italic,400,700%7COpen+Sans+Condensed:700&amp;subset=latin,latin-ext,cyrillic,cyrillic-ext" rel="stylesheet"><link rel="apple-touch-icon-precomposed" href="img/favicon/apple-touch-icon-precomposed.png"><link rel="canonical" href="settimeout-setinterval.html"><meta name="msapplication-TileColor" content="#222A2C"><meta name="msapplication-TileImage" content="/img/favicon/tileicon.png"><!-- favicon the rest--><link rel="icon" href="img/favicon/favicon.png"><meta itemprop="image" content="https://learn.javascript.ru/img/logo_square_ru.png"><meta property="og:title" content="setTimeout и setInterval"><meta property="og:image" content="https://learn.javascript.ru/img/logo_square_ru.png"><meta property="fb:admins" content="100001562528165"><meta name="twitter:card" content="summary"><meta name="twitter:title" content="setTimeout и setInterval"><meta name="twitter:site" content="@iliakan"><meta name="twitter:creator" content="@iliakan"><meta name="twitter:image" content="https://learn.javascript.ru/img/logo_square_ru.png"><link href="pack/styles.46d1c22c6f8f406dd057a0a89e7ca6ba.css" rel="stylesheet"><link rel="prev" href="json.html"><link rel="next" href="eval.html"><script>window.GA_ID = "UA-2056213-16";</script><script>window.YANDEX_METRIKA_ID = 17649010;</script><script>window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)},ga.l=Date.now(),ga("create",GA_ID,"auto"),window.currentUser&&ga("set","&uid",currentUser.id),ga("send","pageview"),window.addEventListener("error",function(e){var r=(e.filename||e.errorUrl)+": "+(e.lineno||e.errorLine),a=e.stack||e.error&&e.error.stack;ga("send","exception",{exDescription:e.message+" "+r+" "+a,exFatal:!0})});</script><script src="https://www.google-analytics.com/analytics.js" async></script><script>ga('send', 'pageview');</script><script>!function(){window.metrika={reachGoal:function(){}},window.yandex_metrika_callbacks=[function(){try{window.metrika=new Ya.Metrika({id:YANDEX_METRIKA_ID,webvisor:!0,clickmap:!0,params:{user:window.currentUser&&window.currentUser.id}}),metrika.trackLinks({delay:150}),window.addEventListener("error",function(r){window.metrika.reachGoal("JSERROR",{src:(r.filename||r.errorUrl)+": "+(r.lineno||r.errorLine),stack:r.stack||r.error&&r.error.stack,message:r.message})})}catch(r){}}]}();</script><script src="https://mc.yandex.ru/metrika/watch.js" async></script><script>//- hitCallback will never work, but that must be worked around by gaHitCallback wrapper
+window.ga = function() {};</script><script>window.metrika = { reachGoal: function() {} };</script><script>window.RECAPTCHA_ID = "6Lf9NyETAAAAACZlg-a9Us2SxvYbeVC1ROWaWv4O";</script><script src="pack/head.30bfc7bc47478d473464.js"></script><meta property="og:title" content="setTimeout и setInterval"><meta property="og:type" content="article"><script src="pack/tutorial.30bfc7bc47478d473464.js" defer></script><script src="pack/footer.30bfc7bc47478d473464.js" defer></script></head><body class="no-icons"><script>head.fontTest();</script><div class="page-wrapper page-wrapper_sidebar_on"><!--[if lt IE 10]><div style="color:red;text-align:center">Извините, IE&lt;10 не поддерживается, пожалуйста используйте более новый браузер.</div><![endif]--><div class="sitetoolbar sitetoolbar_tutorial"><!-- include ./notification-stripe--><div class="sitetoolbar__content"><div class="sitetoolbar__logo-wrap"><a href="tutorial.1.html" class="sitetoolbar__link sitetoolbar__link_logo"><img src="img/sitetoolbar__logo_ru.svg" width="171" class="sitetoolbar__logo sitetoolbar__logo_normal" alt=""><img src="img/sitetoolbar__logo_small_ru.svg" width="80" class="sitetoolbar__logo sitetoolbar__logo_small" alt=""><script>!function(){Array.prototype.forEach.call(document.querySelectorAll("img.sitetoolbar__logo"),function(e){var t=document.createElement("object");t.type="image/svg+xml",t.className=e.className,t.style.cssText="left:0;top:0;position:absolute",t.onload=function(){t.onload=null,e.style.visibility="hidden"},t.data=e.src,e.parentNode.insertBefore(t,e)})}();</script></a></div><div class="sitetoolbar__nav-toggle-wrap"><button onclick="document.querySelector('.sitetoolbar').classList.toggle('sitetoolbar_menu_open')" type="button" class="sitetoolbar__nav-toggle"></button></div><nav class="sitetoolbar__sections"><ul class="sitetoolbar__sections-list"><li class="sitetoolbar__section sitetoolbar__section_current"><a href="tutorial.1.html" class="sitetoolbar__link">Учебник</a></li><li class="sitetoolbar__section"><a href="courses.html" class="sitetoolbar__link">Курсы</a></li><li class="sitetoolbar__section"><a href="https://javascript.ru/forum/" class="sitetoolbar__link">Форум</a></li><li class="sitetoolbar__section"><a href="https://es5.javascript.ru" class="sitetoolbar__link">ES5</a></li><li class="sitetoolbar__section"><a href="https://javascript.ru/manual" class="sitetoolbar__link">Справочник</a></li><li class="sitetoolbar__section"><a href="quiz.html" class="sitetoolbar__link">Тесты знаний</a></li><li class="sitetoolbar__section sitetoolbar__section_dropdown"><button data-dropdown-toggler class="sitetoolbar__dropdown-button">Скринкасты</button><div class="sitetoolbar__dropdown-wrap"><div class="sitetoolbar__dropdown-body"><ul class="sitetoolbar__dropdown-items"><li class="sitetoolbar__dropdown-item"><a href="screencast/nodejs.html" class="sitetoolbar__dropdown-link sitetoolbar__secondary-link">Node.JS</a></li><li class="sitetoolbar__dropdown-item"><a href="screencast/webpack.html" class="sitetoolbar__dropdown-link sitetoolbar__secondary-link">Webpack</a></li><li class="sitetoolbar__dropdown-item"><a href="screencast/gulp.html" class="sitetoolbar__dropdown-link sitetoolbar__secondary-link">Gulp 4</a></li></ul></div></div></li></ul></nav><div class="sitetoolbar__book-wrap"><a href="ebook.html" class="buy-book-button">Купить EPUB/PDF</a></div><div class="sitetoolbar__login-wrap"><button data-action-login class="sitetoolbar__login"></button></div><div class="sitetoolbar__search-wrap"><div class="sitetoolbar__search-content"><form method="GET" action="https://learn.javascript.ru/search" class="sitetoolbar__search"><button type="button" class="sitetoolbar__search-toggle"></button><div class="sitetoolbar__search-input"><div class="text-input"><input name="query" placeholder="Искать на Javascript.ru" class="text-input__control" type="text"></div><button type="submit" class="sitetoolbar__find">Найти</button></div></form></div></div></div><!-- todo: en variant--><div class="tablet-menu"><div class="tablet-menu__line"><div class="tablet-menu__content"><select onchange="if(this.value) window.location.href=this.value" class="input-select input-select_small tablet-menu__nav"><option value="/tutorial" selected>Учебник</option><option value="/courses">Курсы</option><option value="https://javascript.ru/forum/">Форум</option><option value="https://es5.javascript.ru">ES5</option><option value="https://javascript.ru/manual">Справочник</option><option value="/quiz">Тесты знаний</option><option value="/screencast/gulp">Скринкаст по Gulp</option><option value="/screencast/webpack">Скринкаст по Webpack</option><option value="/screencast/nodejs">Скринкаст по Node.JS</option></select></div></div><div class="tablet-menu__line"><div class="tablet-menu__content"><a href="tutorial/map.html" data-action="tutorial-map" class="map"><span class="map__text">Карта учебника</span></a></div></div><div class="tablet-menu__line"><div class="tablet-menu__content"><a href="ebook.html" class="tablet-ebook"><span class="tablet-ebook__text">Купить учебник</span><span class="tablet-ebook__note">(EPUB + PDF)</span></a></div></div><div class="tablet-menu__line"><div class="tablet-menu__content"><div class="share-icons"><span class="share-icons__title">Поделиться</span><a href="https://twitter.com/share?url=https%3A%2F%2Flearn.javascript.ru%2Fsettimeout-setinterval" class="share share_tw"></a><a href="https://www.facebook.com/sharer/sharer.php?s=100&amp;p%5Burl%5D=https%3A%2F%2Flearn.javascript.ru%2Fsettimeout-setinterval" class="share share_fb"></a><a href="https://plus.google.com/share?url=https%3A%2F%2Flearn.javascript.ru%2Fsettimeout-setinterval" class="share share_gp"></a><a href="https://vkontakte.ru/share.php?url=https%3A%2F%2Flearn.javascript.ru%2Fsettimeout-setinterval" class="share share_vk"></a></div></div></div></div><progress data-sticky value="58" max="86" data-tooltip="Урок 58 из 86" class="tutorial-progress"></progress></div><div class="page page_sidebar_on"><script>if(localStorage.noSidebar){document.querySelector(".page").classList.remove("page_sidebar_on");var pageWrapper=document.querySelector(".page-wrapper");pageWrapper&&pageWrapper.classList.remove("page-wrapper_sidebar_on")}setTimeout(function(){document.querySelector(".page").classList.add("page_sidebar-animation-on")},0);</script><div class="page__inner"><main class="main main_width-limit"><header class="main__header"><ol class="breadcrumbs"><li itemscope itemtype="http://data-vocabulary.org/Breadcrumb" itemref="breadcrumb-1" class="breadcrumbs__item breadcrumbs__item_home"><a href="tutorial.1.html" itemprop="url" class="breadcrumbs__link"><span itemprop="title" class="breadcrumbs__hidden-text">Учебник</span></a></li><li id="breadcrumb-1" itemscope itemtype="http://data-vocabulary.org/Breadcrumb" itemref="breadcrumb-2" itemprop="child" class="breadcrumbs__item"><a href="js.html" itemprop="url" class="breadcrumbs__link"><span itemprop="title">Язык JavaScript</span></a></li><li id="breadcrumb-2" itemscope itemtype="http://data-vocabulary.org/Breadcrumb" itemprop="child" class="breadcrumbs__item"><a href="js-misc.html" itemprop="url" class="breadcrumbs__link"><span itemprop="title">Некоторые другие возможности</span></a></li></ol><h1 class="main__header-title">setTimeout и setInterval</h1></header><div class="content"><article itemscope itemtype="http://schema.org/TechArticle"><meta itemprop="name" content="setTimeout и setInterval"><div itemprop="author" itemscope itemtype="http://schema.org/Person"><meta itemprop="email" content="iliakan@gmail.com"><meta itemprop="name" content="Ilya Kantor"></div><div itemprop="articleBody"><p>Почти все реализации JavaScript имеют внутренний таймер-планировщик, который позволяет задавать вызов функции через заданный период времени.</p>
+<p>В частности, эта возможность поддерживается в браузерах и в сервере Node.JS.</p>
+<cut>
+<h2><a class="main__anchor" name="settimeout" href="settimeout-setinterval.html#settimeout">setTimeout</a></h2><p>Синтаксис:</p>
+<div data-trusted="1" class="code-example">
+      <div class="codebox code-example__codebox">
+        
+        <div class="codebox__code" data-code="1">
+          <pre class="line-numbers language-javascript"><code class="language-javascript">var timerId = setTimeout(func / code, delay[, arg1, arg2...])</code></pre>
+        </div>
+      </div>
+      
+      </div><p>Параметры:</p>
+<dl>
+<dt><code>func/code</code></dt>
+<dd>Функция или строка кода для исполнения.
+Строка поддерживается для совместимости, использовать её не рекомендуется.</dd>
+<dt><code>delay</code></dt>
+<dd>Задержка в миллисекундах, 1000 миллисекунд равны 1 секунде.</dd>
+<dt><code>arg1</code>, <code>arg2</code>…</dt>
+<dd>Аргументы, которые нужно передать функции. Не поддерживаются в IE9-.</dd>
+</dl>
+<p>Исполнение функции произойдёт спустя время, указанное в параметре <code>delay</code>.</p>
+<p>Например, следующий код вызовет <code>func()</code> через одну секунду:</p>
+<div data-trusted="1" class="code-example" data-highlight-block="4-4">
+      <div class="codebox code-example__codebox">
+        
+        <div class="toolbar codebox__toolbar">
+          <div class="toolbar__tool">
+            <a href="settimeout-setinterval.html#" title="выполнить" data-action="run" class="toolbar__button toolbar__button_run"></a>
+          </div>
+          <div class="toolbar__tool">
+            <a href="settimeout-setinterval.html#" title="открыть в песочнице" target="_blank" data-action="edit" class="toolbar__button toolbar__button_edit"></a>
+          </div>
+        </div>
+        <div class="codebox__code" data-code="1">
+          <pre class="line-numbers language-javascript"><code class="language-javascript">function func() {
+  alert( 'Привет' );
+}
+
+setTimeout(func, 1000);</code></pre>
+        </div>
+      </div>
+      
+      </div><p>С передачей аргументов (не сработает в IE9-):</p>
+<div data-trusted="1" class="code-example" data-highlight-block="4-4">
+      <div class="codebox code-example__codebox">
+        
+        <div class="toolbar codebox__toolbar">
+          <div class="toolbar__tool">
+            <a href="settimeout-setinterval.html#" title="выполнить" data-action="run" class="toolbar__button toolbar__button_run"></a>
+          </div>
+          <div class="toolbar__tool">
+            <a href="settimeout-setinterval.html#" title="открыть в песочнице" target="_blank" data-action="edit" class="toolbar__button toolbar__button_edit"></a>
+          </div>
+        </div>
+        <div class="codebox__code" data-code="1">
+          <pre class="line-numbers language-javascript"><code class="language-javascript">function func(phrase, who) {
+  alert( phrase + ', ' + who );
+}
+
+setTimeout(func, 1000, &quot;Привет&quot;, &quot;Вася&quot;); // Привет, Вася</code></pre>
+        </div>
+      </div>
+      
+      </div><p>Если первый аргумент является строкой, то интерпретатор создаёт анонимную функцию из этой строки.</p>
+<p>То есть такая запись тоже сработает:</p>
+<div data-trusted="1" class="code-example">
+      <div class="codebox code-example__codebox">
+        
+        <div class="toolbar codebox__toolbar">
+          <div class="toolbar__tool">
+            <a href="settimeout-setinterval.html#" title="выполнить" data-action="run" class="toolbar__button toolbar__button_run"></a>
+          </div>
+          <div class="toolbar__tool">
+            <a href="settimeout-setinterval.html#" title="открыть в песочнице" target="_blank" data-action="edit" class="toolbar__button toolbar__button_edit"></a>
+          </div>
+        </div>
+        <div class="codebox__code" data-code="1">
+          <pre class="line-numbers language-javascript"><code class="language-javascript">setTimeout(&quot;alert('Привет')&quot;, 1000);</code></pre>
+        </div>
+      </div>
+      
+      </div><p>Однако, использование строк не рекомендуется, так как они могут вызвать проблемы при минимизации кода, и, вообще, сама возможность использовать строку сохраняется лишь для совместимости.</p>
+<p>Вместо них используйте анонимные функции, вот так:</p>
+<div data-trusted="1" class="code-example">
+      <div class="codebox code-example__codebox">
+        
+        <div class="toolbar codebox__toolbar">
+          <div class="toolbar__tool">
+            <a href="settimeout-setinterval.html#" title="выполнить" data-action="run" class="toolbar__button toolbar__button_run"></a>
+          </div>
+          <div class="toolbar__tool">
+            <a href="settimeout-setinterval.html#" title="открыть в песочнице" target="_blank" data-action="edit" class="toolbar__button toolbar__button_edit"></a>
+          </div>
+        </div>
+        <div class="codebox__code" data-code="1">
+          <pre class="line-numbers language-javascript"><code class="language-javascript">setTimeout(function() { alert('Привет') }, 1000);</code></pre>
+        </div>
+      </div>
+      
+      </div><h3><a class="main__anchor" name="отмена-исполнения-cleartimeout" href="settimeout-setinterval.html#отмена-исполнения-cleartimeout">Отмена исполнения clearTimeout</a></h3><p>Функция <code>setTimeout</code> возвращает числовой идентификатор таймера <code>timerId</code>, который можно использовать для отмены действия.</p>
+<p>Синтаксис:</p>
+<div data-trusted="1" class="code-example">
+      <div class="codebox code-example__codebox">
+        
+        <div class="codebox__code" data-code="1">
+          <pre class="line-numbers language-javascript"><code class="language-javascript">var timerId = setTimeout(...);
+clearTimeout(timerId);</code></pre>
+        </div>
+      </div>
+      
+      </div><p>В следующем примере мы ставим таймаут, а затем удаляем (передумали). В результате ничего не происходит.</p>
+<div data-trusted="1" class="code-example">
+      <div class="codebox code-example__codebox">
+        
+        <div class="toolbar codebox__toolbar">
+          <div class="toolbar__tool">
+            <a href="settimeout-setinterval.html#" title="выполнить" data-action="run" class="toolbar__button toolbar__button_run"></a>
+          </div>
+          <div class="toolbar__tool">
+            <a href="settimeout-setinterval.html#" title="открыть в песочнице" target="_blank" data-action="edit" class="toolbar__button toolbar__button_edit"></a>
+          </div>
+        </div>
+        <div class="codebox__code" data-code="1">
+          <pre class="line-numbers language-javascript"><code class="language-javascript">var timerId = setTimeout(function() { alert(1) }, 1000);
+alert(timerId); // число - идентификатор таймера
+
+clearTimeout(timerId);
+alert(timerId); // всё ещё число, оно не обнуляется после отмены</code></pre>
+        </div>
+      </div>
+      
+      </div><p>Как видно из <code>alert</code>, в браузере идентификатор таймера является обычным числом. Другие JavaScript-окружения, например Node.JS, могут возвращать объект таймера, с дополнительными методами.</p>
+<p><strong>Такие разночтения вполне соответствуют стандарту просто потому, что в спецификации JavaScript про таймеры нет ни слова.</strong></p>
+<p>Таймеры – это надстройка над JavaScript, которая описана в <a href="http://www.w3.org/TR/html5/webappapis.html#timers">секции Timers</a> стандарта HTML5 для браузеров и в <a href="http://nodejs.org/docs/latest/api/timers.html">документации к Node.JS</a> – для сервера.</p>
+<h2><a class="main__anchor" name="setinterval" href="settimeout-setinterval.html#setinterval">setInterval</a></h2><p>Метод <code>setInterval</code> имеет синтаксис, аналогичный <code>setTimeout</code>.</p>
+<div data-trusted="1" class="code-example">
+      <div class="codebox code-example__codebox">
+        
+        <div class="codebox__code" data-code="1">
+          <pre class="line-numbers language-javascript"><code class="language-javascript">var timerId = setInterval(func / code, delay[, arg1, arg2...])</code></pre>
+        </div>
+      </div>
+      
+      </div><p>Смысл аргументов – тот же самый. Но, в отличие от <code>setTimeout</code>, он запускает выполнение функции не один раз, а  регулярно повторяет её через указанный интервал времени. Остановить исполнение можно вызовом <code>clearInterval(timerId)</code>.</p>
+<p>Следующий пример при запуске станет выводить сообщение каждые две секунды, пока не пройдёт 5 секунд:</p>
+<div data-trusted="1" class="code-example">
+      <div class="codebox code-example__codebox">
+        
+        <div class="toolbar codebox__toolbar">
+          <div class="toolbar__tool">
+            <a href="settimeout-setinterval.html#" title="выполнить" data-action="run" class="toolbar__button toolbar__button_run"></a>
+          </div>
+          <div class="toolbar__tool">
+            <a href="settimeout-setinterval.html#" title="открыть в песочнице" target="_blank" data-action="edit" class="toolbar__button toolbar__button_edit"></a>
+          </div>
+        </div>
+        <div class="codebox__code" data-code="1">
+          <pre class="line-numbers language-javascript"><code class="language-javascript">// начать повторы с интервалом 2 сек
+var timerId = setInterval(function() {
+  alert( &quot;тик&quot; );
+}, 2000);
+
+// через 5 сек остановить повторы
+setTimeout(function() {
+  clearInterval(timerId);
+  alert( 'стоп' );
+}, 5000);</code></pre>
+        </div>
+      </div>
+      
+      </div><div class="important important_smart">
+            <div class="important__header"><span class="important__type">Модальные окна замораживают время в Chrome/Opera/Safari</span></div>
+            <div class="important__content"><p>Что будет, если долго не жать <code>OK</code> на появившемся <code>alert</code>? Это зависит от браузера.</p>
+<p>В браузерах Chrome, Opera и Safari внутренний таймер «заморожен» во время показа <code>alert/confirm/prompt</code>. А вот в IE и Firefox внутренний таймер продолжит идти.</p>
+<p>Поэтому, если закрыть <code>alert</code> после небольшой паузы, то в Firefox/IE следующий <code>alert</code> будет показан сразу же (время подошло), а в Chrome/Opera/Safari – только через 2 секунды после закрытия.</p>
+</div></div>
+<h3><a class="main__anchor" name="рекурсивный-settimeout" href="settimeout-setinterval.html#рекурсивный-settimeout">Рекурсивный setTimeout</a></h3><p>Важная альтернатива <code>setInterval</code> – рекурсивный <code>setTimeout</code>:</p>
+<div data-trusted="1" class="code-example" data-highlight-block="8-8">
+      <div class="codebox code-example__codebox">
+        
+        <div class="codebox__code" data-code="1">
+          <pre class="line-numbers language-javascript"><code class="language-javascript">/** вместо:
+var timerId = setInterval(function() {
+  alert( &quot;тик&quot; );
+}, 2000);
+*/
+
+var timerId = setTimeout(function tick() {
+  alert( &quot;тик&quot; );
+  timerId = setTimeout(tick, 2000);
+}, 2000);</code></pre>
+        </div>
+      </div>
+      
+      </div><p>В коде выше следующее выполнение планируется сразу после окончания предыдущего.</p>
+<p><strong>Рекурсивный <code>setTimeout</code> – более гибкий метод тайминга, чем <code>setInterval</code>, так как время до следующего выполнения можно запланировать по-разному, в зависимости от результатов текущего.</strong></p>
+<p>Например, у нас есть сервис, который раз в 5 секунд опрашивает сервер на предмет новых данных. В случае, если сервер перегружен, можно увеличивать интервал опроса до 10, 20, 60 секунд… А потом вернуть обратно, когда всё нормализуется.</p>
+<p>Если у нас регулярно проходят грузящие процессор задачи, то мы можем оценивать время, потраченное на их выполнение, и планировать следующий запуск раньше или позже.</p>
+<p><strong>Рекурсивный <code>setTimeout</code> гарантирует паузу между вызовами, <code>setInterval</code> – нет.</strong></p>
+<p>Давайте сравним два кода. Первый использует <code>setInterval</code>:</p>
+<div data-trusted="1" class="code-example">
+      <div class="codebox code-example__codebox">
+        
+        <div class="codebox__code" data-code="1">
+          <pre class="line-numbers language-javascript"><code class="language-javascript">var i = 1;
+setInterval(function() {
+  func(i);
+}, 100);</code></pre>
+        </div>
+      </div>
+      
+      </div><p>Второй использует рекурсивный <code>setTimeout</code>:</p>
+<div data-trusted="1" class="code-example">
+      <div class="codebox code-example__codebox">
+        
+        <div class="codebox__code" data-code="1">
+          <pre class="line-numbers language-javascript"><code class="language-javascript">var i = 1;
+setTimeout(function run() {
+  func(i);
+  setTimeout(run, 100);
+}, 100);</code></pre>
+        </div>
+      </div>
+      
+      </div><p>При <code>setInterval</code> внутренний таймер будет срабатывать чётко каждые <code>100</code> мс и вызывать <code>func(i)</code>:</p>
+<figure><div class="image" style="width:570px">
+      <div class="image__ratio" style="padding-top:32.10526315789474%"></div>
+      <img src="article/settimeout-setinterval/setinterval-interval.png" alt="" width="570" height="183" class="image__image">
+      </div></figure><p>Вы обратили внимание?…</p>
+<p><strong>Реальная пауза между вызовами <code>func</code> при <code>setInterval</code> меньше, чем указана в коде!</strong></p>
+<p>Это естественно, ведь время работы функции никак не учитывается, оно «съедает» часть интервала.</p>
+<p>Возможно и такое что <code>func</code> оказалась сложнее, чем мы рассчитывали и выполнялась дольше, чем 100 мс.</p>
+<p>В этом случае интерпретатор будет ждать, пока функция завершится, затем проверит таймер и, если время вызова <code>setInterval</code> уже подошло (или прошло), то следующий вызов произойдёт <em>сразу же</em>.</p>
+<p><strong>Если функция и выполняется дольше, чем пауза <code>setInterval</code>, то вызовы будут происходить вообще без перерыва.</strong></p>
+<p>Исключением является IE, в котором таймер «застывает» во время выполнения JavaScript.</p>
+<p>А так будет выглядеть картинка с рекурсивным <code>setTimeout</code>:</p>
+<figure><div class="image" style="width:574px">
+      <div class="image__ratio" style="padding-top:35.54006968641115%"></div>
+      <img src="article/settimeout-setinterval/settimeout-interval.png" alt="" width="574" height="204" class="image__image">
+      </div></figure><p><strong>При рекурсивном <code>setTimeout</code> задержка всегда фиксирована и равна 100 мс.</strong></p>
+<p>Это происходит потому, что каждый новый запуск планируется только после окончания текущего.</p>
+<div class="important important_smart">
+            <div class="important__header"><span class="important__type">Управление памятью</span></div>
+            <div class="important__content"><p>Сборщик мусора в JavaScript не чистит функции, назначенные в таймерах, пока таймеры актуальны.</p>
+<p>При передаче функции в <code>setInterval/setTimeout</code> создаётся внутренняя ссылка на неё, через которую браузер её будет запускать, и которая препятствует удалению из памяти, даже если функция анонимна.</p>
+<div data-trusted="1" class="code-example">
+      <div class="codebox code-example__codebox">
+        
+        <div class="codebox__code" data-code="1">
+          <pre class="line-numbers language-javascript"><code class="language-javascript">// Функция будет жить в памяти, пока не сработал (или не был очищен) таймер
+setTimeout(function() {}, 100);</code></pre>
+        </div>
+      </div>
+      
+      </div><ul>
+<li>Для <code>setTimeout</code> – внутренняя ссылка исчезнет после исполнения функции.</li>
+<li>Для <code>setInterval</code> – ссылка исчезнет при очистке таймера.</li>
+</ul>
+<p>Так как функция также тянет за собой всё замыкание, то ставшие неактуальными, но не отменённые <code>setInterval</code> могут приводить к излишним тратам памяти.</p>
+</div></div>
+<h2><a class="main__anchor" name="минимальная-задержка-таймера" href="settimeout-setinterval.html#минимальная-задержка-таймера">Минимальная задержка таймера</a></h2><p>У браузерного таймера есть минимальная возможная задержка. Она меняется от примерно нуля до 4 мс в современных браузерах. В более старых она может быть больше и достигать 15 мс.</p>
+<p>По <a href="http://www.w3.org/TR/html5/webappapis.html#timers">стандарту</a>, минимальная задержка составляет 4 мс.  Так что нет разницы между <code>setTimeout(..,1)</code> и <code>setTimeout(..,4)</code>.</p>
+<p>Посмотреть минимальное разрешение «вживую» можно на следующем примере.</p>
+<p><strong>В примере ниже каждая полоска удлиняется вызовом <code>setInterval</code> с указанной на ней задержкой – от 0 мс (сверху) до 20 мс (внизу).</strong></p>
+<p>Позапускайте его в различных браузерах. Вы заметите, что несколько первых полосок анимируются с одинаковой скоростью. Это как раз потому, что слишком маленькие задержки таймер не различает.</p>
+<div class="code-result">
+    <div class="code-result__toolbar toolbar"><div class="toolbar__tool">
+        <a href="https://js.cx/article/settimeout-setinterval/setinterval-anim/" target="_blank" title="открыть в новом окне" class="toolbar__button toolbar__button_external"></a>
+      </div>
+      <div class="toolbar__tool">
+        <a href="http://plnkr.co/edit/Gjvr7zTMPZOPlk9fqykN?p=preview" target="_blank" title="открыть в песочнице"
+        data-plunk-id="Gjvr7zTMPZOPlk9fqykN" class="toolbar__button toolbar__button_edit"></a>
+      </div>
+      </div>
+    <iframe class="code-result__iframe" data-trusted="1" style="height:300px" src="https://js.cx/article/settimeout-setinterval/setinterval-anim/"></iframe>
+  </div><div class="important important_warn">
+            <div class="important__header"><span class="important__type">Важно:</span></div>
+            <div class="important__content"><p>В Internet Explorer, нулевая задержка <code>setInterval(.., 0)</code> не сработает. Это касается именно <code>setInterval</code>, т.е. <code>setTimeout(.., 0)</code> работает нормально.</p>
+</div></div>
+<div class="important important_smart">
+            <div class="important__header"><span class="important__type">Откуда взялись эти 4 мс?</span></div>
+            <div class="important__content"><p>Почему минимальная задержка – 4 мс, а не 1 мс? Зачем она вообще существует?</p>
+<p>Это – «привет» от прошлого. Браузер Chrome как-то пытался убрать минимальную задержку в своих ранних версиях, но оказалось, что существуют сайты, которые используют <code>setTimeout(..,0)</code> рекурсивно, создавая тем самым «асинхронный цикл». И, если задержку совсем убрать, то будет 100% загрузка процессора, такой сайт «подвесит» браузер.</p>
+<p>Поэтому, чтобы не ломать существующие скрипты, решили сделать задержку. По возможности, небольшую. На время создания стандарта оптимальным числом показалось 4 мс.</p>
+</div></div>
+<h2><a class="main__anchor" name="реальная-частота-срабатывания" href="settimeout-setinterval.html#реальная-частота-срабатывания">Реальная частота срабатывания</a></h2><p>В ряде ситуаций таймер будет срабатывать реже, чем обычно. Задержка между вызовами  <code>setInterval(..., 4)</code> может быть не 4 мс, а 30 мс или даже 1000 мс.</p>
+<ul>
+<li>
+<p>Большинство браузеров (десктопных в первую очередь) продолжают выполнять <code>setTimeout/setInterval</code>, даже если вкладка неактивна.</p>
+<p>При этом ряд из них (Chrome, FF, IE10) снижают минимальную частоту таймера, до 1 раза в секунду. Получается, что в «фоновой» вкладке будет срабатывать таймер, но редко.</p>
+</li>
+<li>
+<p>При работе от батареи, в ноутбуке – браузеры тоже могут снижать частоту, чтобы реже выполнять код и экономить заряд батареи. Особенно этим известен IE. Снижение может достигать нескольких раз, в зависимости от настроек.</p>
+</li>
+<li>
+<p>При слишком большой загрузке процессора JavaScript может не успевать обрабатывать таймеры вовремя. При этом некоторые запуски <code>setInterval</code> будут пропущены.</p>
+</li>
+</ul>
+<p><strong>Вывод: на частоту 4 мс стоит ориентироваться, но не стоит рассчитывать.</strong></p>
+<p>Посмотрим снижение частоты в действии на небольшом примере.</p>
+<p>При клике на кнопку ниже запускается <code>setInterval(..., 90)</code>, который выводит список интервалов времени между 25 последними срабатываниями таймера. Запустите его. Перейдите на другую вкладку и вернитесь.</p>
+<div id="timer-interval-log"></div>
+<p><button onclick="timerIntervalLog()">Запустить повтор с интервалом в 90 мс</button>
+<button onclick="clearInterval(timerIntervalLogTimer)">Остановить повтор</button></p>
+<script>
+var timerIntervalLogTimer;
+function timerIntervalLog() {
+  var arr = [];
+  var d = new Date;
+  timerIntervalLogTimer = setInterval(function() {
+    var diff = new Date - d;
+    if (diff > 100) diff = '<span style="color:red">'+diff+'</span>';
+    arr.push( diff );
+    if (arr.length > 25) arr.shift();
+    document.getElementById('timer-interval-log').innerHTML = arr;
+    d = new Date;
+  }, 90);
+}
+</script>
+<p>Если ваш браузер увеличивает таймаут при фоновом выполнении вкладки, то вы увидите увеличенные интервалы, помеченные <span style="color:red">красным</span>.</p>
+<p>Кроме того, вы заметите, что таймер не является идеально точным ;)</p>
+<h2><a class="main__anchor" name="разбивка-долгих-скриптов" href="settimeout-setinterval.html#разбивка-долгих-скриптов">Разбивка долгих скриптов</a></h2><p>Нулевой или небольшой таймаут также используют, чтобы разорвать поток выполнения «тяжелых» скриптов.</p>
+<p>Например, скрипт для подсветки синтаксиса должен проанализировать код, создать много цветных элементов для подсветки и добавить их в документ – на большом файле это займёт много времени, браузер может даже подвиснуть, что неприемлемо.</p>
+<p>Для того, чтобы этого избежать, сложная задача разбивается на части, выполнение каждой части запускается через мини-интервал после предыдущей, чтобы дать браузеру время.</p>
+<p>Например, осуществляется анализ и подсветка первых 100 строк, затем через 20 мс – следующие 100 строк и так далее. При этом можно подстраиваться под CPU посетителя: замерять время на анализ 100 строк и, если процессор хороший, то в следующий раз обработать 200 строк, а если плохой – то 50. В итоге подсветка будет работать с адекватной быстротой и без тормозов на любых текстах и компьютерах.</p>
+<h2><a class="main__anchor" name="итого" href="settimeout-setinterval.html#итого">Итого</a></h2><ul>
+<li>Методы <code>setInterval(func, delay)</code> и <code>setTimeout(func, delay)</code> позволяют запускать <code>func</code> регулярно/один раз через <code>delay</code> миллисекунд.</li>
+<li>Оба метода возвращают идентификатор таймера. Его используют для остановки выполнения вызовом <code>clearInterval/clearTimeout</code>.</li>
+<li>В случаях, когда нужно гарантировать задержку между регулярными вызовами или гибко её менять, вместо <code>setInterval</code> используют рекурсивный <code>setTimeout</code>.</li>
+<li>Минимальная задержка по стандарту составляет <code>4 мс</code>. Браузеры соблюдают этот стандарт, но некоторые другие среды для выполнения JS, например Node.JS, могут предоставить и меньше задержки.</li>
+<li>В реальности срабатывания таймера могут быть гораздо реже, чем назначено, например если процессор перегружен, вкладка находится в фоновом режиме, ноутбук работает от батареи или по какой-то иной причине.</li>
+</ul>
+<p>Браузерных особенностей почти нет, разве что вызов <code>setInterval(..., 0)</code> с нулевой задержкой в IE недопустим, нужно указывать <code>setInterval(..., 1)</code>.</p>
+</div></article><div class="tasks"><h2 id="tasks" class="tasks__title"><a href="settimeout-setinterval.html#tasks" class="main__anchor main__anchor_noicon tasks__title-anchor">Задачи</a></h2><div class="task tasks__task"><div class="task__header"><div class="task__title-wrap"><h3 class="task__title"><a href="settimeout-setinterval.html#вывод-чисел-каждые-100-мс" name="вывод-чисел-каждые-100-мс" class="main__anchor">Вывод чисел каждые 100 мс</a></h3><a href="task/output-numbers-100ms.html" target="_blank" class="task__open-link"></a></div><div class="task__header-note"><span title="Насколько эта задача важна для освоения материала, от 1 до 5" class="task__importance">важность: 5</span></div><div class="task__content"><p>Напишите функцию <code>printNumbersInterval()</code>, которая последовательно выводит в консоль числа от 1 до 20, с интервалом между числами 100 мс. То есть, весь вывод должен занимать 2000 мс, в течение которых каждые 100 мс в консоли появляется очередное число.</p>
+<p>Нажмите на кнопку, открыв консоль, для демонстрации:</p>
+<script>
+function printNumbersInterval() {
+  var i = 1;
+  var timerId = setInterval(function() {
+    console.log(i);
+    if (i == 20) clearInterval(timerId);
+    i++;
+  }, 100);
+}
+</script>
+<p><button onclick="printNumbersInterval()">printNumbersInterval()</button>
+</script></p>
+<p>P.S. Функция должна использовать <code>setInterval</code>.</p>
+<button type="button" class="task__solution">решение</button><div class="task__answer"><div class="task__answer-content"><div data-trusted="1" class="code-example">
+      <div class="codebox code-example__codebox">
+        
+        <div class="toolbar codebox__toolbar">
+          <div class="toolbar__tool">
+            <a href="settimeout-setinterval.html#" title="выполнить" data-action="run" class="toolbar__button toolbar__button_run"></a>
+          </div>
+          <div class="toolbar__tool">
+            <a href="settimeout-setinterval.html#" title="открыть в песочнице" target="_blank" data-action="edit" class="toolbar__button toolbar__button_edit"></a>
+          </div>
+        </div>
+        <div class="codebox__code" data-code="1">
+          <pre class="line-numbers language-javascript"><code class="language-javascript">function printNumbersInterval() {
+  var i = 1;
+  var timerId = setInterval(function() {
+    console.log(i);
+    if (i == 20) clearInterval(timerId);
+    i++;
+  }, 100);
+}
+
+// вызов
+printNumbersInterval();</code></pre>
+        </div>
+      </div>
+      
+      </div></div><button type="button" title="закрыть" class="close-button task__answer-close"></button></div></div></div></div><div class="task tasks__task"><div class="task__header"><div class="task__title-wrap"><h3 class="task__title"><a href="settimeout-setinterval.html#вывод-чисел-каждые-100-мс-через-settimeout" name="вывод-чисел-каждые-100-мс-через-settimeout" class="main__anchor">Вывод чисел каждые 100 мс, через setTimeout</a></h3><a href="task/output-numbers-100ms-settimeout.html" target="_blank" class="task__open-link"></a></div><div class="task__header-note"><span title="Насколько эта задача важна для освоения материала, от 1 до 5" class="task__importance">важность: 5</span></div><div class="task__content"><p>Сделайте то же самое, что в задаче <a href="task/output-numbers-100ms.html">Вывод чисел каждые 100 мс</a>, но с использованием рекурсивного <code>setTimeout</code> вместо <code>setInterval</code>.</p>
+<button type="button" class="task__solution">решение</button><div class="task__answer"><div class="task__answer-content"><div data-trusted="1" class="code-example">
+      <div class="codebox code-example__codebox">
+        
+        <div class="toolbar codebox__toolbar">
+          <div class="toolbar__tool">
+            <a href="settimeout-setinterval.html#" title="выполнить" data-action="run" class="toolbar__button toolbar__button_run"></a>
+          </div>
+          <div class="toolbar__tool">
+            <a href="settimeout-setinterval.html#" title="открыть в песочнице" target="_blank" data-action="edit" class="toolbar__button toolbar__button_edit"></a>
+          </div>
+        </div>
+        <div class="codebox__code" data-code="1">
+          <pre class="line-numbers language-javascript"><code class="language-javascript">function printNumbersTimeout20_100() {
+  var i = 1;
+  var timerId = setTimeout(function go() {
+    console.log(i);
+    if (i &lt; 20) setTimeout(go, 100);
+    i++;
+  }, 100);
+}
+
+// вызов
+printNumbersTimeout20_100();</code></pre>
+        </div>
+      </div>
+      
+      </div></div><button type="button" title="закрыть" class="close-button task__answer-close"></button></div></div></div></div><div class="task tasks__task"><div class="task__header"><div class="task__title-wrap"><h3 class="task__title"><a href="settimeout-setinterval.html#для-подсветки-setinterval-или-settimeout" name="для-подсветки-setinterval-или-settimeout" class="main__anchor">Для подсветки setInterval или setTimeout?</a></h3><a href="task/highlight-tactics.html" target="_blank" class="task__open-link"></a></div><div class="task__header-note"><span title="Насколько эта задача важна для освоения материала, от 1 до 5" class="task__importance">важность: 5</span></div><div class="task__content"><p>Стоит задача: реализовать подсветку синтаксиса в длинном коде при помощи JavaScript, для онлайн-редактора кода. Это требует сложных вычислений, особенно загружает процессор генерация дополнительных элементов страницы, визуально осуществляющих подсветку.</p>
+<p>Поэтому решаем обрабатывать не весь код сразу, что привело бы к зависанию скрипта, а разбить работу на части: подсвечивать по 20 строк раз в 10 мс.</p>
+<p>Как мы знаем, есть два варианта реализации такой подсветки:</p>
+<ol>
+<li>
+<p>Через <code>setInterval</code>, с остановкой по окончании работы:</p>
+<div data-trusted="1" class="code-example">
+      <div class="codebox code-example__codebox">
+        
+        <div class="codebox__code" data-code="1">
+          <pre class="line-numbers language-javascript"><code class="language-javascript">timer = setInterval(function() {
+  if (есть еще что подсветить) highlight();
+  else clearInterval(timer);
+}, 10);</code></pre>
+        </div>
+      </div>
+      
+      </div></li>
+<li>
+<p>Через рекурсивный <code>setTimeout</code>:</p>
+<div data-trusted="1" class="code-example">
+      <div class="codebox code-example__codebox">
+        
+        <div class="codebox__code" data-code="1">
+          <pre class="line-numbers language-javascript"><code class="language-javascript">setTimeout(function go() {
+  highlight();
+  if (есть еще что подсветить) setTimeout(go, 10);
+}, 10);</code></pre>
+        </div>
+      </div>
+      
+      </div></li>
+</ol>
+<p>Какой из них стоит использовать? Почему?</p>
+<button type="button" class="task__solution">решение</button><div class="task__answer"><div class="task__answer-content"><p><strong>Нужно выбрать вариант 2, который гарантирует браузеру свободное время между выполнениями <code>highlight</code>.</strong></p>
+<p>Первый вариант может загрузить процессор на 100%, если <code>highlight</code> занимает время, близкое к 10 мс или, тем более, большее чем 10 мс, т.к. таймер не учитывает время выполнения функции.</p>
+<p>Что интересно, в обоих случаях браузер не будет выводить предупреждение о том, что скрипт занимает много времени. Но от 100% загрузки процессора возможны притормаживания других операций. В общем, это совсем не то, что мы хотим, поэтому вариант 2.</p>
+</div><button type="button" title="закрыть" class="close-button task__answer-close"></button></div></div></div></div><div class="task tasks__task"><div class="task__header"><div class="task__title-wrap"><h3 class="task__title"><a href="settimeout-setinterval.html#что-выведет-settimeout" name="что-выведет-settimeout" class="main__anchor">Что выведет setTimeout?</a></h3><a href="task/settimeout-result.html" target="_blank" class="task__open-link"></a></div><div class="task__header-note"><span title="Насколько эта задача важна для освоения материала, от 1 до 5" class="task__importance">важность: 5</span></div><div class="task__content"><p>В коде ниже запланирован запуск <code>setTimeout</code>, а затем запущена тяжёлая функция <code>hardWork</code>, выполнение которой занимает более долгое время, чем интервал до срабатывания таймера.</p>
+<p>Когда сработает <code>setTimeout</code>? Выберите нужный вариант:</p>
+<ol>
+<li>До выполнения <code>hardWork</code>.</li>
+<li>Во время выполнения <code>hardWork</code>.</li>
+<li>Сразу же по окончании <code>hardWork</code>.</li>
+<li>Через 100 мс после окончания <code>hardWork</code>.</li>
+</ol>
+<p>Что выведет <code>alert</code> в коде ниже?</p>
+<div data-trusted="1" class="code-example">
+      <div class="codebox code-example__codebox">
+        
+        <div class="codebox__code" data-code="1">
+          <pre class="line-numbers language-javascript"><code class="language-javascript">setTimeout(function() {
+  alert( i );
+}, 100);
+
+var i;
+
+function hardWork() {
+  // время выполнения этого кода &gt;100 мс, сам код неважен
+  for (i = 0; i &lt; 1e8; i++) hardWork[i % 2] = i;
+}
+
+hardWork();</code></pre>
+        </div>
+      </div>
+      
+      </div><button type="button" class="task__solution">решение</button><div class="task__answer"><div class="task__answer-content"><p>Ответы:</p>
+<ul>
+<li><code>alert</code> выведет <code>100000000</code>.</li>
+<li><strong>3</strong>, срабатывание будет после окончания работы <code>hardWork</code>.</li>
+</ul>
+<p>Так будет потому, что вызов планируется на <code>100 мс</code> от времени вызова <code>setTimeout</code>, но функция выполняется больше, чем <code>100 мс</code>, поэтому к моменту ее окончания время уже подошло и отложенный вызов выполняется тут же.</p>
+</div><button type="button" title="закрыть" class="close-button task__answer-close"></button></div></div></div></div><div class="task tasks__task"><div class="task__header"><div class="task__title-wrap"><h3 class="task__title"><a href="settimeout-setinterval.html#что-выведет-после-setinterval" name="что-выведет-после-setinterval" class="main__anchor">Что выведет после setInterval?</a></h3><a href="task/setinterval-result.html" target="_blank" class="task__open-link"></a></div><div class="task__header-note"><span title="Насколько эта задача важна для освоения материала, от 1 до 5" class="task__importance">важность: 5</span></div><div class="task__content"><p>В коде ниже запускается <code>setInterval</code> каждые 10 мс, и через 50 мс запланирована его отмена.</p>
+<p>После этого запущена тяжёлая функция <code>f</code>, выполнение которой (мы точно знаем) потребует более 100 мс.</p>
+<p>Сработает ли <code>setInterval</code>, как и когда?</p>
+<p>Варианты:</p>
+<ol>
+<li>Да, несколько раз, <em>в процессе</em> выполнения <code>f</code>.</li>
+<li>Да, несколько раз, <em>сразу после</em> выполнения <code>f</code>.</li>
+<li>Да, один раз, <em>сразу после</em> выполнения <code>f</code>.</li>
+<li>Нет, не сработает.</li>
+<li>Может быть по-разному, как повезёт.</li>
+</ol>
+<p>Что выведет <code>alert</code> в строке <code>(*)</code>?</p>
+<div data-trusted="1" class="code-example" data-highlight-block="7-7">
+      <div class="codebox code-example__codebox">
+        
+        <div class="codebox__code" data-code="1">
+          <pre class="line-numbers language-javascript"><code class="language-javascript">var i;
+var timer = setInterval(function() { // планируем setInterval каждые 10 мс
+  i++;
+}, 10);
+
+setTimeout(function() { // через 50 мс - отмена setInterval
+  clearInterval(timer);
+  alert( i ); // (*)
+}, 50);
+
+// и запускаем тяжёлую функцию
+function f() {
+  // точное время выполнения не играет роли
+  // здесь оно заведомо больше 100 мс
+  for (i = 0; i &lt; 1e8; i++) f[i % 2] = i;
+}
+
+f();</code></pre>
+        </div>
+      </div>
+      
+      </div><button type="button" class="task__solution">решение</button><div class="task__answer"><div class="task__answer-content"><p>Вызов <code>alert(i)</code> в <code>setTimeout</code> введет <code>100000001</code>.</p>
+<p>Можете проверить это запуском:</p>
+<div data-trusted="1" class="code-example" data-highlight-block="6-6">
+      <div class="codebox code-example__codebox">
+        
+        <div class="toolbar codebox__toolbar">
+          <div class="toolbar__tool">
+            <a href="settimeout-setinterval.html#" title="выполнить" data-action="run" class="toolbar__button toolbar__button_run"></a>
+          </div>
+          <div class="toolbar__tool">
+            <a href="settimeout-setinterval.html#" title="открыть в песочнице" target="_blank" data-action="edit" class="toolbar__button toolbar__button_edit"></a>
+          </div>
+        </div>
+        <div class="codebox__code" data-code="1">
+          <pre class="line-numbers language-javascript"><code class="language-javascript">var timer = setInterval(function() {
+  i++;
+}, 10);
+
+setTimeout(function() {
+  clearInterval(timer);
+  alert( i ); // (*)
+}, 50);
+
+var i;
+
+function f() {
+  // точное время выполнения не играет роли
+  // здесь оно заведомо больше 100 мс
+  for (i = 0; i &lt; 1e8; i++) f[i % 2] = i;
+}
+
+f();</code></pre>
+        </div>
+      </div>
+      
+      </div><p>Правильный вариант срабатывания: <strong>3</strong> (сразу же по окончании <code>f</code> один раз).</p>
+<p>Планирование <code>setInterval</code> будет вызывать функцию каждые <code>10 мс</code> после текущего времени. Но так как интерпретатор занят долгой функцией, то до конца ее работы никакого вызова не происходит.</p>
+<p>За время выполнения <code>f</code> может пройти время, на которое запланированы несколько вызовов <code>setInterval</code>, но в этом случае остается только один, т.е. накопления вызовов не происходит. Такова логика работы <code>setInterval</code>.</p>
+<p>После окончания текущего скрипта интерпретатор обращается к очереди запланированных вызовов, видит в ней <code>setInterval</code> и выполняет. А затем тут же выполняется  <code>setTimeout</code>, очередь которого тут же подошла.</p>
+<p>Итого, как раз и видим, что <code>setInterval</code> выполнился ровно 1 раз по окончании работы функции. Такое поведение кросс-браузерно.</p>
+</div><button type="button" title="закрыть" class="close-button task__answer-close"></button></div></div></div></div><div class="task tasks__task"><div class="task__header"><div class="task__title-wrap"><h3 class="task__title"><a href="settimeout-setinterval.html#кто-быстрее" name="кто-быстрее" class="main__anchor">Кто быстрее?</a></h3><a href="task/who-runs-faster.html" target="_blank" class="task__open-link"></a></div><div class="task__header-note"><span title="Насколько эта задача важна для освоения материала, от 1 до 5" class="task__importance">важность: 5</span></div><div class="task__content"><p>Есть два бегуна:</p>
+<div data-trusted="1" class="code-example">
+      <div class="codebox code-example__codebox">
+        
+        <div class="codebox__code" data-code="1">
+          <pre class="line-numbers language-javascript"><code class="language-javascript">var runner1 = new Runner();
+var runner2 = new Runner();</code></pre>
+        </div>
+      </div>
+      
+      </div><p>У каждого есть метод <code>step()</code>, который делает шаг, увеличивая свойство <code>steps</code>.</p>
+<p>Конкретный код метода <code>step()</code> не имеет значения, важно лишь что шаг делается не мгновенно, он требует небольшого времени.</p>
+<p>Если запустить первого бегуна через <code>setInterval</code>, а второго – через вложенный <code>setTimeout</code> – какой сделает больше шагов за 5 секунд?</p>
+<div data-trusted="1" class="code-example">
+      <div class="codebox code-example__codebox">
+        
+        <div class="codebox__code" data-code="1">
+          <pre class="line-numbers language-javascript"><code class="language-javascript">// первый?
+setInterval(function() {
+  runner1.step();
+}, 15);
+
+// или второй?
+setTimeout(function go() {
+  runner2.step();
+  setTimeout(go, 15);
+}, 15);
+
+setTimeout(function() {
+  alert( runner1.steps );
+  alert( runner2.steps );
+}, 5000);</code></pre>
+        </div>
+      </div>
+      
+      </div><button type="button" class="task__solution">решение</button><div class="task__answer"><div class="task__answer-content"><p>Задача – с небольшим «нюансом».</p>
+<p>Есть браузеры, в которых на время работы JavaScript таймер «застывает», например таков IE. В них количество шагов будет почти одинаковым, ±1.</p>
+<p>В других браузерах (Chrome) первый бегун будет быстрее.</p>
+<p>Создадим реальные объекты <code>Runner</code> и запустим их для проверки:</p>
+<div data-trusted="1" class="code-example">
+      <div class="codebox code-example__codebox">
+        
+        <div class="toolbar codebox__toolbar">
+          <div class="toolbar__tool">
+            <a href="settimeout-setinterval.html#" title="выполнить" data-action="run" class="toolbar__button toolbar__button_run"></a>
+          </div>
+          <div class="toolbar__tool">
+            <a href="settimeout-setinterval.html#" title="открыть в песочнице" target="_blank" data-action="edit" class="toolbar__button toolbar__button_edit"></a>
+          </div>
+        </div>
+        <div class="codebox__code" data-code="1">
+          <pre class="line-numbers language-javascript"><code class="language-javascript">function Runner() {
+  this.steps = 0;
+
+  this.step = function() {
+    this.doSomethingHeavy();
+    this.steps++;
+  };
+
+  function fib(n) {
+    return n &lt;= 1 ? n : fib(n - 1) + fib(n - 2);
+  }
+
+  this.doSomethingHeavy = function() {
+    for (var i = 0; i &lt; 25; i++) {
+      this[i] = fib(i);
+    }
+  };
+
+}
+
+var runner1 = new Runner();
+var runner2 = new Runner();
+
+// запускаем бегунов
+var t1 = setInterval(function() {
+  runner1.step();
+}, 15);
+
+var t2 = setTimeout(function go() {
+  runner2.step();
+  t2 = setTimeout(go, 15);
+}, 15);
+
+// кто сделает больше шагов?
+setTimeout(function() {
+  clearInterval(t1);
+  clearTimeout(t2);
+  alert( runner1.steps );
+  alert( runner2.steps );
+}, 5000);</code></pre>
+        </div>
+      </div>
+      
+      </div><p>Если бы в шаге <code>step()</code> не было вызова <code>doSomethingHeavy()</code>, то есть он бы не требовал времени, то количество шагов было бы почти равным.</p>
+<p>Но так как у нас шаг, всё же, что-то делает, и функция <code>doSomethingHeavy()</code> специально написана таким образом, что она требует (небольшого) времени, то первый бегун успеет сделать больше шагов. Ведь в <code>setTimeout</code> пауза <code>15</code> мс будет <em>между</em> шагами, а <code>setInterval</code> шагает равномерно, каждые <code>15</code> мс. Получается чаще.</p>
+</div><button type="button" title="закрыть" class="close-button task__answer-close"></button></div></div></div></div><div class="task tasks__task"><div class="task__header"><div class="task__title-wrap"><h3 class="task__title"><a href="settimeout-setinterval.html#функция-задержка" name="функция-задержка" class="main__anchor">Функция-задержка</a></h3><a href="task/delay.html" target="_blank" class="task__open-link"></a></div><div class="task__header-note"><span title="Насколько эта задача важна для освоения материала, от 1 до 5" class="task__importance">важность: 5</span></div><div class="task__content"><p>Напишите функцию <code>delay(f, ms)</code>, которая возвращает обёртку вокруг <code>f</code>, задерживающую вызов на <code>ms</code> миллисекунд.</p>
+<p>Например:</p>
+<div data-trusted="1" class="code-example">
+      <div class="codebox code-example__codebox">
+        
+        <div class="codebox__code" data-code="1">
+          <pre class="line-numbers language-javascript"><code class="language-javascript">function f(x) {
+  alert( x );
+}
+
+var f1000 = delay(f, 1000);
+var f1500 = delay(f, 1500);
+
+f1000(&quot;тест&quot;); // выведет &quot;тест&quot; через 1000 миллисекунд
+f1500(&quot;тест2&quot;); // выведет &quot;тест2&quot; через 1500 миллисекунд</code></pre>
+        </div>
+      </div>
+      
+      </div><p>Упрощённо можно сказать, что <code>delay</code> возвращает &quot;задержанный на <code>ms</code>&quot; вариант <code>f</code>.</p>
+<p>В примере выше у функции только один аргумент, но <code>delay</code> должна быть универсальной: передавать любое количество аргументов и контекст <code>this</code>.</p>
+<p><a href="http://plnkr.co/edit/RR54jP4ppmmpzmI4m3Wf?p=preview" target="_blank" data-plunk-id="RR54jP4ppmmpzmI4m3Wf">Открыть песочницу с тестами для задачи.</a></p><button type="button" class="task__solution">решение</button><div class="task__answer"><div class="task__answer-content"><div data-trusted="1" class="code-example" data-highlight-block="2-9">
+      <div class="codebox code-example__codebox">
+        
+        <div class="toolbar codebox__toolbar">
+          <div class="toolbar__tool">
+            <a href="settimeout-setinterval.html#" title="выполнить" data-action="run" class="toolbar__button toolbar__button_run"></a>
+          </div>
+          <div class="toolbar__tool">
+            <a href="settimeout-setinterval.html#" title="открыть в песочнице" target="_blank" data-action="edit" class="toolbar__button toolbar__button_edit"></a>
+          </div>
+        </div>
+        <div class="codebox__code" data-code="1">
+          <pre class="line-numbers language-javascript"><code class="language-javascript">function delay(f, ms) {
+
+  return function() {
+    var savedThis = this;
+    var savedArgs = arguments;
+
+    setTimeout(function() {
+      f.apply(savedThis, savedArgs);
+    }, ms);
+  };
+
+}
+
+function f(x) {
+  alert( x );
+}
+
+var f1000 = delay(f, 1000);
+var f1500 = delay(f, 1500);
+
+f1000(&quot;тест&quot;); // выведет &quot;тест&quot; через 1000 миллисекунд
+f1500(&quot;тест2&quot;); // выведет &quot;тест2&quot; через 1500 миллисекунд</code></pre>
+        </div>
+      </div>
+      
+      </div><p>Обратим внимание на то, как работает обёртка:</p>
+<div data-trusted="1" class="code-example">
+      <div class="codebox code-example__codebox">
+        
+        <div class="codebox__code" data-code="1">
+          <pre class="line-numbers language-javascript"><code class="language-javascript">return function() {
+  var savedThis = this;
+  var savedArgs = arguments;
+
+  setTimeout(function() {
+    f.apply(savedThis, savedArgs);
+  }, ms);
+};</code></pre>
+        </div>
+      </div>
+      
+      </div><p>Именно обёртка возвращается декоратором <code>delay</code> и будет вызвана. Чтобы передать аргумент и контекст функции, вызываемой через <code>ms</code> миллисекунд, они копируются в локальные переменные <code>savedThis</code> и <code>savedArgs</code>.</p>
+<p>Это один из самых простых, и в то же время удобных способов передать что-либо в функцию, вызываемую через <code>setTimeout</code>.</p>
+<p><a href="http://plnkr.co/edit/tbpCSPSEjARhvCF6pgFy?p=preview" target="_blank" data-plunk-id="tbpCSPSEjARhvCF6pgFy">Открыть решение с тестами в песочнице.</a></p></div><button type="button" title="закрыть" class="close-button task__answer-close"></button></div></div></div></div><div class="task tasks__task"><div class="task__header"><div class="task__title-wrap"><h3 class="task__title"><a href="settimeout-setinterval.html#вызов-не-чаще-чем-в-n-миллисекунд" name="вызов-не-чаще-чем-в-n-миллисекунд" class="main__anchor">Вызов не чаще чем в N миллисекунд</a></h3><a href="task/debounce.html" target="_blank" class="task__open-link"></a></div><div class="task__header-note"><span title="Насколько эта задача важна для освоения материала, от 1 до 5" class="task__importance">важность: 5</span></div><div class="task__content"><p>Напишите функцию <code>debounce(f, ms)</code>, которая возвращает обёртку, которая передаёт вызов <code>f</code> не чаще, чем раз в <code>ms</code> миллисекунд.</p>
+<p>«Лишние» вызовы игнорируются. Все аргументы и контекст – передаются.</p>
+<p>Например:</p>
+<div data-trusted="1" class="code-example">
+      <div class="codebox code-example__codebox">
+        
+        <div class="codebox__code" data-code="1">
+          <pre class="line-numbers language-javascript"><code class="language-javascript">function f() { ... }
+
+var f = debounce(f, 1000);
+
+f(1); // выполнится сразу же
+f(2); // игнор
+
+setTimeout( function() { f(3) }, 100); // игнор (прошло только 100 мс)
+setTimeout( function() { f(4) }, 1100); // выполнится
+setTimeout( function() { f(5) }, 1500); // игнор</code></pre>
+        </div>
+      </div>
+      
+      </div><p>Упрощённо можно сказать, что <code>debounce</code> возвращает вариант <code>f</code>, срабатывающий не чаще чем раз в <code>ms</code> миллисекунд.</p>
+<p><a href="http://plnkr.co/edit/ltOWyuJOplIm7woNRFgQ?p=preview" target="_blank" data-plunk-id="ltOWyuJOplIm7woNRFgQ">Открыть песочницу с тестами для задачи.</a></p><button type="button" class="task__solution">решение</button><div class="task__answer"><div class="task__answer-content"><div data-trusted="1" class="code-example">
+      <div class="codebox code-example__codebox">
+        
+        <div class="toolbar codebox__toolbar">
+          <div class="toolbar__tool">
+            <a href="settimeout-setinterval.html#" title="выполнить" data-action="run" class="toolbar__button toolbar__button_run"></a>
+          </div>
+          <div class="toolbar__tool">
+            <a href="settimeout-setinterval.html#" title="открыть в песочнице" target="_blank" data-action="edit" class="toolbar__button toolbar__button_edit"></a>
+          </div>
+        </div>
+        <div class="codebox__code" data-code="1">
+          <pre class="line-numbers language-javascript"><code class="language-javascript">function debounce(f, ms) {
+
+  var state = null;
+
+  var COOLDOWN = 1;
+
+  return function() {
+    if (state) return;
+
+    f.apply(this, arguments);
+
+    state = COOLDOWN;
+
+    setTimeout(function() { state = null }, ms);
+  }
+
+}
+
+function f(x) { alert(x) }
+var f = debounce(f, 1000);
+
+f(1); // 1, выполнится сразу же
+f(2); // игнор
+
+setTimeout( function() { f(3) }, 100); // игнор (прошло только 100 мс)
+setTimeout( function() { f(4) }, 1100); // 4, выполнится
+setTimeout( function() { f(5) }, 1500); // игнор</code></pre>
+        </div>
+      </div>
+      
+      </div><p>Вызов <code>debounce</code> возвращает функцию-обёртку. Все необходимые данные для неё хранятся в замыкании.</p>
+<p>При вызове ставится таймер и состояние <code>state</code> меняется на константу <code>COOLDOWN</code> («в процессе охлаждения»).</p>
+<p>Последующие вызовы игнорируются, пока таймер не обнулит состояние.</p>
+<p><a href="http://plnkr.co/edit/SwBfdOqsg0Cckq1rDJQO?p=preview" target="_blank" data-plunk-id="SwBfdOqsg0Cckq1rDJQO">Открыть решение с тестами в песочнице.</a></p></div><button type="button" title="закрыть" class="close-button task__answer-close"></button></div></div></div></div><div class="task tasks__task"><div class="task__header"><div class="task__title-wrap"><h3 class="task__title"><a href="settimeout-setinterval.html#тормозилка" name="тормозилка" class="main__anchor">Тормозилка</a></h3><a href="task/throttle.html" target="_blank" class="task__open-link"></a></div><div class="task__header-note"><span title="Насколько эта задача важна для освоения материала, от 1 до 5" class="task__importance">важность: 5</span></div><div class="task__content"><p>Напишите функцию <code>throttle(f, ms)</code> – «тормозилку», которая возвращает обёртку, передающую вызов <code>f</code> не чаще, чем раз в <code>ms</code> миллисекунд.</p>
+<p><strong>У этой функции должно быть важное существенное отличие от <code>debounce</code>:</strong> если игнорируемый вызов оказался последним, т.е. после него до окончания задержки ничего нет – то он выполнится.</p>
+<p>Чтобы лучше понять, откуда взялось это требование, и как <code>throttle</code> должна работать – разберём реальное применение, на которое и ориентирована эта задача.</p>
+<p><strong>Например, нужно обрабатывать передвижения мыши.</strong></p>
+<p>В JavaScript это делается функцией, которая будет запускаться при каждом микро-передвижении мыши и получать координаты курсора. По мере того, как мышь двигается, эта функция может запускаться очень часто, может быть 100 раз в секунду (каждые 10 мс).</p>
+<p><strong>Функция обработки передвижения должна обновлять некую информацию на странице.</strong></p>
+<p>При этом обновление – слишком «тяжёлый» процесс, чтобы делать его при каждом микро-передвижении. Имеет смысл делать его раз в 100 мс, не чаще.</p>
+<p>Пусть функция, которая осуществляет это обновление по передвижению, называется <code>onmousemove</code>.</p>
+<p>Вызов <code>throttle(onmousemove, 100)</code>, по сути, предназначен для того, чтобы «притормаживать» обработку <code>onmousemove</code>. Технически, он должен возвращать обёртку, которая передаёт все вызовы <code>onmousemove</code>, но не чаще чем раз в 100 мс.</p>
+<p><strong>При этом промежуточные движения можно игнорировать, но мышь в конце концов где-то остановится. И это последнее, итоговое положение мыши обязательно нужно обработать!</strong></p>
+<p>Визуально это даст следующую картину обработки перемещений мыши:</p>
+<ol>
+<li>Первое обновление произойдёт сразу (это важно, посетитель тут же видит реакцию на своё действие).</li>
+<li>Дальше может быть много вызовов (микро-передвижений) с разными координатами, но пока не пройдёт 100 мс – ничего не будет.</li>
+<li>По истечении 100 мс – опять обновление, с последними координатами. Промежуточные микро-передвижения игнорированы.</li>
+<li>В конце концов мышь где-то остановится, обновление по окончании очередной паузы 100 мс  сработает с последними координатами.</li>
+</ol>
+<p>Ещё раз заметим – задача из реальной жизни, и в ней принципиально важно, что <em>последнее</em> передвижение обрабатывается. Пользователь должен увидеть, где остановил мышь.</p>
+<p>Пример использования:</p>
+<div data-trusted="1" class="code-example">
+      <div class="codebox code-example__codebox">
+        
+        <div class="codebox__code" data-code="1">
+          <pre class="line-numbers language-javascript"><code class="language-javascript">var f = function(a) {
+  console.log(a)
+};
+
+// затормозить функцию до одного раза в 1000 мс
+var f1000 = throttle(f, 1000);
+
+f1000(1); // выведет 1
+f1000(2); // (тормозим, не прошло 1000 мс)
+f1000(3); // (тормозим, не прошло 1000 мс)
+
+// когда пройдёт 1000 мс...
+// выведет 3, промежуточное значение 2 игнорируется</code></pre>
+        </div>
+      </div>
+      
+      </div><p><a href="http://plnkr.co/edit/jLruiOh4uN7zaPo7dbbp?p=preview" target="_blank" data-plunk-id="jLruiOh4uN7zaPo7dbbp">Открыть песочницу с тестами для задачи.</a></p><button type="button" class="task__solution">решение</button><div class="task__answer"><div class="task__answer-content"><div data-trusted="1" class="code-example">
+      <div class="codebox code-example__codebox">
+        
+        <div class="codebox__code" data-code="1">
+          <pre class="line-numbers language-javascript"><code class="language-javascript">function throttle(func, ms) {
+
+  var isThrottled = false,
+    savedArgs,
+    savedThis;
+
+  function wrapper() {
+
+    if (isThrottled) { // (2)
+      savedArgs = arguments;
+      savedThis = this;
+      return;
+    }
+
+    func.apply(this, arguments); // (1)
+
+    isThrottled = true;
+
+    setTimeout(function() {
+      isThrottled = false; // (3)
+      if (savedArgs) {
+        wrapper.apply(savedThis, savedArgs);
+        savedArgs = savedThis = null;
+      }
+    }, ms);
+  }
+
+  return wrapper;
+}</code></pre>
+        </div>
+      </div>
+      
+      </div><p>Шаги работы этой функции:</p>
+<ol>
+<li>Декоратор <code>throttle</code> возвращает функцию-обёртку <code>wrapper</code>, которая при первом вызове запускает <code>func</code> и переходит в состояние «паузы» (<code>isThrottled = true</code>).</li>
+<li>В этом состоянии все новые вызовы запоминаются в замыкании через <code>savedArgs/savedThis</code>. Обратим внимание, что и контекст вызова и аргументы для нас одинаково важны и запоминаются одновременно. Только зная и то и другое, можно воспроизвести вызов правильно.</li>
+<li>Далее, когда пройдёт таймаут <code>ms</code> миллисекунд – пауза будет снята, а <code>wrapper</code> – запущен с последними аргументами и контекстом (если во время паузы были вызовы).</li>
+</ol>
+<p>Шаг <code>(3)</code> запускает именно не саму функцию, а снова <code>wrapper</code>, так как необходимо не только выполнить <code>func</code>, но и снова поставить выполнение на паузу. Получается последовательность «вызов – пауза… вызов – пауза … вызов – пауза …», каждое выполнение в обязательном порядке сопровождается паузой после него. Это удобно описывается рекурсией.</p>
+<p><a href="http://plnkr.co/edit/q98IjwRqJwtYsLXt3Gtb?p=preview" target="_blank" data-plunk-id="q98IjwRqJwtYsLXt3Gtb">Открыть решение с тестами в песочнице.</a></p></div><button type="button" title="закрыть" class="close-button task__answer-close"></button></div></div></div></div></div><div class="banner-bottom"><a rel="nofollow" href="https://ad.doubleclick.net/ddm/jump/N366601.1915072JAVASCRIPT.RU/B9719141.132291290;sz=200x200;ord=[timestamp]?" class="banner-bottom__link"><div class="banner-bottom__logo"><svg xmlns="http://www.w3.org/2000/svg" width="100%" height="100%" style="max-height: 135px;" viewBox="0 0 990 135">
+        <title>ws_banner</title>
+        <g>
+            <rect width="990" height="135" fill="none"/>
+            <g>
+                <g>
+                    <g>
+                        <path d="M108.37767,34.77822h15.83356l13.91394,45.48465,15.0654-45.67668h12.66684l15.0654,45.67668,13.91432-45.48465h15.44909l-22.934,67.65085h-12.8585L159.33195,58.48l-15.16142,43.94911H131.312Z" transform="translate(-5)"/>
+                        <path d="M200.49379,76.52v-.19127c0-14.68209,10.45956-26.77282,25.42932-26.77282,17.17667,0,25.04525,13.33859,25.04525,27.92428,0,1.15146-.096,2.495-.19165,3.83846H214.98385c1.43913,6.62109,6.04536,10.07548,12.57044,10.07548,4.8939,0,8.44469-1.53554,12.47481-5.27759l8.34829,7.38848c-4.79788,5.94934-11.70665,9.59577-21.01475,9.59577C211.91316,103.10082,200.49379,92.258,200.49379,76.52Zm36.27257-4.31817c-.8634-6.52469-4.70186-10.93927-10.84325-10.93927-6.04536,0-9.97984,4.31817-11.13131,10.93927Z" transform="translate(-5)"/>
+                        <path d="M267.94952,95.23263v6.71673H253.36383V31.89918h14.58569V57.90462c3.55079-4.79788,8.44431-8.34867,16.02559-8.34867,11.99509,0,23.41407,9.40373,23.41407,26.58078v.192c0,17.17628-11.22771,26.58-23.41407,26.58C276.20256,102.90878,271.40468,99.35876,267.94952,95.23263Zm24.854-18.90386v-.192c0-8.54071-5.75808-14.20238-12.57121-14.20238S267.75748,67.596,267.75748,76.13673v.192c0,8.53994,5.66167,14.20161,12.47481,14.20161S292.8035,84.96511,292.8035,76.32877Z" transform="translate(-5)"/>
+                        <path d="M305.46494,92.16155,314.19769,81.702c6.045,4.98992,12.3784,8.15663,20.05532,8.15663,6.045,0,9.6914-2.39856,9.6914-6.33342v-.192c0-3.74206-2.30292-5.6609-13.52986-8.53994-13.53063-3.45438-22.26261-7.19721-22.26261-20.535v-.192c0-12.18713,9.78781-20.24736,23.50971-20.24736a38.88387,38.88387,0,0,1,24.94961,8.53994L348.93434,53.49c-5.94934-4.12613-11.80306-6.62109-17.464-6.62109-5.66167,0-8.63634,2.59059-8.63634,5.85371v.192c0,4.41381,2.87827,5.85294,14.48928,8.82761,13.62627,3.55079,21.30319,8.44508,21.30319,20.15173v.192c0,13.33859-10.17188,20.82271-24.66194,20.82271A42.744,42.744,0,0,1,305.46494,92.16155Z" transform="translate(-5)"/>
+                        <path d="M362.26985,87.36367V62.99017h-6.14138V50.51537h6.14138V37.36881h14.58569V50.51537H388.947V62.99017h-12.0915V84.96511c0,3.358,1.4399,4.98992,4.70225,4.98992a14.829,14.829,0,0,0,7.19721-1.824V99.83848a21.5044,21.5044,0,0,1-11.51538,2.97467C368.3156,102.81315,362.26985,99.26236,362.26985,87.36367Z" transform="translate(-5)"/>
+                        <path d="M387.9853,76.52v-.19127c0-14.77773,11.89869-26.77282,27.92351-26.77282,15.93,0,27.73225,11.80306,27.73225,26.58078v.192c0,14.77773-11.89869,26.77205-27.92351,26.77205C399.78836,103.10082,387.9853,91.29776,387.9853,76.52Zm41.26211,0v-.19127c0-7.58129-5.46963-14.20238-13.52986-14.20238-8.34867,0-13.33859,6.42906-13.33859,14.01034v.192c0,7.58052,5.46963,14.20161,13.52986,14.20161C424.25749,90.53038,429.24741,84.10132,429.24741,76.52Z" transform="translate(-5)"/>
+                        <path d="M445.556,50.51537h14.58569V60.87929c2.97467-7.10158,7.77256-11.70742,16.4089-11.32334V64.81339h-.76738c-9.69217,0-15.64152,5.85371-15.64152,18.13648v18.9995H445.556Z" transform="translate(-5)"/>
+                        <path d="M478.46794,50.51537h14.58569v7.29284c3.35875-4.31817,7.77256-8.25227,15.161-8.25227,6.7175,0,11.80306,2.97467,14.49006,8.15663,4.51021-5.27759,9.88421-8.15663,16.88861-8.15663,10.84363,0,17.36909,6.52546,17.36909,18.90386v33.48955H542.37674V73.25769c0-6.90877-3.07108-10.45956-8.54071-10.45956s-8.82838,3.55079-8.82838,10.45956v28.69167H510.422V73.25769c0-6.90877-3.07031-10.45956-8.53994-10.45956s-8.82838,3.55079-8.82838,10.45956v28.69167H478.46794Z" transform="translate(-5)"/>
+                    </g>
+                    <g>
+                        <rect x="22.08748" y="35.3594" width="67.15982" height="67.15985"/>
+                        <path d="M53.69354,58.11137l2.14461-2.61753A7.49023,7.49023,0,0,0,60.75846,57.535c1.48656,0,2.38077-.6001,2.38077-1.58711v-.04738c0-.93568-.56518-1.41735-3.32152-2.13589-3.3214-.86463-5.46613-1.80426-5.46613-5.14036v-.0513c0-3.0479,2.404-5.0693,5.772-5.0693a9.42256,9.42256,0,0,1,6.12429,2.13984l-1.88529,2.78732a7.63035,7.63035,0,0,0-4.28543-1.65817c-1.38981,0-2.12145.64748-2.12145,1.4647v.04738c0,1.10545.70849,1.46868,3.55768,2.21093,3.34468.8883,5.23,2.11613,5.23,5.0456v.04735c0,3.34-2.4969,5.21144-6.05459,5.21144a10.377,10.377,0,0,1-6.99522-2.68865" transform="translate(-5)" fill="#fff"/>
+                        <polygon points="45.417 43.779 42.925 53.554 40.069 43.779 37.232 43.779 34.376 53.554 31.885 43.779 27.98 43.779 32.764 60.54 35.909 60.54 38.651 50.843 41.359 60.54 44.541 60.54 49.321 43.779 45.417 43.779" fill="#fff"/>
+                        <rect x="28.38414" y="89.93339" width="25.1847" height="4.19711" fill="#fff"/>
+                    </g>
+                </g>
+                <g>
+                    <path d="M587.4502,64.90723l5.5625-9.2832L581.65723,38.05469h3.49121l9.55176,14.92236,8.51563-14.92236h3.45313L590.82617,64.90723Z" transform="translate(-5)"/>
+                    <path d="M607.39648,45.07471h3.10742l7.51855,11.12451,7.48047-11.12451h3.06836V64.90723h-2.95312v-15.229l-7.5957,11.00928h-.11523L610.3125,49.71631V64.90723h-2.916Z" transform="translate(-5)"/>
+                    <path d="M634.24707,45.07471h2.9541v8.478h11.85352v-8.478h2.915V64.90723h-2.915V56.23779H637.20117v8.66943h-2.9541Z" transform="translate(-5)"/>
+                    <path d="M656.14941,59.15332v-.07715c0-4.18115,3.45313-6.40576,8.47754-6.40576a21.06393,21.06393,0,0,1,6.09961.84375v-.69043c0-3.56787-2.18652-5.40869-5.90723-5.40869a13.80493,13.80493,0,0,0-6.02246,1.45752l-.88281-2.417a16.38207,16.38207,0,0,1,7.21191-1.64941c2.80078,0,4.94824.729,6.40625,2.18652a7.82785,7.82785,0,0,1,2.0332,5.79248V64.90723h-2.83887V61.915a8.69053,8.69053,0,0,1-7.17383,3.41406C659.87109,65.3291,656.14941,63.21924,656.14941,59.15332Zm14.61523-1.53467v-1.918a20.68618,20.68618,0,0,0-5.83008-.84375c-3.72168,0-5.793,1.61084-5.793,4.10449v.07666c0,2.49316,2.30176,3.95117,4.9873,3.95117C667.77246,62.98926,670.76465,60.76416,670.76465,57.61865Z" transform="translate(-5)"/>
+                    <path d="M677.51563,64.90723l5.793-7.63379c-3.14648-.729-5.06445-2.877-5.06445-5.90771v-.03809c0-3.75928,3.03125-6.25293,7.749-6.25293H695.584V64.90723h-2.916V57.542h-6.1377l-5.48535,7.36523Zm8.51563-17.37744c-2.95312,0-4.833,1.57275-4.833,3.79785,0,2.37842,1.80273,3.83594,4.833,3.83594H692.668V47.52979Z" transform="translate(-5)"/>
+                    <path d="M709.69824,60.53418l2.18652-1.87988c1.64941,2.49365,3.33691,3.83643,6.1377,3.83643,3.03027,0,5.25488-2.187,5.25488-6.44482V38.05469h3.06934V56.00781c0,3.14551-.9209,5.52344-2.45508,7.05811a8.23527,8.23527,0,0,1-5.9082,2.2251A9.19408,9.19408,0,0,1,709.69824,60.53418Z" transform="translate(-5)"/>
+                    <path d="M730.56445,59.15332v-.07715c0-4.18115,3.45313-6.40576,8.47754-6.40576a21.06393,21.06393,0,0,1,6.09961.84375v-.69043c0-3.56787-2.18652-5.40869-5.90723-5.40869a13.80493,13.80493,0,0,0-6.02246,1.45752l-.88281-2.417a16.38207,16.38207,0,0,1,7.21191-1.64941c2.80078,0,4.94824.729,6.40625,2.18652a7.82785,7.82785,0,0,1,2.0332,5.79248V64.90723H745.1416V61.915a8.68994,8.68994,0,0,1-7.17285,3.41406C734.28516,65.3291,730.56445,63.21924,730.56445,59.15332Zm14.61523-1.53467v-1.918a20.68618,20.68618,0,0,0-5.83008-.84375c-3.72168,0-5.793,1.61084-5.793,4.10449v.07666c0,2.49316,2.30176,3.95117,4.9873,3.95117C742.1875,62.98926,745.17969,60.76416,745.17969,57.61865Z" transform="translate(-5)"/>
+                    <path d="M750.58789,45.07471h3.26074l6.6748,16.45654,6.71289-16.45654h3.18359l-8.63086,19.98584h-2.6084Z" transform="translate(-5)"/>
+                    <path d="M771.64648,59.15332v-.07715c0-4.18115,3.45313-6.40576,8.47754-6.40576a21.06393,21.06393,0,0,1,6.09961.84375v-.69043c0-3.56787-2.18652-5.40869-5.90723-5.40869a13.80493,13.80493,0,0,0-6.02246,1.45752l-.88281-2.417a16.38207,16.38207,0,0,1,7.21191-1.64941c2.80078,0,4.94824.729,6.40625,2.18652a7.82785,7.82785,0,0,1,2.0332,5.79248V64.90723h-2.83887V61.915a8.68994,8.68994,0,0,1-7.17285,3.41406C775.36719,65.3291,771.64648,63.21924,771.64648,59.15332Zm14.61523-1.53467v-1.918a20.68618,20.68618,0,0,0-5.83008-.84375c-3.72168,0-5.793,1.61084-5.793,4.10449v.07666c0,2.49316,2.30176,3.95117,4.9873,3.95117C783.26953,62.98926,786.26172,60.76416,786.26172,57.61865Z" transform="translate(-5)"/>
+                    <path d="M793.12793,60.99463l1.87988-2.2251a12.78589,12.78589,0,0,0,9.20605,3.79785c3.60645,0,5.98438-1.918,5.98438-4.56494v-.07666c0-2.49365-1.34277-3.91309-6.98145-5.10205-6.17578-1.34277-9.01465-3.3374-9.01465-7.749V44.998c0-4.21973,3.7207-7.32666,8.82227-7.32666a14.01136,14.01136,0,0,1,9.4375,3.29883l-1.76465,2.33984a11.798,11.798,0,0,0-7.749-2.915c-3.49121,0-5.71582,1.918-5.71582,4.33447v.07666c0,2.53174,1.38086,3.95117,7.28809,5.21729,5.98438,1.3042,8.74707,3.49072,8.74707,7.59521v.07666c0,4.60352-3.83691,7.5957-9.16895,7.5957A15.7123,15.7123,0,0,1,793.12793,60.99463Z" transform="translate(-5)"/>
+                    <path d="M816.75586,55.08691v-.07666a10.32986,10.32986,0,0,1,18.10645-6.82812l-1.95605,2.07129c-1.57324-1.64941-3.33789-2.99219-6.02344-2.99219-4.02734,0-7.09668,3.41406-7.09668,7.67236v.07666a7.41012,7.41012,0,0,0,7.28906,7.71045,8.18367,8.18367,0,0,0,6.06055-2.95361l1.87988,1.76416a10.2594,10.2594,0,0,1-18.25977-6.44434Z" transform="translate(-5)"/>
+                    <path d="M838.92773,45.07471h2.9541v5.17871c1.458-3.29883,4.335-5.67725,8.09375-5.52393v3.18408h-.22949c-4.335,0-7.86426,3.10693-7.86426,9.09131v7.90234h-2.9541Z" transform="translate(-5)"/>
+                    <path d="M853.58105,37.47949h3.376v3.26074h-3.376Zm.19141,7.59521h2.9541V64.90723h-2.9541Z" transform="translate(-5)"/>
+                    <path d="M862.63281,45.07471h2.9541v3.98975c1.61133-2.37842,3.95117-4.41162,7.5957-4.41162,4.75586,0,9.47461,3.75928,9.47461,10.28076v.07666c0,6.48291-4.67969,10.31885-9.47461,10.31885a8.94683,8.94683,0,0,1-7.5957-4.21973v9.93555h-2.9541ZM879.627,55.04834v-.07666c0-4.67969-3.22266-7.67187-6.98145-7.67187a7.39526,7.39526,0,0,0-7.17383,7.63379v.07666a7.38127,7.38127,0,0,0,7.17383,7.67188C876.48145,62.68213,879.627,59.84375,879.627,55.04834Z" transform="translate(-5)"/>
+                    <path d="M888.17969,59.65186V47.68311H885.418v-2.6084h2.76172V39.09033h2.95313v5.98438h6.292v2.6084h-6.292v11.585c0,2.417,1.34277,3.29932,3.33789,3.29932a6.21445,6.21445,0,0,0,2.877-.69043v2.53174a7.42972,7.42972,0,0,1-3.56738.84375C890.5957,65.25244,888.17969,63.67969,888.17969,59.65186Z" transform="translate(-5)"/>
+                    <path d="M912.99707,38.05469h3.03027V64.90723h-3.03027Z" transform="translate(-5)"/>
+                    <path d="M922.93164,38.05469h9.32129c8.43945,0,14.27051,5.79248,14.27051,13.34961V51.481c0,7.55713-5.83105,13.42627-14.27051,13.42627h-9.32129Zm3.03027,2.80029v21.252h6.291c6.79,0,11.125-4.60352,11.125-10.54932V51.481c0-5.9458-4.335-10.626-11.125-10.626Z" transform="translate(-5)"/>
+                    <path d="M951.96875,38.05469h19.41016v2.76221H954.999v9.168h14.65332v2.76221H954.999v9.39844h16.57227v2.76172H951.96875Z" transform="translate(-5)"/>
+                    <path d="M583.46094,97.48535a12.67042,12.67042,0,0,0,7.28809,2.30176c3.60547,0,5.792-1.38184,5.792-3.45312V96.2959c0-2.07129-2.10937-3.22266-5.52344-3.22266h-4.4502V90.69531h4.41211c3.22168,0,5.02441-1.30469,5.02441-3.29883v-.03906c0-1.95605-1.84082-3.22168-5.10156-3.22168a12.54336,12.54336,0,0,0-7.17383,2.45508l-1.53418-2.07129a14.51988,14.51988,0,0,1,8.78516-2.877c5.02441,0,8.0166,2.2627,8.0166,5.48535V87.166c0,2.6084-1.918,3.95117-3.98926,4.60352,2.45508.498,4.52637,2.07129,4.52637,4.71777v.03906c0,3.18359-3.10645,5.83008-8.78418,5.83008a14.975,14.975,0,0,1-8.82324-2.68457Z" transform="translate(-5)"/>
+                    <path d="M602.52441,96.14258v-.07715c0-4.18066,3.45313-6.40625,8.47754-6.40625a21.08074,21.08074,0,0,1,6.09961.84375V89.8125c0-3.56738-2.18652-5.4082-5.90723-5.4082a13.81153,13.81153,0,0,0-6.02246,1.457l-.88281-2.416A16.36862,16.36862,0,0,1,611.501,81.7959c2.80078,0,4.94824.72852,6.40625,2.18652a7.82588,7.82588,0,0,1,2.0332,5.792v12.12207h-2.83887V98.9043a8.69184,8.69184,0,0,1-7.17383,3.41406C606.24609,102.31836,602.52441,100.209,602.52441,96.14258Zm14.61523-1.53418V92.68945a20.68618,20.68618,0,0,0-5.83008-.84375c-3.72168,0-5.793,1.61133-5.793,4.10449v.07715c0,2.49316,2.30176,3.95117,4.9873,3.95117C614.14746,99.97852,617.13965,97.75391,617.13965,94.6084Z" transform="translate(-5)"/>
+                    <path d="M635.81934,82.06445h2.9541v3.98926c1.61133-2.37891,3.95117-4.41113,7.5957-4.41113,4.75586,0,9.47461,3.75879,9.47461,10.28027V91.999c0,6.4834-4.67969,10.31934-9.47461,10.31934a8.94793,8.94793,0,0,1-7.5957-4.21973v9.93555h-2.9541Zm16.99414,9.97363v-.07715c0-4.67969-3.22266-7.67187-6.98145-7.67187a7.39557,7.39557,0,0,0-7.17383,7.63379V91.999a7.38185,7.38185,0,0,0,7.17383,7.67285C649.668,99.67188,652.81348,96.833,652.81348,92.03809Z" transform="translate(-5)"/>
+                    <path d="M658.834,96.14258v-.07715c0-4.18066,3.45313-6.40625,8.47754-6.40625a21.08074,21.08074,0,0,1,6.09961.84375V89.8125c0-3.56738-2.18652-5.4082-5.90723-5.4082a13.81153,13.81153,0,0,0-6.02246,1.457l-.88281-2.416a16.36862,16.36862,0,0,1,7.21191-1.64941c2.80078,0,4.94824.72852,6.40625,2.18652a7.82588,7.82588,0,0,1,2.0332,5.792v12.12207h-2.83887V98.9043a8.69125,8.69125,0,0,1-7.17285,3.41406C662.55469,102.31836,658.834,100.209,658.834,96.14258Zm14.61523-1.53418V92.68945a20.68618,20.68618,0,0,0-5.83008-.84375c-3.72168,0-5.793,1.61133-5.793,4.10449v.07715c0,2.49316,2.30176,3.95117,4.9873,3.95117C670.457,99.97852,673.44922,97.75391,673.44922,94.6084Z" transform="translate(-5)"/>
+                    <path d="M681.34961,97.48535a12.6759,12.6759,0,0,0,7.28906,2.30176c3.60547,0,5.792-1.38184,5.792-3.45312V96.2959c0-2.07129-2.10937-3.22266-5.52344-3.22266H684.457V90.69531h4.41211c3.22168,0,5.02441-1.30469,5.02441-3.29883v-.03906c0-1.95605-1.84082-3.22168-5.10156-3.22168a12.54336,12.54336,0,0,0-7.17383,2.45508L680.084,84.51953a14.51988,14.51988,0,0,1,8.78516-2.877c5.02441,0,8.0166,2.2627,8.0166,5.48535V87.166c0,2.6084-1.918,3.95117-3.98926,4.60352,2.45508.498,4.52637,2.07129,4.52637,4.71777v.03906c0,3.18359-3.10645,5.83008-8.78418,5.83008a14.975,14.975,0,0,1-8.82324-2.68457Z" transform="translate(-5)"/>
+                    <path d="M716.334,82.06445h3.14551l-8.32422,20.48437c-1.6875,4.10449-3.60547,5.60059-6.59766,5.60059a9.02263,9.02263,0,0,1-4.21973-.99707l.99707-2.34082a6.20232,6.20232,0,0,0,3.10742.72949c1.76465,0,2.877-.9209,4.06641-3.72168l-9.01465-19.75488h3.25977l7.21191,16.5332Z" transform="translate(-5)"/>
+                    <path d="M723.19922,82.06445h3.10742l7.51855,11.124,7.48047-11.124H744.374v19.832H741.4209V86.667l-7.5957,11.00977H733.71l-7.59473-10.9707v15.19043h-2.916Z" transform="translate(-5)"/>
+                    <path d="M750.0498,82.06445h2.9541V90.542h11.85352V82.06445h2.915v19.832h-2.915V93.22656H753.00391v8.66992h-2.9541Z" transform="translate(-5)"/>
+                    <path d="M776.40332,88.89258h6.06055c4.834,0,7.78711,2.49316,7.78711,6.44434v.07617c0,3.875-2.877,6.4834-7.90234,6.4834h-8.89941v-19.832h2.9541Zm0,10.47168h5.90723c3.33789,0,4.94824-1.49609,4.94824-3.98926,0-2.417-1.61035-3.98926-4.91016-3.98926h-5.94531Zm17.49219-17.2998h2.9541v19.832h-2.9541Z" transform="translate(-5)"/>
+                    <path d="M801.25879,92.03809v-.07715c0-5.71582,4.02832-10.31836,9.51367-10.31836,5.86914,0,9.24512,4.67969,9.24512,10.47168a7.56047,7.56047,0,0,1-.03906.959H804.251c.42188,4.29688,3.45215,6.71387,6.98145,6.71387a8.20946,8.20946,0,0,0,6.25293-2.80078l1.8418,1.64941a10.23922,10.23922,0,0,1-8.1709,3.7207C805.709,102.35645,801.25879,98.17578,801.25879,92.03809Zm15.7666-1.15137c-.30664-3.60547-2.37891-6.751-6.33008-6.751-3.45215,0-6.06055,2.877-6.44434,6.751Z" transform="translate(-5)"/>
+                    <path d="M853.3125,99.21094h2.26367v7.94141h-2.68555v-5.25586H835.168v5.25586h-2.68555V99.21094h2.26367l7.749-17.30078h3.06836Zm-15.53613.07715H850.167l-6.1377-14.42383Z" transform="translate(-5)"/>
+                    <path d="M856.5332,92.03809v-.07715c0-5.71582,4.02832-10.31836,9.51367-10.31836,5.86914,0,9.24512,4.67969,9.24512,10.47168a7.56047,7.56047,0,0,1-.03906.959H859.52539c.42188,4.29688,3.45215,6.71387,6.98145,6.71387a8.20946,8.20946,0,0,0,6.25293-2.80078l1.8418,1.64941a10.23922,10.23922,0,0,1-8.1709,3.7207C860.9834,102.35645,856.5332,98.17578,856.5332,92.03809Zm15.7666-1.15137c-.30664-3.60547-2.37891-6.751-6.33008-6.751-3.45215,0-6.06055,2.877-6.44434,6.751Z" transform="translate(-5)"/>
+                    <path d="M879.50977,82.06445h2.9541V90.542h11.85352V82.06445h2.915v19.832h-2.915V93.22656H882.46387v8.66992h-2.9541Z" transform="translate(-5)"/>
+                    <path d="M902.9082,82.06445h2.9541v6.82813h6.06055c4.834,0,7.78711,2.49316,7.78711,6.44434v.07617c0,3.875-2.877,6.4834-7.90234,6.4834H902.9082Zm8.86133,17.2998c3.33789,0,4.94824-1.49609,4.94824-3.98926,0-2.417-1.61035-3.98926-4.91016-3.98926H905.8623v7.97852Z" transform="translate(-5)"/>
+                    <path d="M923.583,82.06445h14.42383V84.749H926.53711v17.14746H923.583Z" transform="translate(-5)"/>
+                    <path d="M941.49609,82.06445h2.9541V97.44629l12.04492-15.38184H959.334v19.832h-2.915V86.47559l-12.16113,15.4209h-2.76172Z" transform="translate(-5)"/>
+                </g>
+            </g>
+        </g>
+    </svg></div></a><a href="settimeout-setinterval.html#" onclick="localStorage.bannerBottomDisabled=1;this.parentNode.remove();return false" class="banner-bottom__disable">не показывать</a><img src="https://ad.doubleclick.net/ddm/ad/N366601.1915072JAVASCRIPT.RU/B9719141.132291290;sz=200x200;ord=[timestamp];dc_lat=;dc_rdid=;tag_for_child_directed_treatment=?" style="width:0;height:0;opacity:0"></div><script>!function(){/Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent)||screen.width<1024||"bannerBottomDisabled"in localStorage||(localStorage.bannerBottomShownCount||(localStorage.bannerBottomShownCount=1),document.querySelector(".banner-bottom").style.display="block")}();</script><!--if lang == 'en'--><!--  include /blocks/banner-bottom.en--></div><div class="page__nav-wrap"><a href="json.html" data-tooltip="Формат JSON, метод toJSON" class="page__nav page__nav_prev"><span class="page__nav-text"><span class="page__nav-text-shortcut"></span></span><span class="page__nav-text-alternate">Предыдущий урок</span></a><a href="eval.html" data-tooltip="Запуск кода из строки: eval" class="page__nav page__nav_next"><span class="page__nav-text"><span class="page__nav-text-shortcut"></span></span><span class="page__nav-text-alternate">Следующий урок</span></a></div><div class="article-tablet-foot tablet-only"><div class="article-tablet-foot__layout"><div class="share-icons"><span class="share-icons__title">Поделиться</span><a href="https://twitter.com/share?url=https%3A%2F%2Flearn.javascript.ru%2Fsettimeout-setinterval" class="share share_tw"></a><a href="https://www.facebook.com/sharer/sharer.php?s=100&amp;p%5Burl%5D=https%3A%2F%2Flearn.javascript.ru%2Fsettimeout-setinterval" class="share share_fb"></a><a href="https://plus.google.com/share?url=https%3A%2F%2Flearn.javascript.ru%2Fsettimeout-setinterval" class="share share_gp"></a><a href="https://vkontakte.ru/share.php?url=https%3A%2F%2Flearn.javascript.ru%2Fsettimeout-setinterval" class="share share_vk"></a></div><div class="article-tablet-foot__map"><a href="tutorial/map.html" data-action="tutorial-map" class="map"><span class="map__text">Карта учебника</span></a></div></div></div><div id="comments" class="comments"><div class="comments__header"><h2 class="comments__header-title"><a href="settimeout-setinterval.html#comments" name="comments">Комментарии</a></h2><div class="comments__read-before"><span class="comments__read-before-link">перед тем как писать…</span><div class="comments__read-before-popup"><div class="comments__read-before-popup-i"><ul><li>Приветствуются комментарии, содержащие дополнения и вопросы по статье, и ответы на них.</li><li>Для одной строки кода используйте тег <code>&lt;code&gt;</code>, для нескольких строк кода&nbsp;&mdash; тег <code>&lt;pre&gt;</code>, если больше 10 строк&nbsp;&mdash; ссылку на песочницу (<a href='http://plnkr.co/edit/?p=preview'>plnkr</a>, <a href='http://jsbin.com'>JSBin</a>, <a href='http://codepen.io'>codepen</a>…)</li><li>Если что-то непонятно в статье&nbsp;&mdash; пишите, что именно и с какого места.</li></ul></div></div></div></div></div><div id="disqus_thread"></div><script>var disqus_config = function() { if (!this.page) this.page = {}; Object.assign(this.page, {"url":"https:\/\/learn.javascript.ru\/settimeout-setinterval","identifier":"\/settimeout-setinterval","title":"setTimeout \u0438 setInterval"}); };</script><script>var disqus_shortname = "learnjavascriptru";</script><script>{
+  var s = document.createElement('script');
+  s.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+  s.setAttribute('data-timestamp', +new Date());
+  document.head.appendChild(s);
+}
+</script><script async id="dsq-count-scr" src="https://learnjavascriptru.disqus.com/count.js"></script></main></div><div class="page__sidebar sidebar sidebar_sticky-footer"><button data-sidebar-toggle class="sidebar__toggle"></button><a href="tutorial/map.html" data-action="tutorial-map" data-tooltip="Карта учебника" class="map"></a><div class="sidebar__inner"><div class="sidebar__content"><div class="sidebar__section"><h4 class="sidebar__section-title">Раздел</h4><nav class="sidebar__navigation"><ul class="sidebar__navigation-links"><li class="sidebar__navigation-link"><a href="js-misc.html" class="sidebar__link">Некоторые другие возможности</a></li></ul></nav></div><div class="sidebar__section"><h4 class="sidebar__section-title">Навигация по уроку</h4><nav class="sidebar__navigation"><ul class="sidebar__navigation-links"><li class="sidebar__navigation-link"><a href="settimeout-setinterval.html#settimeout" class="sidebar__link">setTimeout</a></li><li class="sidebar__navigation-link"><a href="settimeout-setinterval.html#setinterval" class="sidebar__link">setInterval</a></li><li class="sidebar__navigation-link"><a href="settimeout-setinterval.html#минимальная-задержка-таймера" class="sidebar__link">Минимальная задержка таймера</a></li><li class="sidebar__navigation-link"><a href="settimeout-setinterval.html#реальная-частота-срабатывания" class="sidebar__link">Реальная частота срабатывания</a></li><li class="sidebar__navigation-link"><a href="settimeout-setinterval.html#разбивка-долгих-скриптов" class="sidebar__link">Разбивка долгих скриптов</a></li><li class="sidebar__navigation-link"><a href="settimeout-setinterval.html#итого" class="sidebar__link">Итого</a></li></ul></nav></div><div class="sidebar__section"><nav class="sidebar__navigation"><ul class="sidebar__navigation-links"><li class="sidebar__navigation-link"><a href="settimeout-setinterval.html#tasks" class="sidebar__link">Задачи (9)</a></li><li class="sidebar__navigation-link"><a href="settimeout-setinterval.html#comments" class="sidebar__link">Комментарии</a></li></ul></nav></div><div class="sidebar__section"><div class="sidebar__section-title">Поделиться</div><a href="https://twitter.com/share?url=https%3A%2F%2Flearn.javascript.ru%2Fsettimeout-setinterval" class="share share_tw sidebar__share"></a><a href="https://www.facebook.com/sharer/sharer.php?s=100&amp;p%5Burl%5D=https%3A%2F%2Flearn.javascript.ru%2Fsettimeout-setinterval" class="share share_fb sidebar__share"></a><a href="https://plus.google.com/share?url=https%3A%2F%2Flearn.javascript.ru%2Fsettimeout-setinterval" class="share share_gp sidebar__share"></a><a href="https://vkontakte.ru/share.php?url=https%3A%2F%2Flearn.javascript.ru%2Fsettimeout-setinterval" class="share share_vk sidebar__share"></a></div><div class="sidebar__section"><a href="https://github.com/iliakan/javascript-tutorial-ru/tree/master/1-js/7-js-misc/3-settimeout-setinterval/article.md" class="sidebar__link">Редактировать на Github</a></div></div></div></div></div></div><div class="page-footer"><div class="page-footer__left"><ul class="page-footer__list"><li class="page-footer__item">©&nbsp;2007—2017&nbsp; Илья Кантор</li><li class="page-footer__item"><a href="about.html#contact-us" class="page-footer__link">связаться с нами</a></li><li class="page-footer__item"><a href="about.html" class="page-footer__link">о проекте</a></li><li class="page-footer__item"><a href="agreement.html" class="page-footer__link">соглашение</a></li><li class="page-footer__item"><a href="http://slack.javascript.ru" class="page-footer__slack">slack-чат</a></li></ul></div><div class="page-footer__right"><ul class="page-footer__list"><li class="page-footer__item">powered by <a rel="nofollow" href="http://nodejs.org" class="page-footer__link">node.js</a>&nbsp;&amp;&nbsp;<a rel="nofollow" href="http://github.com/iliakan/javascript-tutorial-ru" class="page-footer__link">open source</a></li></ul></div></div></body></html>

@@ -1,0 +1,126 @@
+<!DOCTYPE html><html lang="ru"><head><script>window.currentUser = null;</script><script>window.rateUsdRub = 57.029;</script><title itemprop="name">Выберите элементы селектором</title><meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=yes, minimum-scale=1.0"><meta name="apple-mobile-web-app-capable" content="yes"><script>if (window.devicePixelRatio > 1) document.cookie = 'pixelRatio=' + window.devicePixelRatio + ';path=/;expires=Tue, 19 Jan 2038 03:14:07 GMT';</script><link href="https://fonts.googleapis.com/css?family=Open+Sans:400italic,700italic,400,700%7COpen+Sans+Condensed:700&amp;subset=latin,latin-ext,cyrillic,cyrillic-ext" rel="stylesheet"><link rel="apple-touch-icon-precomposed" href="../img/favicon/apple-touch-icon-precomposed.png"><link rel="canonical" href="select-elements-selector.html"><meta name="msapplication-TileColor" content="#222A2C"><meta name="msapplication-TileImage" content="/img/favicon/tileicon.png"><!-- favicon the rest--><link rel="icon" href="../img/favicon/favicon.png"><meta itemprop="image" content="https://learn.javascript.ru/img/logo_square_ru.png"><meta property="og:title" content="Выберите элементы селектором"><meta property="og:image" content="https://learn.javascript.ru/img/logo_square_ru.png"><meta property="fb:admins" content="100001562528165"><meta name="twitter:card" content="summary"><meta name="twitter:title" content="Выберите элементы селектором"><meta name="twitter:site" content="@iliakan"><meta name="twitter:creator" content="@iliakan"><meta name="twitter:image" content="https://learn.javascript.ru/img/logo_square_ru.png"><link href="../pack/styles.46d1c22c6f8f406dd057a0a89e7ca6ba.css" rel="stylesheet"><script>window.GA_ID = "UA-2056213-16";</script><script>window.YANDEX_METRIKA_ID = 17649010;</script><script>window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)},ga.l=Date.now(),ga("create",GA_ID,"auto"),window.currentUser&&ga("set","&uid",currentUser.id),ga("send","pageview"),window.addEventListener("error",function(e){var r=(e.filename||e.errorUrl)+": "+(e.lineno||e.errorLine),a=e.stack||e.error&&e.error.stack;ga("send","exception",{exDescription:e.message+" "+r+" "+a,exFatal:!0})});</script><script src="https://www.google-analytics.com/analytics.js" async></script><script>ga('send', 'pageview');</script><script>!function(){window.metrika={reachGoal:function(){}},window.yandex_metrika_callbacks=[function(){try{window.metrika=new Ya.Metrika({id:YANDEX_METRIKA_ID,webvisor:!0,clickmap:!0,params:{user:window.currentUser&&window.currentUser.id}}),metrika.trackLinks({delay:150}),window.addEventListener("error",function(r){window.metrika.reachGoal("JSERROR",{src:(r.filename||r.errorUrl)+": "+(r.lineno||r.errorLine),stack:r.stack||r.error&&r.error.stack,message:r.message})})}catch(r){}}]}();</script><script src="https://mc.yandex.ru/metrika/watch.js" async></script><script>//- hitCallback will never work, but that must be worked around by gaHitCallback wrapper
+window.ga = function() {};</script><script>window.metrika = { reachGoal: function() {} };</script><script>window.RECAPTCHA_ID = "6Lf9NyETAAAAACZlg-a9Us2SxvYbeVC1ROWaWv4O";</script><script src="../pack/head.30bfc7bc47478d473464.js"></script><script src="../pack/tutorial.30bfc7bc47478d473464.js" defer></script><script src="../pack/footer.30bfc7bc47478d473464.js" defer></script></head><body class="no-icons"><script>head.fontTest();</script><div class="page-wrapper"><div class="page"><script>if(localStorage.noSidebar){document.querySelector(".page").classList.remove("page_sidebar_on");var pageWrapper=document.querySelector(".page-wrapper");pageWrapper&&pageWrapper.classList.remove("page-wrapper_sidebar_on")}setTimeout(function(){document.querySelector(".page").classList.add("page_sidebar-animation-on")},0);</script><div class="page__inner"><main class="main main_width-limit"><div style="display:none" class="breadcrumbs"><li itemscope itemtype="http://data-vocabulary.org/Breadcrumb" itemref="breadcrumb-1" class="breadcrumbs__item breadcrumbs__item_home"><a href="../tutorial.1.html" itemprop="url" class="breadcrumbs__link"><span itemprop="title" class="breadcrumbs__hidden-text">Учебник</span></a></li><li id="breadcrumb-1" itemscope itemtype="http://data-vocabulary.org/Breadcrumb" itemref="breadcrumb-2" itemprop="child" class="breadcrumbs__item"><a href="../css-for-js.html" itemprop="url" class="breadcrumbs__link"><span itemprop="title">CSS для JavaScript-разработчика</span></a></li><li id="breadcrumb-2" itemscope itemtype="http://data-vocabulary.org/Breadcrumb" itemprop="child" class="breadcrumbs__item"><a href="../css-selectors.html" itemprop="url" class="breadcrumbs__link"><span itemprop="title">Знаете ли вы селекторы?</span></a></li></div><div itemscope itemtype="http://schema.org/TechArticle" class="task-single"><meta itemprop="name" content="Выберите элементы селектором"><div itemprop="author" itemscope itemtype="http://schema.org/Person"><meta itemprop="email" content="iliakan@gmail.com"><meta itemprop="name" content="Ilya Kantor"></div><a href="../css-selectors.html" class="task-single__back"><span>Вернуться к уроку</span></a><div itemprop="articleBody" class="task task-single__task"><div class="task__header"><div class="task__title-wrap"><h2 class="task__title">Выберите элементы селектором</h2></div><div class="task__header-note"><span title="Насколько эта задача важна для освоения материала, от 1 до 5" class="task__importance">важность: 5</span></div></div><div class="task__content"><p>HTML-документ:</p>
+<div data-trusted="1" class="code-example">
+      <div class="codebox code-example__codebox">
+        
+        <div class="codebox__code" data-code="1">
+          <pre class="line-numbers language-markup"><code class="language-markup">&lt;input type=&quot;checkbox&quot;&gt;
+&lt;input type=&quot;checkbox&quot; checked&gt;
+&lt;input type=&quot;text&quot; id=&quot;message&quot;&gt;
+
+&lt;h3 id=&quot;widget-title&quot;&gt;Сообщения:&lt;/h3&gt;
+&lt;ul id=&quot;messages&quot;&gt;
+  &lt;li id=&quot;message-1&quot;&gt;Сообщение 1&lt;/li&gt;
+  &lt;li id=&quot;message-2&quot;&gt;Сообщение 2&lt;/li&gt;
+  &lt;li id=&quot;message-3&quot; data-action=&quot;delete&quot;&gt;Сообщение 3&lt;/li&gt;
+  &lt;li id=&quot;message-4&quot; data-action=&quot;edit do-not-delete&quot;&gt;Сообщение 4&lt;/li&gt;
+  &lt;li id=&quot;message-5&quot; data-action=&quot;edit delete&quot;&gt;Сообщение 5&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;#&quot;&gt;...&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;a href=&quot;http://site.com/list.zip&quot;&gt;Ссылка на архив&lt;/a&gt;
+&lt;a href=&quot;http://site.com/list.pdf&quot;&gt;..И на PDF&lt;/a&gt;</code></pre>
+        </div>
+      </div>
+      
+      </div><p>Задания:</p>
+<ol>
+<li>Выбрать <code>input</code> типа <code>checkbox</code>.</li>
+<li>Выбрать <code>input</code> типа <code>checkbox</code>, НЕ отмеченный.</li>
+<li>Найти все элементы с <code>id=message</code> или <code>message-*</code>.</li>
+<li>Найти все элементы с <code>id=message-*</code>.</li>
+<li>Найти все ссылки с расширением <code>href=&quot;...zip&quot;</code>.</li>
+<li>Найти все элементы с атрибутом <code>data-action</code>, содержащим <code>delete</code> в списке (через пробел).</li>
+<li>Найти все элементы, у которых ЕСТЬ атрибут <code>data-action</code>, но он НЕ содержит <code>delete</code> в списке (через пробел).</li>
+<li>Выбрать все чётные элементы списка <code>#messages</code>.</li>
+<li>Выбрать один элемент сразу за заголовком <code>h3#widget-title</code> на том же уровне вложенности.</li>
+<li>Выбрать все ссылки, следующие за заголовком <code>h3#widget-title</code> на том же уровне вложенности.</li>
+<li>Выбрать ссылку внутри последнего элемента списка <code>#messages</code>.</li>
+</ol>
+<p><a href="http://plnkr.co/edit/8fqkxKYXztqyT986PJ0F?p=preview" target="_blank" data-plunk-id="8fqkxKYXztqyT986PJ0F">Открыть песочницу для задачи.</a></p><button type="button" class="task__solution">решение</button><div class="task__answer"><div class="task__answer-content"><div data-trusted="1" class="code-example">
+      <div class="codebox code-example__codebox">
+        
+        <div class="codebox__code" data-code="1">
+          <pre class="line-numbers language-markup"><code class="language-markup">&lt;!DOCTYPE HTML&gt;
+&lt;html&gt;
+
+&lt;head&gt;
+  &lt;meta charset=&quot;utf-8&quot;&gt;
+&lt;/head&gt;
+
+&lt;body&gt;
+
+  &lt;input type=&quot;checkbox&quot;&gt;
+  &lt;input type=&quot;checkbox&quot; checked&gt;
+  &lt;input type=&quot;text&quot; id=&quot;message&quot;&gt;
+
+  &lt;h3 id=&quot;widget-title&quot;&gt;Сообщения:&lt;/h3&gt;
+  &lt;ul id=&quot;messages&quot;&gt;
+    &lt;li id=&quot;message-1&quot;&gt;Сообщение 1&lt;/li&gt;
+    &lt;li id=&quot;message-2&quot;&gt;Сообщение 2&lt;/li&gt;
+    &lt;li id=&quot;message-3&quot; data-action=&quot;delete&quot;&gt;Сообщение 3&lt;/li&gt;
+    &lt;li id=&quot;message-4&quot; data-action=&quot;edit do-not-delete&quot;&gt;Сообщение 4&lt;/li&gt;
+    &lt;li id=&quot;message-5&quot; data-action=&quot;edit delete&quot;&gt;Сообщение 5&lt;/li&gt;
+    &lt;li&gt;&lt;a href=&quot;#&quot;&gt;...&lt;/a&gt;&lt;/li&gt;
+  &lt;/ul&gt;
+
+
+  &lt;a href=&quot;http://site.com/list.zip&quot;&gt;Ссылка на архив&lt;/a&gt;
+  &lt;a href=&quot;http://site.com/list.pdf&quot;&gt;..И на PDF&lt;/a&gt;
+
+
+  &lt;script&gt;
+    // тестовая функция для селекторов
+    // проверяет, чтобы элементов по селектору selector было ровно count
+    function test(selector, count) {
+      var elems = document.querySelectorAll(selector);
+      var ok = (elems.length == count);
+
+      if (!ok) alert(selector + &quot;: &quot; + elems.length + &quot; != &quot; + count);
+    }
+
+    // ------------- селекторы --------------
+
+    // Выбрать input типа checkbox
+    test('input[type=&quot;checkbox&quot;]', 2);
+
+    // Выбрать input типа checkbox, НЕ отмеченный
+    test('input[type=&quot;checkbox&quot;]:not(:checked)', 1);
+
+    // Найти все элементы с id=message или message-*
+    test('[id|=&quot;message&quot;]', 6);
+
+    // Найти все элементы с id=message-*
+    test('[id^=&quot;message-&quot;]', 5);
+
+    // Найти все ссылки с расширением href=&quot;...zip&quot;
+    test('a[href$=&quot;.zip&quot;]', 1);
+
+    // Найти все элементы с data-action, содержащим delete в списке (через пробел)
+    test('[data-action~=&quot;delete&quot;]', 2);
+
+    // Найти все элементы, у которых ЕСТЬ атрибут data-action,
+    // но он НЕ содержащит delete в списке (через пробел)
+    test('[data-action]:not([data-action~=&quot;delete&quot;])', 1);
+
+    // Выбрать все чётные элементы списка #messages
+    test('#messages li:nth-child(2n)', 3);
+
+    // Выбрать один элемент сразу за заголовком h3#widget-title
+    // на том же уровне вложенности
+    test('h3#widget-title + *', 1);
+
+    // Выбрать все ссылки, следующие за заголовком h3#widget-title
+    // на том же уровне вложенности
+    test('h3#widget-title ~ a', 2);
+
+    // Выбрать ссылку внутри последнего элемента списка #messages
+    test('#messages li:last-child a', 1);
+  &lt;/script&gt;
+&lt;/body&gt;
+
+&lt;/html&gt;</code></pre>
+        </div>
+      </div>
+      
+      </div></div><button type="button" title="закрыть" class="close-button task__answer-close"></button></div></div></div></div></main></div></div></div><div class="page-footer"><div class="page-footer__left"><ul class="page-footer__list"><li class="page-footer__item">©&nbsp;2007—2017&nbsp; Илья Кантор</li><li class="page-footer__item"><a href="../about.html#contact-us" class="page-footer__link">связаться с нами</a></li><li class="page-footer__item"><a href="../about.html" class="page-footer__link">о проекте</a></li><li class="page-footer__item"><a href="../agreement.html" class="page-footer__link">соглашение</a></li><li class="page-footer__item"><a href="http://slack.javascript.ru" class="page-footer__slack">slack-чат</a></li></ul></div><div class="page-footer__right"><ul class="page-footer__list"><li class="page-footer__item">powered by <a rel="nofollow" href="http://nodejs.org" class="page-footer__link">node.js</a>&nbsp;&amp;&nbsp;<a rel="nofollow" href="http://github.com/iliakan/javascript-tutorial-ru" class="page-footer__link">open source</a></li></ul></div></div></body></html>
