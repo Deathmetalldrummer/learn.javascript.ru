@@ -1,0 +1,27 @@
+<svg width="104" height="104" viewBox="0 0 104 104" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+<title>angular</title>
+<desc>Created using Figma</desc>
+<g id="Canvas" transform="translate(-6414 -4012)">
+<clipPath id="clip-0" clip-rule="evenodd">
+<path d="M 6414 4012L 6518 4012L 6518 4116L 6414 4116L 6414 4012Z" fill="#FFFFFF"/>
+</clipPath>
+<g id="angular" clip-path="url(#clip-0)">
+<g id="angular-icon-1">
+<g id="Vector">
+<use xlink:href="#path0_fill" transform="translate(6436 4032)" fill="#E12A2C"/>
+</g>
+<g id="Vector">
+<use xlink:href="#path1_fill" transform="translate(6466.09 4032)" fill="#BA2324"/>
+</g>
+<g id="Vector">
+<use xlink:href="#path2_fill" transform="translate(6447.39 4039.47)" fill="#FFFFFF"/>
+</g>
+</g>
+</g>
+</g>
+<defs>
+<path id="path0_fill" d="M 3.56454e-10 10.6077L 30.0948 6.31918e-09L 61 10.4191L 55.9959 49.8092L 30.0948 64L 4.59885 49.9978L 3.56454e-10 10.6077Z"/>
+<path id="path1_fill" d="M 30.9052 10.4191L -6.86216e-07 6.31918e-09L -6.86216e-07 64L 25.9012 49.8328L 30.9052 10.4191L 30.9052 10.4191Z"/>
+<path id="path2_fill" d="M 18.7525 -4.11649e-07L 1.67904e-07 41.2759L 7.00532 41.158L 10.7703 31.8467L 27.5929 31.8467L 31.7152 41.2759L 38.4107 41.3937L 18.7525 -4.11649e-07ZM 18.8004 13.2244L 25.1385 26.3306L 13.2244 26.3306L 18.8004 13.2244Z"/>
+</defs>
+</svg>

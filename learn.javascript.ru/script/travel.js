@@ -1,12 +1,12 @@
 (function() {
 
-  var elem = document.getElementById('travel-dom-control');
-  var iframe = document.getElementById('travel-dom-iframe');
-  var iframeDoc;
+  let elem = document.getElementById('travel-dom-control');
+  let iframe = document.getElementById('travel-dom-iframe');
+  let iframeDoc;
 
-  var currentElement;
+  let currentElement;
 
-  var nodeTypes = {
+  let nodeTypes = {
     1:  'ELEMENT_NODE',
     3:  'TEXT_NODE',
     7:  'PROCESSING_INSTRUCTION_NODE',
@@ -21,7 +21,7 @@
     currentElement = iframeDoc.documentElement;
 
     elem.onclick = function(e) {
-      var dir = e.target.getAttribute('data-travel-dir');
+      let dir = e.target.getAttribute('data-travel-dir');
       if (!dir) return;
 
       if (currentElement && currentElement.style) {
@@ -43,14 +43,14 @@
 
   function updateControls() {
 
-    var directions = ['parentNode', 'previousSibling', 'nextSibling', 'firstChild', 'lastChild'];
+    let directions = ['parentNode', 'previousSibling', 'nextSibling', 'firstChild', 'lastChild'];
     directions.forEach(function(dir) {
       // console.log(currentElement, dir, currentElement[dir]);
       elem.querySelector('[data-travel-dir="' + dir + '"]').disabled = !currentElement[dir];
     });
 
     console.log(currentElement);
-    var data = currentElement.data || '';
+    let data = currentElement.data || '';
 
     if (data.match(/^\s+$/)) {
       data = '&lt;пробельные символы&gt;';
@@ -65,7 +65,7 @@
         ']';
 
 
-    var comment = document.getElementById('travel-dom-comment');
+    let comment = document.getElementById('travel-dom-comment');
     comment.innerHTML = '';
 
     if (currentElement === iframeDoc) {
@@ -94,7 +94,7 @@
 
   /*
    read:           function(isAttr) {
-   var value = this.$('read').value;
+   let value = this.$('read').value;
    if (!value.length) {
    this.$('read').focus();
    return;

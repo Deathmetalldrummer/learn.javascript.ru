@@ -1,0 +1,29 @@
+<svg width="104" height="104" viewBox="0 0 104 104" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+<title>vue</title>
+<desc>Created using Figma</desc>
+<g id="Canvas" transform="translate(-7134 -4012)">
+<clipPath id="clip-0" clip-rule="evenodd">
+<path d="M 7134 4012L 7238 4012L 7238 4116L 7134 4116L 7134 4012Z" fill="#FFFFFF"/>
+</clipPath>
+<g id="vue" clip-path="url(#clip-0)">
+<g id="Vue.js_Logo">
+<g id="g10">
+<g id="g12">
+<g id="path14">
+<use xlink:href="#path0_fill" transform="matrix(1.33333 0 0 -1.33333 7154 4092)" fill="#4DBA87"/>
+</g>
+</g>
+<g id="g16">
+<g id="path18">
+<use xlink:href="#path1_fill" transform="matrix(1.33333 0 0 -1.33333 7166.8 4070)" fill="#435466"/>
+</g>
+</g>
+</g>
+</g>
+</g>
+</g>
+<defs>
+<path id="path0_fill" d="M 30.0041 41.25L 24.375 31.7237L 18.7459 41.25L -5.91092e-07 41.25L 24.375 4.14639e-07L 48.75 41.25L 30.0041 41.25Z"/>
+<path id="path1_fill" d="M 19.9425 24.75L 14.4 15.2236L 8.85746 24.75L -5.96921e-07 24.75L 14.4 -5.18298e-07L 28.8 24.75L 19.9425 24.75Z"/>
+</defs>
+</svg>

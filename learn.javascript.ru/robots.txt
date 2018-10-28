@@ -3,3 +3,4 @@ Disallow: /node/
 Disallow: /users/
 Disallow: /content/
 Disallow: /play/
+Disallow: /profile/

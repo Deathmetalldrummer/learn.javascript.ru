@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="595px" height="842px" viewBox="0 0 595 842" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: sketchtool 50.2 (55047) - http://www.bohemiancoding.com/sketch -->
+    <title>ru/ebook/demo</title>
+    <desc>Created with sketchtool.</desc>
+    <defs>
+        <rect id="path-1" x="0" y="0" width="595" height="842"></rect>
+    </defs>
+    <g id="EN" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="ru/ebook/demo">
+            <g id="Rectangle-1-+-Group">
+                <mask id="mask-2" fill="white">
+                    <use xlink:href="#path-1"></use>
+                </mask>
+                <g id="Rectangle-1"></g>
+                <g id="Group" mask="url(#mask-2)">
+                    <g transform="translate(-442.000000, -506.000000)" id="Shape">
+                        <polygon stroke="#E8B86B" fill="#E8B86B" points="994 254 832 476 1078 531"></polygon>
+                        <polygon stroke="#D9B179" fill="#D9B179" points="994 254 1078 531 1411 212"></polygon>
+                        <polygon stroke="#CEA252" fill="#CEA252" points="363 361 124 607 451 725"></polygon>
+                        <polygon stroke="#DCB365" fill="#DCB365" points="363 361 451 725 594 716"></polygon>
+                        <polygon stroke="#D99F47" fill="#D99F47" points="363 361 594 716 746 316"></polygon>
+                        <polygon stroke="#E4B966" fill="#E4B966" points="746 316 594 716 832 476"></polygon>
+                        <polygon stroke="#EBCF87" fill="#EBCF87" points="832 476 594 716 782 639"></polygon>
+                        <polygon stroke="#F0D389" fill="#F0D389" points="832 476 782 639 1078 531"></polygon>
+                        <polygon stroke="#F2E1AD" fill="#F2E1AD" points="1078 531 782 639 770 891"></polygon>
+                        <polygon stroke="#F6F0D0" fill="#F6F0D0" points="1078 531 770 891 1308 888"></polygon>
+                        <polygon stroke="#CDB081" fill="#CDB081" points="124 607 310 949 451 725"></polygon>
+                        <polygon stroke="#CEBD93" fill="#CEBD93" points="451 725 310 949 636 1071"></polygon>
+                        <polygon stroke="#DDC69A" fill="#DDC69A" points="451 725 636 1071 594 716"></polygon>
+                        <polygon stroke="#DFD1AB" fill="#DFD1AB" points="594 716 636 1071 770 891"></polygon>
+                        <polygon stroke="#EAD7A7" fill="#EAD7A7" points="594 716 770 891 782 639"></polygon>
+                        <polygon stroke="#849D6F" fill="#849D6F" points="310 949 416 1281 477 1267"></polygon>
+                        <polygon stroke="#9EB181" fill="#9EB181" points="310 949 477 1267 636 1071"></polygon>
+                        <polygon stroke="#91B184" fill="#91B184" points="636 1071 477 1267 790 1184"></polygon>
+                        <polygon stroke="#B9D3A8" fill="#B9D3A8" points="636 1071 790 1184 770 891"></polygon>
+                        <polygon stroke="#BFE3C1" fill="#BFE3C1" points="770 891 790 1184 1307 1116"></polygon>
+                        <polygon stroke="#DFF2DC" fill="#DFF2DC" points="770 891 1307 1116 1308 888"></polygon>
+                        <polygon stroke="#6E7F52" fill="#6E7F52" points="416 1281 333 1421 477 1267"></polygon>
+                        <polygon stroke="#6A7042" fill="#6A7042" points="477 1267 333 1421 644 1621"></polygon>
+                        <polygon stroke="#7A8E63" fill="#7A8E63" points="477 1267 644 1621 790 1184"></polygon>
+                        <polygon stroke="#75835B" fill="#75835B" points="790 1184 644 1621 787 1613"></polygon>
+                        <polygon stroke="#83A080" fill="#83A080" points="790 1184 787 1613 1240 1407"></polygon>
+                        <polygon stroke="#98CAB2" fill="#98CAB2" points="790 1184 1240 1407 1307 1116"></polygon>
+                    </g>
+                </g>
+            </g>
+            <g id="Group" transform="translate(128.000000, 289.000000)" fill="#2A0C00">
+                <g transform="translate(0.000000, 4.000000)" id="Shape" stroke="#000000" stroke-width="0.99565104">
+                    <path d="M19.433283,200.05163 C31.1666109,207.679653 42.9610651,211.49368 54.8166457,211.49368 C66.6721941,211.49368 74.9833161,207.679653 79.7499796,200.05163 C84.516643,192.423608 86.8999908,180.366371 86.8999908,163.879918 L86.8999908,2.2145913 C94.2333167,0.738196019 103.583329,0 114.949995,0 C126.316662,0 135.666674,0.738196019 143,2.2145913 L143,158.343359 C143,188.609451 137.622234,212.354735 126.86667,229.579406 C114.888901,248.52648 92.4000416,258 59.3998657,258 C36.6665328,258 16.8666206,252.586569 0,241.759675 C2.44444519,225.519349 8.92222445,211.616614 19.4333475,200.051403 L19.433283,200.05163 Z"></path>
+                </g>
+                <g transform="translate(150.000000, 0.000000)" id="Shape">
+                    <path d="M6.45367925e-05,236.230517 C0.734438377,228.331475 3.18235441,220.494159 7.34380294,212.71857 C11.5052644,204.942948 16.40109,198.710132 22.031312,194.020087 C48.713597,210.311821 73.4374486,218.457705 96.2031247,218.457705 C106.729172,218.457705 114.746094,215.927549 120.25389,210.86723 C125.761686,205.806924 128.5156,199.697496 128.5156,192.539009 C128.5156,180.196763 120.315071,170.322993 103.914045,162.917665 L60.585979,144.40433 C25.8254946,129.09996 8.44541372,106.513618 8.44541372,76.6454006 C8.44541372,54.1825439 16.8907306,35.7926614 33.7813322,21.4754927 C50.671966,7.15851926 72.8867561,0 100.425896,0 C127.964972,0 155.197949,7.03506622 182.124958,21.1052312 C180.900998,38.1375207 174.536431,52.3310737 163.031199,63.6857924 C138.062463,51.5904205 116.031312,45.5427183 96.9374566,45.5427183 C86.9009851,45.5427183 79.1900646,47.9494539 73.8046307,52.7629315 C68.4192289,57.5763962 65.7264958,63.0686899 65.7264958,69.2398126 C65.7264958,79.1135829 73.3150223,87.3828866 88.4921075,94.0476914 L132.554602,112.561027 C150.1796,120.213196 163.826744,130.272113 173.496098,142.737779 C183.165355,155.203445 188,169.335271 188,185.133193 C188,208.583446 179.73829,227.590431 163.214839,242.154246 C146.691419,256.718093 123.007772,264 92.1640251,264 C76.9869399,264 61.1366714,261.531554 44.6133165,256.594672 C28.089897,251.657787 13.2187808,244.869562 0,236.229997 L6.45367925e-05,236.230517 Z"></path>
+                </g>
+            </g>
+            <text id="Язык-Javascript" font-family="OpenSans-SemiBold, Open Sans" font-size="32" font-weight="500" letter-spacing="-0.699999988" fill="#000000">
+                <tspan x="258.134375" y="110">Язык</tspan>
+                <tspan x="225.765625" y="153">Javascript</tspan>
+            </text>
+            <text id="Часть-1" font-family="OpenSans-SemiBold, Open Sans" font-size="18" font-weight="500" letter-spacing="-0.39375" fill="#000000">
+                <tspan x="265.312695" y="59">Часть 1</tspan>
+            </text>
+            <text id="Илья-Кантор" font-family="OpenSans-SemiBold, Open Sans" font-size="22" font-weight="500" letter-spacing="-0.48125" fill="#000000">
+                <tspan x="229.296777" y="757">Илья Кантор</tspan>
+            </text>
+        </g>
+    </g>
+</svg>

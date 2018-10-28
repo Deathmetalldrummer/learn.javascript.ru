@@ -1,0 +1,235 @@
+<!DOCTYPE html><html lang="ru"><head><script>window.currentUser = null;</script><script>window.rateUsdToNative = 65.69;</script><title itemprop="name">Вывести односвязный список</title><link href="../pack/styles.ce210dd933f17ce8be6f.css" rel="stylesheet"><meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=yes, minimum-scale=1.0"><meta name="apple-mobile-web-app-capable" content="yes"><!-- chrome autotranslate is enabled only for "en" main version--><meta name="google" content="notranslate"><script>if (window.devicePixelRatio > 1) document.cookie = 'pixelRatio=' + window.devicePixelRatio + ';path=/;expires=Tue, 19 Jan 2038 03:14:07 GMT';</script><link href="http://fonts.googleapis.com/css?family=Open+Sans:400italic,700italic,400,700%7COpen+Sans+Condensed:700&amp;subset=latin,latin-ext,cyrillic,cyrillic-ext" rel="stylesheet"><link rel="apple-touch-icon-precomposed" href="../img/favicon/apple-touch-icon-precomposed.png"><link rel="canonical" href="output-single-linked-list.html"><meta name="msapplication-TileColor" content="#222A2C"><meta name="msapplication-TileImage" content="/img/favicon/tileicon.png"><link rel="icon" href="../img/favicon/favicon.png"><meta itemprop="image" content="https://learn.javascript.ru/img/site_preview_ru_512x512.png"><meta property="og:title" content="Вывести односвязный список"><meta property="og:image" content="https://learn.javascript.ru/img/site_preview_ru_1200x630.png"><meta property="og:image:type" content="image/png"><meta property="og:image:width" content="1200"><meta property="og:image:height" content="630"><meta property="fb:admins" content="100001562528165"><meta name="twitter:card" content="summary"><meta name="twitter:title" content="Вывести односвязный список"><meta name="twitter:site" content="@iliakan"><meta name="twitter:creator" content="@iliakan"><meta name="twitter:image" content="https://learn.javascript.ru/img/site_preview_ru_512x512.png"><script>window.GA_ID = "UA-2056213-16";</script><script>window.GTM_ID = 'GTM-WD2DZPG'</script><script>window.YANDEX_METRIKA_ID = 17649010;</script><script>window.GoogleAnalyticsObject="ga",window.ga=function(){window.ga.q.push(arguments)},window.ga.q=[],window.ga.l=Date.now(),ga("create",GA_ID,"auto"),window.GTM_ID&&ga("require",GTM_ID),window.currentUser?ga("set","&uid",currentUser.id):ga("set","anonymizeIp",!0),window.addEventListener("error",function(e){var r=(e.filename||e.errorUrl)+": "+(e.lineno||e.errorLine),n=e.stack||e.error&&e.error.stack;ga("send","exception",{exDescription:e.message+" "+r+" "+n,exFatal:!0})});</script><script src="https://www.google-analytics.com/analytics.js" async></script><script>ga('send', 'pageview');</script><script>window.metrika={reachGoal:function(){}},window.yandex_metrika_callbacks=[function(){try{window.metrika=new Ya.Metrika({id:YANDEX_METRIKA_ID,webvisor:!0,clickmap:!0,params:{user:window.currentUser&&window.currentUser.id}}),metrika.trackLinks({delay:150}),window.addEventListener("error",function(r){window.metrika.reachGoal("JSERROR",{src:(r.filename||r.errorUrl)+": "+(r.lineno||r.errorLine),stack:r.stack||r.error&&r.error.stack,message:r.message})})}catch(r){}}];</script><script src="http://mc.yandex.ru/metrika/watch.js" async></script><script>window.RECAPTCHA_ID = "6Lf9NyETAAAAACZlg-a9Us2SxvYbeVC1ROWaWv4O";</script><script src="../pack/init.ce210dd933f17ce8be6f.js"></script><script src="../pack/head.ce210dd933f17ce8be6f.js" defer></script><script src="../pack/tutorial.ce210dd933f17ce8be6f.js" defer></script><script src="../pack/footer.ce210dd933f17ce8be6f.js" defer></script></head><body class="no-icons"><script>window.fontTest();</script><div class="page-wrapper"><!--[if lt IE 10]><div style="color:red;text-align:center">Извините, IE&lt;10 не поддерживается, пожалуйста используйте более новый браузер.</div><![endif]--><div class="sitetoolbar"><div class="sitetoolbar__content"><div class="sitetoolbar__logo-wrap"><a class="sitetoolbar__link sitetoolbar__link_logo" href="../index.html"><img class="sitetoolbar__logo sitetoolbar__logo_normal" src="../img/sitetoolbar__logo_ru.svg" width="171" alt="" role="presentation"/><img class="sitetoolbar__logo sitetoolbar__logo_small" src="../img/sitetoolbar__logo_small_ru.svg" width="80" alt="" role="presentation"/><script>Array.prototype.forEach.call(document.querySelectorAll("img.sitetoolbar__logo"),function(e){let t=document.createElement("object");t.type="image/svg+xml",t.className=e.className,t.style.cssText="left:0;top:0;position:absolute",t.onload=function(){t.onload=null,e.style.visibility="hidden"},t.data=e.src,e.parentNode.insertBefore(t,e)});</script></a></div><div class="sitetoolbar__nav-toggle-wrap"><button class="sitetoolbar__nav-toggle" type="button"></button></div><nav class="sitetoolbar__sections"><ul class="sitetoolbar__sections-list"><li class="sitetoolbar__section sitetoolbar__section_current"><a class="sitetoolbar__link" href="../index.html">Учебник</a></li><li class="sitetoolbar__section"><a class="sitetoolbar__link" href="../courses.1.html">Курсы</a></li><li class="sitetoolbar__section"><a class="sitetoolbar__link" href="https://javascript.ru/forum/">Форум</a></li><li class="sitetoolbar__section"><a class="sitetoolbar__link" href="https://es5.javascript.ru">ES5</a></li><li class="sitetoolbar__section"><a class="sitetoolbar__link" href="../quiz.html">Тесты знаний</a></li><li class="sitetoolbar__section"><a class="sitetoolbar__link" href="../jobs.1.html">Стажировки</a></li><li class="sitetoolbar__section sitetoolbar__section_dropdown"><button class="sitetoolbar__dropdown-button" data-dropdown-toggler>Скринкасты</button><div class="sitetoolbar__dropdown-wrap"><div class="sitetoolbar__dropdown-body"><ul class="sitetoolbar__dropdown-items"><li class="sitetoolbar__dropdown-item"><a class="sitetoolbar__secondary-link sitetoolbar__dropdown-link" href="../nodejs-screencast.html">Node.js</a></li><li class="sitetoolbar__dropdown-item"><a class="sitetoolbar__secondary-link sitetoolbar__dropdown-link" href="../screencast/webpack.html">Webpack</a></li><li class="sitetoolbar__dropdown-item"><a class="sitetoolbar__secondary-link sitetoolbar__dropdown-link" href="../screencast/gulp.html">Gulp 4</a></li><li class="sitetoolbar__dropdown-item"><a class="sitetoolbar__secondary-link sitetoolbar__dropdown-link" href="../screencast/react.html">React.js</a></li><li class="sitetoolbar__dropdown-item"><a class="sitetoolbar__secondary-link sitetoolbar__dropdown-link" href="../screencast/angular.html">Angular</a></li><li class="sitetoolbar__dropdown-item"><a class="sitetoolbar__secondary-link sitetoolbar__dropdown-link" href="../screencast/git.html">Git</a></li></ul></div></div></li></ul></nav><div class="sitetoolbar__book-wrap"><a class="buy-book-button" href="../ebook.1.html"><span class="buy-book-button__extra-text">Купить</span>EPUB/PDF</a></div><div class="sitetoolbar__login-wrap"><button class="sitetoolbar__login sitetoolbar__login_unready" data-action-login></button></div><div class="sitetoolbar__search-wrap"><div class="sitetoolbar__search-content"><form class="sitetoolbar__search" method="GET" action="http://learn.javascript.ru/search"><button class="sitetoolbar__search-toggle" type="button"></button><div class="sitetoolbar__search-input"><div class="text-input"><input class="text-input__control" autofocus="autofocus" name="query" placeholder="Искать на Javascript.ru" type="text"/></div><button class="sitetoolbar__find" type="submit">Найти</button></div></form></div></div></div><div class="tablet-menu"><div class="tablet-menu__line"><div class="tablet-menu__content"><select class="tablet-menu__nav input-select input-select input-select_small" onchange="if(this.value) window.location.href=this.value"><option value="/" selected>Учебник</option><option value="/courses">Курсы</option><option value="https://javascript.ru/forum/">Форум</option><option value="https://es5.javascript.ru">ES5</option><option value="/quiz">Тесты знаний</option><option value="/jobs">Стажировки</option></select></div></div><div class="tablet-menu__line"><div class="tablet-menu__content"><form class="tablet-menu-search" action="http://learn.javascript.ru/search/"><input class="tablet-menu-search__input" type="search" name="query" placeholder="Поиск в учебнике" required="required"/><button class="tablet-menu-search__button" type="submit" name="type" value="articles">Поиск</button></form></div></div><div class="tablet-menu__line"><div class="tablet-menu__content"><a class="map" href="../tutorial/map.html" data-action="tutorial-map"><span class="map__text">Карта учебника</span></a></div></div><div class="tablet-menu__line"><div class="tablet-menu__content"><div class="share-icons"><span class="share-icons__title">Поделиться</span><a class="share share_tw" href="https://twitter.com/share?url=http%3A%2F%2Flearn.javascript.ru%2Ftask%2Foutput-single-linked-list"></a><a class="share share_fb" href="https://www.facebook.com/sharer/sharer.php?s=100&amp;p%5Burl%5D=http%3A%2F%2Flearn.javascript.ru%2Ftask%2Foutput-single-linked-list"></a><a class="share share_gp" href="https://plus.google.com/share?url=http%3A%2F%2Flearn.javascript.ru%2Ftask%2Foutput-single-linked-list"></a><a class="share share_vk" href="https://vkontakte.ru/share.php?url=http%3A%2F%2Flearn.javascript.ru%2Ftask%2Foutput-single-linked-list"></a></div></div></div></div></div><div class="page"><script>if(localStorage.noSidebar){document.querySelector(".page").classList.remove("page_sidebar_on");var pageWrapper=document.querySelector(".page-wrapper");pageWrapper&&pageWrapper.classList.remove("page-wrapper_sidebar_on")}setTimeout(function(){document.querySelector(".page").classList.add("page_sidebar-animation-on")},0);</script><div class="page__inner"><main class="main main_width-limit"><div class="breadcrumbs" style="display:none"><ul><li class="breadcrumbs__item breadcrumbs__item_home" itemscope itemtype="http://data-vocabulary.org/Breadcrumb" itemref="breadcrumb-1"><a class="breadcrumbs__link" href="../index.html" itemprop="url"><span class="breadcrumbs__hidden-text" itemprop="title">Учебник</span></a></li><li class="breadcrumbs__item" id="breadcrumb-1" itemscope itemtype="http://data-vocabulary.org/Breadcrumb" itemref="breadcrumb-2" itemprop="child"><a class="breadcrumbs__link" href="../js.html" itemprop="url"><span itemprop="title">Язык JavaScript</span></a></li><li class="breadcrumbs__item" id="breadcrumb-2" itemscope itemtype="http://data-vocabulary.org/Breadcrumb" itemref="breadcrumb-3" itemprop="child"><a class="breadcrumbs__link" href="../data-structures.html" itemprop="url"><span itemprop="title">Структуры данных</span></a></li><li class="breadcrumbs__item" id="breadcrumb-3" itemscope itemtype="http://data-vocabulary.org/Breadcrumb" itemprop="child"><a class="breadcrumbs__link" href="../array-methods.html" itemprop="url"><span itemprop="title">Массивы: методы</span></a></li></div><div class="task-single" itemscope itemtype="http://schema.org/TechArticle"><meta itemprop="name" content="Вывести односвязный список"><div itemprop="author" itemscope itemtype="http://schema.org/Person"><meta itemprop="email" content="iliakan@gmail.com"><meta itemprop="name" content="Ilya Kantor"></div><a class="task-single__back" href="../array-methods.html"><span>вернуться к уроку</span></a><div class="task task-single__task" itemprop="articleBody"><div class="task__header"><div class="task__title-wrap"><h2 class="task__title">Вывести односвязный список</h2></div><div class="task__header-note"><span class="task__importance" title="Насколько эта задача важна для освоения материала, от 1 до 5">важность: 5</span><button class="task__solution" type="button">решение</button></div></div><div class="task__content"><p><a href="http://ru.wikipedia.org/wiki/%D0%A1%D0%B2%D1%8F%D0%B7%D0%BD%D1%8B%D0%B9_%D1%81%D0%BF%D0%B8%D1%81%D0%BE%D0%BA">Односвязный список</a> – это структура данных, которая состоит из <em>элементов</em>, каждый из которых хранит ссылку на следующий. Последний элемент может не иметь ссылки, либо она равна <code>null</code>.</p>
+<p>Например, объект ниже задаёт односвязный список, в <code>next</code> хранится ссылка на следующий элемент:</p>
+<div data-trusted="1" class="code-example">
+      <div class="codebox code-example__codebox">
+        
+        <div class="codebox__code" data-code="1">
+          <pre class="line-numbers language-javascript"><code class="language-javascript">var list = {
+  value: 1,
+  next: {
+    value: 2,
+    next: {
+      value: 3,
+      next: {
+        value: 4,
+        next: null
+      }
+    }
+  }
+};</code></pre>
+        </div>
+      </div>
+      
+      </div><p>Графическое представление этого списка:
+<img src="output-single-linked-list/linked-list.png" alt="" width="615" height="77"></p>
+<p>Альтернативный способ создания:</p>
+<div data-trusted="1" class="code-example">
+      <div class="codebox code-example__codebox">
+        
+        <div class="codebox__code" data-code="1">
+          <pre class="line-numbers language-javascript"><code class="language-javascript">var list = { value: 1 };
+list.next = { value: 2 };
+list.next.next = { value: 3 };
+list.next.next.next = { value: 4 };</code></pre>
+        </div>
+      </div>
+      
+      </div><p>Такая структура данных интересна тем, что можно очень быстро разбить список на части, объединить списки, удалить или добавить элемент в любое место, включая начало. При использовании массива такие действия требуют обширных перенумерований.</p>
+<p>Задачи:</p>
+<ol>
+<li>Напишите функцию <code>printList(list)</code>, которая выводит элементы списка по очереди, при помощи цикла.</li>
+<li>Напишите функцию <code>printList(list)</code> при помощи рекурсии.</li>
+<li>Напишите функцию <code>printReverseList(list)</code>, которая выводит элементы списка в обратном порядке, при помощи рекурсии.
+Для списка выше она должна выводить <code>4</code>,<code>3</code>,<code>2</code>,<code>1</code></li>
+<li>Сделайте вариант <code>printReverseList(list)</code>, использующий не рекурсию, а цикл.</li>
+</ol>
+<p>Как лучше – с рекурсией или без?</p>
+<button class="task__solution" type="button">решение</button><div class="task__answer"><div class="task__step task__step_open"><button class="task__step-show" type="button" onclick="showStep(this)">Вывод списка в цикле</button><div class="task__answer-content"><h4 class="task__step-title">Вывод списка в цикле</h4><div data-trusted="1" class="code-example">
+      <div class="codebox code-example__codebox">
+        
+        <div class="toolbar codebox__toolbar">
+          <div class="toolbar__tool">
+            <a href="output-single-linked-list.1.html#" title="выполнить" data-action="run" class="toolbar__button toolbar__button_run"></a>
+          </div>
+          <div class="toolbar__tool">
+            <a href="output-single-linked-list.1.html#" title="открыть в песочнице" target="_blank" data-action="edit" class="toolbar__button toolbar__button_edit"></a>
+          </div>
+        </div>
+        <div class="codebox__code" data-code="1">
+          <pre class="line-numbers language-javascript"><code class="language-javascript">var list = {
+  value: 1,
+  next: {
+    value: 2,
+    next: {
+      value: 3,
+      next: {
+        value: 4,
+        next: null
+      }
+    }
+  }
+};
+
+function printList(list) {
+  var tmp = list;
+
+  while (tmp) {
+    alert( tmp.value );
+    tmp = tmp.next;
+  }
+
+}
+
+printList(list);</code></pre>
+        </div>
+      </div>
+      
+      </div><p>Обратите внимание, что для прохода по списку используется временная переменная <code>tmp</code>, а не <code>list</code>. Можно было бы и бегать по списку, используя входной параметр функции:</p>
+<div data-trusted="1" class="code-example" data-highlight="[{&quot;start&quot;:2,&quot;cols&quot;:[{&quot;start&quot;:8,&quot;end&quot;:12}]}]">
+      <div class="codebox code-example__codebox">
+        
+        <div class="codebox__code" data-code="1">
+          <pre class="line-numbers language-javascript"><code class="language-javascript">function printList(list) {
+
+  while(list) {
+    alert( list.value );
+    list = list.next;
+  }
+
+}</code></pre>
+        </div>
+      </div>
+      
+      </div><p>…Но при этом мы в будущем не сможем расширить функцию и сделать со списком что-то ещё, ведь после окончания цикла начало списка уже нигде не хранится.</p>
+<p>Поэтому и используется временная переменная – чтобы сделать код расширяемым, и, кстати, более понятным, ведь роль <code>tmp</code> – исключительно обход списка, как <code>i</code> в цикле <code>for</code>.</p>
+</div></div><div class="task__step task__step_open"><button class="task__step-show" type="button" onclick="showStep(this)">Вывод списка с рекурсией</button><div class="task__answer-content"><h4 class="task__step-title">Вывод списка с рекурсией</h4><p>Рекурсивный вариант <code>printList(list)</code> следует простой логике: вывести текущее значение <code>(1)</code>, а затем пропустить через себя следующее  <code>(2)</code>:</p>
+<div data-trusted="1" class="code-example">
+      <div class="codebox code-example__codebox">
+        
+        <div class="toolbar codebox__toolbar">
+          <div class="toolbar__tool">
+            <a href="output-single-linked-list.1.html#" title="выполнить" data-action="run" class="toolbar__button toolbar__button_run"></a>
+          </div>
+          <div class="toolbar__tool">
+            <a href="output-single-linked-list.1.html#" title="открыть в песочнице" target="_blank" data-action="edit" class="toolbar__button toolbar__button_edit"></a>
+          </div>
+        </div>
+        <div class="codebox__code" data-code="1">
+          <pre class="line-numbers language-javascript"><code class="language-javascript">var list = {
+  value: 1,
+  next: {
+    value: 2,
+    next: {
+      value: 3,
+      next: {
+        value: 4,
+        next: null
+      }
+    }
+  }
+};
+
+function printList(list) {
+
+  alert( list.value ); // (1)
+
+  if (list.next) {
+    printList(list.next); // (2)
+  }
+
+}
+
+printList(list);</code></pre>
+        </div>
+      </div>
+      
+      </div></div></div><div class="task__step task__step_open"><button class="task__step-show" type="button" onclick="showStep(this)">Обратный вывод с рекурсией</button><div class="task__answer-content"><h4 class="task__step-title">Обратный вывод с рекурсией</h4><p>Обратный вывод – почти то же самое, что прямой, просто сначала мы обрабатываем следующее значение, а потом – текущее:</p>
+<div data-trusted="1" class="code-example">
+      <div class="codebox code-example__codebox">
+        
+        <div class="toolbar codebox__toolbar">
+          <div class="toolbar__tool">
+            <a href="output-single-linked-list.1.html#" title="выполнить" data-action="run" class="toolbar__button toolbar__button_run"></a>
+          </div>
+          <div class="toolbar__tool">
+            <a href="output-single-linked-list.1.html#" title="открыть в песочнице" target="_blank" data-action="edit" class="toolbar__button toolbar__button_edit"></a>
+          </div>
+        </div>
+        <div class="codebox__code" data-code="1">
+          <pre class="line-numbers language-javascript"><code class="language-javascript">var list = {
+  value: 1,
+  next: {
+    value: 2,
+    next: {
+      value: 3,
+      next: {
+        value: 4,
+        next: null
+      }
+    }
+  }
+};
+
+function printReverseList(list) {
+
+  if (list.next) {
+    printReverseList(list.next);
+  }
+
+  alert( list.value );
+}
+
+printReverseList(list);</code></pre>
+        </div>
+      </div>
+      
+      </div></div></div><div class="task__step task__step_open"><button class="task__step-show" type="button" onclick="showStep(this)">Обратный вывод без рекурсии</button><div class="task__answer-content"><h4 class="task__step-title">Обратный вывод без рекурсии</h4><div data-trusted="1" class="code-example">
+      <div class="codebox code-example__codebox">
+        
+        <div class="toolbar codebox__toolbar">
+          <div class="toolbar__tool">
+            <a href="output-single-linked-list.1.html#" title="выполнить" data-action="run" class="toolbar__button toolbar__button_run"></a>
+          </div>
+          <div class="toolbar__tool">
+            <a href="output-single-linked-list.1.html#" title="открыть в песочнице" target="_blank" data-action="edit" class="toolbar__button toolbar__button_edit"></a>
+          </div>
+        </div>
+        <div class="codebox__code" data-code="1">
+          <pre class="line-numbers language-javascript"><code class="language-javascript">var list = {
+  value: 1,
+  next: {
+    value: 2,
+    next: {
+      value: 3,
+      next: {
+        value: 4,
+        next: null
+      }
+    }
+  }
+};
+
+function printReverseList(list) {
+  var arr = [];
+  var tmp = list;
+
+  while (tmp) {
+    arr.push(tmp.value);
+    tmp = tmp.next;
+  }
+
+  for (var i = arr.length - 1; i &gt;= 0; i--) {
+    alert( arr[i] );
+  }
+}
+
+printReverseList(list);</code></pre>
+        </div>
+      </div>
+      
+      </div><p><strong>Обратный вывод без рекурсии быстрее.</strong></p>
+<p>По сути, рекурсивный вариант и нерекурсивный работают одинаково: они проходят список и запоминают его элементы, а потом выводят в обратном порядке.</p>
+<p>В случае с массивом это очевидно, а для рекурсии запоминание происходит в стеке (внутренней специальной структуре данных): когда вызывается вложенная функция, то интерпретатор сохраняет в стек текущие параметры. Вложенные вызовы заполняют стек, а потом он выводится в обратном порядке.</p>
+<p>При этом, при рекурсии в стеке сохраняется не только элемент списка, а другая вспомогательная информация, необходимая для возвращения из вложенного вызова. Поэтому тратится больше памяти. Все эти расходы отсутствуют в варианте без рекурсии, так как в массиве хранится именно то, что нужно.</p>
+<p>Преимущество рекурсии, с другой стороны – более короткий и, зачастую, более простой код.</p>
+</div></div><button class="close-button task__answer-close" type="button" title="закрыть"></button></div></div></div></div></main></div></div></div><div class="page-footer"><div class="page-footer__left"><ul class="page-footer__list"><li class="page-footer__item">©&nbsp;2007—2018&nbsp; Илья Кантор</li><li class="page-footer__item"><a class="page-footer__link" href="../about.html#contact-us">связаться с нами</a></li><li class="page-footer__item"><a class="page-footer__link" href="../terms.html">пользовательское соглашение</a></li><li class="page-footer__item"><a class="page-footer__link" href="../privacy.html">политика конфиденциальности</a></li><li class="page-footer__item"><a class="page-footer__slack" href="http://slack.javascript.ru">slack-чат</a></li><li class="page-footer__item"><a class="page-footer__link" href="../about.html">о проекте</a></li></ul></div><div class="page-footer__right"><ul class="page-footer__list"><li><a class="page-footer__link" rel="nofollow" href="http://github.com/iliakan/javascript-tutorial-ru">open source</a></li></ul></div></div></body></html>
